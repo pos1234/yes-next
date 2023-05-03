@@ -1,0 +1,18 @@
+:root{
+  --color-primary: #25CED1;
+	--color-secondary: #0F1941;
+	--color-text: #e4e3e3;
+  --color-text-smoke:#7A7A7A;
+	--color-accent: #FF6D00;
+  --color-white:#fff;
+  --color-icons:#ebecec;
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif !important;
+}
+body{
+  overflow-x: hidden !important;
+}

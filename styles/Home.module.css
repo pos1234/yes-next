@@ -1,0 +1,595 @@
+.home-container{
+    overflow-x: hidden !important;
+}
+.home-entry{
+    background: url('../public/images/yohannes-minas-YPLosSc3w6A-unsplash-min-scaled-1-1.webp') no-repeat;
+    background-size:cover;
+    height: 100vh !important;
+    background-origin:center;
+    background-position-y:0px;
+  }
+  .home-entry-content{
+    background-color: #575757B0;
+    opacity: 0.9;
+    height:100vh; 
+  }
+  .home-entry-headings{
+    text-align: center;
+    padding-top: 10rem;
+  }
+  .home-entry-headings .home-button-container{
+    padding:7% 37%;
+  }
+  .home-entry-headings h1{
+    font-weight:550; 
+    color:var(--color-white);
+    font-size: 84px;
+  }
+.home-entry-headings .right-now span::before {
+    content: "Right now!";
+    animation: animate infinite 10s;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  @keyframes animate {
+    50% {
+        transition: all 0.5s ease-in-out;
+        content: "The perfect job!";
+    }
+    75% {
+        transition: all 0.5s ease-in-out;
+        content: "The perfect candidate!";
+    }
+  }
+  .home-entry-headings .home-entry-button{
+    border:1px solid var(--color-text);
+    border-radius: 9em 9em 9em 9em;
+    padding:10px 30px 15px;
+    width:170px;
+    background-color: transparent; 
+    font-size: 0.9rem;
+  }
+  .home-entry-headings .home-entry-button .button-icons{
+    font-size: 1.5rem;
+  }
+  .home-entry-headings .home-entry-button:focus,
+  .home-entry-headings .home-entry-button:active{
+    background-color: var(--color-primary) !important;
+    border:2px solid var(--color-primary)!important;
+    transform: scale(0.95);
+  }
+  
+  .home-entry-headings .home-entry-button:hover{
+    background-color: var(--color-primary);
+    border:2px solid var(--color-primary);
+    transform: scale(0.95);
+  }
+  /* Home Bridge */
+  .silver-paragraph{
+    color:var(--color-text-smoke);
+     background-color: #fff;
+  }
+  .home-bridge{
+    text-align:center;
+    padding:7rem 0;
+  }
+  .home-bridge h1{
+    font-weight: 700 !important;
+    font-size: 35px;
+  }
+  .home-bridge p{
+    width:41%;
+    margin:auto;
+    font-size:19px;
+    margin-top:40px;
+    margin-bottom:30px;
+  }
+  .home-bridge-box-container{
+    padding:0 100px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .front .bridge-button{
+    width:100px;
+    height:40px;
+    padding:5px;
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    top:65%;
+    left:-34%;
+    background-color: var(--color-white);
+    outline:none;
+    border:none;
+    font-weight: 600;
+    color:var(--color-secondary);
+  }
+  .back .bridge-button{
+    width:200px;
+    height:70px;
+    padding:5px;
+    padding-top:25px;
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    top:45%;
+    border-radius: 50px;
+    background-color: var(--color-white);
+    outline:none;
+    border:none;
+    font-weight: 600;
+    color:var(--color-secondary);
+  }
+  .back .bridge-button:hover{
+    background-color: var(--color-primary);
+  }
+  .home-bridge .scene {
+    height: 450px;
+    max-width:500px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: left;
+    perspective: 80em;
+    border:none;
+    outline:none;
+  }
+  .home-bridge .card {
+    border:none;
+    width:100%;
+    height: 100%;
+    position:relative;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    background: linear-gradient(180deg, rgba(251,251,251,0) 50%, rgba(37,206,209,1) 100%);
+    perspective: 5000px;
+}
+  .home-bridge .face {
+    width:100%;
+    height:100%;
+    text-align:center;
+    position:absolute; 
+    backface-visibility:hidden;
+  }
+  .card h2{
+    position: relative;
+    top:75%;
+    left:-29%;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color:var(--color-white);
+  transition: transform 0.5s;
+  }
+  .home-bridge .front {
+    background-image: url('../public/images/Group-99-1.webp');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position-x: 90px;
+    background-position-y: 100px;
+    box-shadow: 10px 30px 100px -1px rgba(0, 0, 0, 0.14);
+  }
+  .second-front{
+    background-image: url('../public/images/Group-101.webp') !important;
+  }
+  .home-bridge .back {
+    background-color:var(--color-primary);
+    transform: rotateY(180deg);
+  }
+  .scene:hover .card {
+    transform: rotateY(180deg);
+  }
+ 
+  /* home your-hr */
+  .home-your-hr{
+   padding-top: 20px;
+  }
+  .home-your-hr-content{
+  margin-left:3rem;
+  }
+  .home-your-hr-content h1{
+    font-size: 3.2rem;
+    font-weight: 700;
+    padding-top:1rem;
+    padding-bottom:2.5rem;
+  }
+  .home-your-hr-lists{
+   padding-top:20px;
+  }
+  .home-your-hr-lists h2{
+   font-weight: 600;
+   font-size: 1.1rem;
+  }
+  .home-your-hr-lists .icon-image-container{
+    background-color:var(--color-icons);
+    max-width:50px;
+    max-height:50px;
+    padding:10px;
+    border-radius: 50%;
+  }
+  .home-your-hr-lists img{
+   width: 40px;
+   height:40px;
+   border-radius: 50%;
+  }
+   .home-your-hr-lists .list-button{
+    background-color:var(--color-icons);
+    border-radius:20px;
+    outline:none;
+    border:none;
+    color:var(--color-primary);
+    margin-left: 10px;
+   }
+   .home-your-hr-lists .list-button:hover{
+    background-color: var(--color-primary);
+    color:var(--color-icons);
+   }
+  .home-your-hr-content .home-your-hr-button{
+    background-color: var(--color-accent);
+    outline:none;
+    border:none;
+    width:115px;
+    border-radius: 20px;
+    height:30px;
+    padding:5px;
+    padding-top: 7px;
+    font-weight: 600;
+    font-size: 0.7rem;
+  }
+  .home-your-hr-content .home-your-hr-button:hover{
+    background-color: var(--color-accent);
+  }
+  .home-your-hr-side-image{
+    padding-top: 4rem;
+  }
+  .home-how-help{
+    width:80% !important;
+    margin:auto !important;
+    margin-left:162px;
+    padding-bottom: 0.5rem !important;
+    background-image: url('../public/images/image-1-12.avif');
+  }
+  .home-how-help-center{
+    text-align: center;
+    margin-top: 8rem;
+  }
+  .how-we-help-rows{
+   margin-bottom: 50px;
+  }
+  .home-how-help-center h1{
+    padding-top: 2%;
+    font-weight: 600;
+  }
+  .how-we-help-image{
+    max-width:50px !important;
+    height:50px;
+     background-color:var(--color-text);
+     border-radius: 50%;
+    padding:8px;
+    padding-left:20px !important;
+    margin-left: 15px;
+  }
+  .how-we-help-image img{
+    max-width:35px;
+    height:35px;
+    border-radius: 50%;
+    margin-left: -12px;
+  }
+  .home-how-help-center p{
+    padding:3% 22%;
+    font-size: 1.2rem;
+  }
+  .how-we-help-rows h2{
+    font-size: 1.2rem;
+    font-weight: 600;
+    width:500px;
+    margin-left: 80px;
+    margin-top: -50px;
+  }
+  .how-we-help-rows p{
+    font-size: 0.9rem;
+    width:500px;
+    margin-left: 80px;
+  }
+  .home-how-help-center .home-how-help-button{
+    background-color: var(--color-accent);
+    outline:none;
+    border:none;
+    width:115px;
+    border-radius: 20px;
+    height:30px;
+    padding:5px;
+    padding-top: 7px;
+    font-weight: 600;
+    font-size: 0.7rem;
+  }
+  .home-how-help-center .home-how-help-button:hover{
+    background-color: var(--color-accent);
+  }
+  .home-how-help-center-see{
+    text-align: center;
+    padding-top: 1.5rem;
+  }
+  .home-how-help .home-how-help-see-more{
+    background-color: transparent;
+    border:2px solid var(--color-primary);
+    color:var(--color-primary);
+    outline:none;
+    border-radius: 25px;
+    width: 150px;
+    height: 55px;
+    padding-top: 15px;
+    align-content: center;
+    font-size: 1rem;
+  }
+  .home-how-help .home-how-help-see-more:hover{
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color:var(--color-text);
+  }
+  .home-seekers{
+    padding:0 5% !important;
+    padding-bottom: 5rem !important;
+  }
+  .home-seekers-center{
+    text-align: center;
+    padding-top: 8rem;
+  }
+  .home-seekers-center h1{
+    padding-top: 2%;
+    font-size: 3.5rem;
+    font-weight: 600;
+  }
+  .home-seekers-center p{
+    padding:3% 8%;
+    line-height: 2rem;
+  }
+  .home-seeker-lists img{
+    width:80px;
+    height:80px;
+    margin-bottom: 50px;
+  }
+  .home-seeker-lists h2{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    
+  }
+  .home-seeker-lists .list-button{
+    background-color:var(--color-icons);
+    border-radius:20px;
+    outline:none;
+    border:none;
+    color:var(--color-primary);
+    margin-left: -10px;
+  }
+  .home-seeker-lists .list-button:hover{
+    background-color: var(--color-primary);
+    color:var(--color-icons);
+  }
+  .home-seekers-center .home-seekers-button{
+    background-color: var(--color-accent);
+    outline:none;
+    border:none;
+    width:115px;
+    border-radius: 20px;
+    height:30px;
+    padding:5px;
+    padding-top: 8px;
+    font-size: 0.7rem;
+  }
+  .home-seekers-center .home-seekers-button:hover{
+    background-color: var(--color-accent);
+  }
+  .home-how-help-center-see{
+    text-align: center;
+    padding-top: 1.5rem;
+  }
+  .home-seeker-boxes{
+    padding:0 12%;
+  }
+  .home-seeker-boxes img{
+    width:60px;
+    height: 60px;
+  }
+  .home-seeker-boxes p{
+  width:208px;
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+  min-height: 100px;
+  }
+  .home-last-content{
+    background-color:var(--color-secondary);
+    padding:0 10% !important;
+    height: 213px;
+    margin-top: 4rem;
+  }
+  .home-last-content h1{
+    color:var(--color-white);
+    font-weight: 600;
+    font-size: 2rem;
+    margin-top: 3rem;
+  }
+  .home-last-content .home-last-content-button{
+    background-color: var(--color-primary);
+    border-radius:50px;
+    border:none;
+    font-size:0.9rem;
+    padding:15px;
+    height: 50px;
+  }
+  .home-last-content .home-last-content-button:active,
+  .home-last-content .home-last-content-button:focus
+  {
+    background-color: var(--color-primary) !important;
+    transform: translateY(-2px);
+  }
+  .home-last-content .home-last-content-button:hover{
+    transform: translateY(-2px);
+    background-color: var(--color-primary);
+  }
+  .home-last-content img{
+    margin-top: -92px;
+    margin-left: 100px;
+  }
+  @media (max-width:576px){
+    .home-entry-headings{
+        padding-top: 0rem;
+      }
+      .home-entry-headings h1 {
+        font-weight:550; 
+        color:var(--color-white);
+        font-size:15vw;
+      }
+      .home-entry-headings .right-now {
+        font-weight:550; 
+        color:var(--color-white);
+        font-size:13vw;
+        height: 150px;
+      }
+      .home-entry-headings .home-button-container{
+        padding:0% 30%;
+      }
+      .home-entry-headings .home-entry-button{
+        margin-bottom: 0.5rem;
+      }
+      .home-bridge p{
+        width:95%;
+        margin:auto;
+        font-size:1rem;
+        margin-top:40px;
+        margin-bottom:50px;
+        line-height: 1.5rem;
+      }
+      .home-bridge h1{
+        font-size: 30px;
+      }
+      .home-bridge-box-container{
+        padding:0 10%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+      .front .bridge-button{
+        position: relative;
+        left:-25%;
+      }
+      .home-bridge .card {
+        margin-bottom: 3rem;
+        border-radius: 0;
+      }
+      .card h2{
+        position: relative;
+        top:75%;
+        left:-18%;
+      }
+      .home-your-hr-content{
+       margin-left:unset;
+        padding: 0 25px !important;
+      }
+      .home-your-hr-content h1{
+        font-size: 1.8rem;
+       padding-top:10%;
+       padding-bottom:5%;
+      } 
+      .home-your-hr-lists .list-button{
+        margin-left: 0px;
+       }
+      .home-your-hr-content .home-hr-p{
+      padding:0 2%;
+      line-height: 1.5rem;
+      letter-spacing: 1.2px;
+      font-size: 0.9rem;
+     } 
+     .home-hr-texts{
+      padding-left:7% !important;
+     }
+       .home-your-hr-content-lists{
+        padding:0 5%;
+       } 
+       .home-your-hr-content-lists p{
+        font-size: 1rem;
+       } 
+       .home-your-hr-side-image img{
+        width:100%;
+        height: 100%;
+      }
+      .home-how-help{
+        width:100% !important;
+        padding-bottom: 0.5rem !important;
+        background-image: url('../public/images/image-1-12.avif');
+      }
+      .home-how-help-center h1{
+        padding-top: 8%;
+    
+      }
+      .home-how-help-center p{
+        padding:8% 5%;
+        font-size: .95rem;
+      }
+      .how-we-help-rows p{
+      font-size: 13px;
+      width:auto;
+      margin-left: 80px;
+    }
+    .home-seekers-center h1{
+      padding-top: 10%;
+      font-size: 2rem;
+    }
+    .how-we-help-rows h2{
+      font-size: 15px;
+      line-height: 1em;
+     margin-bottom: 13px;
+    }
+    .home-seekers-center p{
+      padding:3% 5%;
+      line-height: 1.7rem;
+      font-size: 0.9rem;
+    }
+    .home-seeker-boxes{
+      padding:0 8%;
+    }
+    .home-seeker-boxes img{
+      width:55px !important;
+      height: 55px !important;
+    }
+    .home-seeker-boxes p{
+      width:300px;
+      font-size: 1rem;
+      margin-top: -10px;
+      }
+    .home-seeker-lists{
+      margin-bottom: 2.5rem;  
+    /*   background-color: red;
+     */  padding-top: 2rem;
+     border-top: 1px solid var(--color-icons);
+    }
+    .home-seeker-lists img{
+      width:80px;
+      height:80px;
+      margin-bottom: 15px;
+    }
+    .home-seeker-lists .list-button{
+      margin-left: 0px;
+    }
+    .home-last-content{
+      padding:0% 5%!important;
+      height: 300px;
+      margin-top: 4rem;
+      height: 340px;
+    }
+    .home-last-content h1{
+      color:var(--color-white);
+      font-size: 1.4rem;
+      margin-top: 3rem;
+    }
+    .home-last-content img{
+      margin-top:-548px;
+      margin-left:130px;
+      width:245px;
+      height:245px;
+    }
+    .home-last-content-texts{
+      margin-top: 150px !important;
+    }
+  }

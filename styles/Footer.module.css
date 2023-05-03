@@ -1,0 +1,125 @@
+ .silver-paragraph{
+    color:var(--color-text-smoke);
+     background-color: #fff;
+  }
+.footer-container{
+    background:url('../public/images/image-1-1-1.webp');
+    background-position-y: -175px;
+    color:var(--color-white);
+    position: relative;
+    z-index: 1;
+   }
+  .footer-container .footer-background-overlay{
+   background-color:var(--color-secondary);
+    opacity: 0.5;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    color:white;
+    position: absolute;
+    display: block; 
+    z-index: -1;
+  }
+  .footer-container .footer-contact{
+    padding:50px 0% 50px 8%;
+    color:var(--color-white);
+    position: relative;
+    z-index: 1;
+  }
+  .footer-contact .footer-inner-content{
+    z-index: 1;
+  }
+  .footer-contact-h3{
+    font-size: 1.1rem;
+    padding-bottom: 1.2rem;
+    margin-top: 3.5rem;
+    width:150px;
+    font-weight: 600;
+  }
+  .footer-contact h1{
+    font-size: 35px;
+    width: 300px;
+    padding-bottom: 1.2rem;
+    font-weight: 600;
+  }
+  .footer-contact .footer-contact-icons{
+    margin-right:1rem;
+  }
+  .footer-contact-yes{
+    padding-left: 0px;
+    margin-left: 5rem !important;
+  }
+  .footer-contact-yes-col{
+    margin-right: 0rem;
+    margin-left: 0rem;
+  }
+  .footer-contact-yes p{
+    line-height:0.7rem;
+    font-size: 0.9rem;
+  }
+  .footer-contact-yes ul{
+    margin-top: 3.5rem;
+  }
+  .footer-contact-yes ul li{
+    width:35px;
+    height:35px;
+    text-align: center;
+    padding:5px;
+    background-color:var(--color-secondary);
+    margin-bottom: 1rem;
+    list-style: none;
+    border-radius: 50%;
+  }
+  .footer-contact-yes ul li a{
+   color:var(--color-white);
+  }
+  .footer-contact-term{
+    text-align: center;
+    padding:30px 30% 10px;
+    background-color: var(--color-white);
+  }
+  .footer-contact-term a{
+    text-decoration: none;
+  }
+  .footer-contact-term a:hover{
+    color:var(--color-text-smoke);
+  }
+  @media(max-width:576px){
+    .footer-contact{
+        padding:0;
+        padding-left: 0%;
+        width: 100%;
+      } 
+      .footer-contact-yes{
+        margin-left: unset !important;
+        padding-left: 0px !important;
+      }
+      .footer-contact-yes-col{
+        margin-right: 0rem;
+        margin-left: 0rem;
+        width: 50% !important;
+        margin-right:unset;
+      }
+      .footer-contact-term{
+        padding:30px 15% 0px;
+        text-align: center;
+      }
+      .footer-contact .footer-contact-icons{
+        margin-right:0rem;
+      }
+      .footer-contact-term p{
+        text-align: center;
+        font-size: 0.9rem;
+        padding-bottom:1rem;
+      }
+      .footer-contact-yes ul {
+        width:100%;
+        padding:0;
+      }
+      .footer-contact-yes ul li{
+        display: inline;
+        margin-right: 2rem;
+      }
+  }

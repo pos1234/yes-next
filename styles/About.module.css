@@ -1,0 +1,402 @@
+#ToggledButton{
+    background-color:var(--color-primary);
+    border-radius: 50px;
+    display: block;
+    width:85%;
+    height:60px;
+    margin-bottom:15px;
+    text-align: left;
+    padding-left: 2rem;
+    border:none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 400;
+   }
+   .Toggle-collection{
+     padding-top: 60px;  
+   }
+   .Toggle-collection p{
+     width: 80%;
+     padding:0 3%;
+     margin-left: 15px;
+     margin-top: -10px;
+     box-shadow: 0px 3px 10px -1px rgba(0, 0, 0, 0.14);
+     border-bottom-left-radius: 20px;
+     border-bottom-right-radius: 20px;
+   }
+   .Toggle-collection .toggle-button-spacer{
+     display: flex;
+     justify-content: flex-end;
+     margin-top: -30px;
+     margin-right:10px;
+   }
+   .Boxes{
+    margin:5px;
+    padding:35px !important;
+     height:180px;
+     border-radius: 10px;
+     box-shadow: 0px 3px 10px -1px rgba(0, 0, 0, 0.14);
+     margin: 5px 5px 5px 5px;
+     text-align: left;
+   }
+   .Boxes h1{
+     max-height: 70px;
+     font-size: 1.2rem;
+     padding:0 0px;
+     padding-bottom:70px;
+     font-weight: 700;
+   }
+   .Boxes img{
+     max-width:40px;
+     height:40px;
+   }
+.about-container{
+    background-color:rgb(248, 247, 247);
+    z-index: -2 !important;
+  }
+  
+  .about-container .about-white-back{
+    background-color:var(--color-white);
+    padding:0 10% 5% !important; 
+  }
+  .about-entry{
+    background: url('../public/images/image-1-14.avif') no-repeat;
+    background-size:100%;
+    height: 100vh;
+    background-origin:center;
+  }
+  .about-icon-container a{
+    color:var(--color-text);
+  }
+  .about-icon-container a:hover{
+    color:var(--color-text);
+  }
+  .about-entry-content{
+    background-color: #575757B0;
+    opacity: 0.9;
+    height:100%;     
+  }
+  .about-entry-headings{
+    text-align: center;
+    padding:11rem 22% 0;
+  /*   background-color: red;
+   */}
+  .about-entry-headings h1{
+    font-weight:600; 
+    color:var(--color-white);
+    font-size:85px;
+  }
+  
+  .about-deliver .about-deliver-button{
+    background-color: var(--color-accent);
+    outline:none;
+    border:none;
+    width:115px;
+    border-radius: 20px;
+    height:30px;
+    padding:5px;
+    padding-top: 7px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 0.7rem;
+  }
+  .about-deliver .about-deliver-button:hover{
+    background-color: var(--color-accent);
+  }
+  .about-deliver .about-deliver-content{
+    text-align: center;
+   padding:0 20%;
+  }
+  .about-headings{
+        font-weight: bold;
+        padding-bottom: 2rem;
+  }
+  .about-deliver .about-deliver-content h2{
+        font-size: 1.5rem;
+        padding:0 10%;
+        line-height: 2rem;
+        padding-bottom: 2rem;
+  }
+  .about-deliver .about-deliver-content p{
+        font-size: 1rem;
+        padding-bottom: 1rem;
+  }
+  .about-deliver-boxes{
+    width:70%;
+    margin:auto;
+    margin-left:15% !important;
+    margin-bottom: 50px;
+    padding:2%;
+  /*   background-color: red; 
+   */  border-radius: 14px 14px 14px 14px;
+    box-shadow: 0px 0px 16px -9px rgba(0,0,0,0.5);
+    
+  }
+  .about-deliver-boxes img{
+   width:50px;
+   height:50px;
+   border-radius: 20%;
+   margin-top: 1rem;
+  }
+  .about-deliver-boxes .about-deliver-boxes-content h1{
+  font-size: 1.2rem;
+  font-weight: 600;
+  }
+  .about-deliver-boxes .about-deliver-boxes-content p{
+  font-size: 15px;
+  width:100%;
+  }
+  .about-values{
+    padding:50px 5% 0 !important;
+  }
+  .about-values .sub-heading{
+    font-weight: 600;
+    margin-left:20px;
+    margin:-1rem 0 2rem 1rem;
+  }
+  .about-services{
+    margin-top: 10rem;
+    text-align: center;
+   padding:0 15%;
+  }
+  .about-services p{
+   /* padding:0 24%; */
+   line-height: 1.5rem;
+   font-size: 15px;
+   padding:0 10%;
+  }
+  .about-services .about-deliver-button{
+    background-color: var(--color-accent);
+    outline:none;
+    border:none;
+    width:115px;
+    border-radius: 20px;
+    height:30px;
+    padding:5px;
+    padding-top: 7px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+  }
+  .about-services .about-deliver-button:hover{
+    background-color: var(--color-accent);
+  }
+  .about-services .Boxe-container{
+    margin-top: 2rem;
+    margin-bottom: 10rem;
+  }
+  .about-common-style{
+    margin-top:10rem;
+    padding:0 5% !important;
+  }
+  .about-common-style .learn-more-link{
+    color:black;
+    width: 20%;
+    text-decoration: none;
+  }
+  .about-common-style .learn-more-link:hover{
+    color:var(--color-primary);
+    cursor: pointer;
+  }
+  .about-common-style .about-common-style-left{
+    margin-right:50px;
+    padding-top: 10%;
+    z-index: 1 !important;
+  }
+  .about-common-style .about-common-style-right{
+    margin-left:50px;
+    padding-top: 10%;
+    z-index: 1 !important;
+  }
+  .about-common-style p,
+  .about-common-style ul{
+    color:var(--color-text-smoke);
+  }
+  .about-common-style img{
+    width: 100%;
+    height: 100% ;
+    object-fit:contain;
+    padding-top:10%;
+  }
+  .about-last-content{
+    margin-bottom:5rem;
+  }
+  .about-last-content h2{
+    font-size: 1rem;
+  }
+  .about-last-content .Toggle-collection #ToggledButton{
+    background-color:var(--color-accent);
+  }
+  .about-last-content img{
+    width:400px;
+    height: 400px;
+  }
+  @media (max-width:576px){
+
+    .about-container{
+        overflow-x: hidden;
+      }
+       .about-entry{
+          background: url('../public/images/image-1-14.avif') no-repeat;
+          background-size:100%;
+          height: 100vh;
+          width: 100%;
+          background-origin:center;
+          background-size: cover;
+        }
+        .about-entry-headings{
+          padding:0;
+          width: 100%;
+        }
+        .about-deliver{
+          padding-top:2rem;
+        }
+        .about-deliver .about-deliver-content p{
+          font-size: 0.9rem !important;
+          padding-bottom: 1rem;
+      }
+        .about-values .sub-heading{
+          font-weight: 600;
+          margin-left:20px;
+          margin:1rem 0 2rem 1rem;
+        }
+        .about-entry-headings h1{
+          font-weight:700; 
+          color:var(--color-white);
+          font-size:2.5rem;
+          line-height: 3rem;
+          width: 100%;
+          padding:0;
+          padding-left:10px;
+          margin-top:3rem;
+        }
+        .about-deliver .about-deliver-content{
+          text-align: center;
+           padding:0;
+          }
+          .about-deliver .about-deliver-content h2{
+            font-size: 1.5rem;
+            padding:0 0%;
+            line-height: 2rem;
+            padding-bottom: 2rem;
+      }
+      .about-deliver .about-deliver-content p{
+        font-size: 1.1rem;
+        padding-bottom: 1rem;
+        text-align: center;
+      }
+      .about-deliver-boxes{
+        width:90%;
+        text-align: center;
+        line-height: 1.7rem;
+        margin:auto;
+        margin-left:5% !important;
+        margin-bottom: 50px;
+      }
+      .about-deliver-boxes img{
+        width:70px;
+        height:70px;
+        margin-bottom: 2rem;
+       }
+       .about-deliver-boxes .about-deliver-boxes-content h1{
+        font-size: 1.5rem;
+        font-weight: 600;
+        }
+        .about-values{
+          padding:50px 1% 0 !important;
+        }
+        .about-values img{
+          max-width:400px;
+        }
+        .about-values .Toggle-collection{
+          padding-left: 10%;
+        }
+        .about-values .Toggle-collection #ToggledButton{
+          width: 80% !important;
+          margin-left:10%;
+          margin-right:10%;
+          margin-bottom: 10px !important;
+        }
+        .Toggle-collection p{
+            margin:auto;
+          }
+        .about-services{
+          margin-top: 5rem;
+          text-align: center;
+         padding:0 0%;
+        }
+        .about-services p{
+          padding:0 0%;
+          line-height: 1.5rem;
+          font-size: 15px;
+         }
+         .about-services .Boxe-container{
+          margin-top: 2rem;
+          margin-bottom: 0rem;
+        }
+        .Boxe-container{
+          padding:0 15%;
+          text-align: left;
+        }
+        .Boxes{
+          padding:25px !important;
+           margin-bottom:35px;
+         }
+         .Boxes h1{
+          font-size: 1.3rem;
+          padding-bottom:80px;
+        }
+        .about-common-style{
+          margin-top:0rem;
+          padding:0 5% !important;
+          /* width:100% !important; */
+        }
+        .about-headings{
+          font-weight:600;
+          font-size: 2.1rem;
+          padding-bottom: 1rem;
+      }
+      .about-common-style .learn-more-link{
+        width: 30%;
+      }
+        .about-common-style .about-common-style-left{
+          margin-right:0px;
+          padding-top: 10%;
+        }
+        .about-common-style .about-common-style-right{
+          margin-left:0px;
+          padding-top: 10%;
+        }
+        .about-values .Toggle-collection{
+          padding-left: 3%;
+        }
+        .about-last-content{
+          margin-bottom:5rem;
+        }
+        .about-last-content .Toggle-collection{
+          margin-top:5rem;
+          margin-bottom: 3rem;
+        }
+        .about-last-content .Toggle-collection #ToggledButton{
+          width: 80% !important;
+          margin-left:10%;
+          margin-right:10%;
+          margin-bottom: 10px !important;
+        }
+        .about-last-content .Toggle-collection p{
+          margin-left:auto;
+         }
+         .about-last-content h1{
+          font-size: 2.4rem;
+          padding-left: 5%;
+        }
+        .about-last-content h2{
+          font-size: 1rem;
+          padding-left: 5%;
+        }
+        .about-last-content img{
+          width:350px;
+          height: 350px;
+        }
+  }
