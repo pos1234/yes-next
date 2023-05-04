@@ -102,7 +102,7 @@ const App=()=>{
                              
                                 <Col xs={12}>
                                     <h1 className={styles['qual']}>Qualifications</h1>
-                                    <Badge>AJAX</Badge>
+                                    <Badge className={styles['badge']}>AJAX</Badge>
                                 </Col>
                                 <hr className={styles['horizontal-rule']}/>
                                 <Col md={12} className={styles['discription']}>
@@ -166,7 +166,7 @@ const FindJob=()=> {
                                 <Form.Group controlId="formCity">
                                 <Dropdown >
                                     <Dropdown.Toggle id="dropdown-basic" className={styles["drop-down-buttons"]}>
-                                    <LocationOnIcon/> City or "Remote"
+                                     <span> <LocationOnIcon/> City or "Remote" </span>
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu className={styles["drop-down-menus"]}>
                                         <Dropdown.Item href="#/action-1">Addis Ababa</Dropdown.Item>
@@ -187,7 +187,7 @@ const FindJob=()=> {
                                 <Form.Group  controlId="formCity">
                                 <Dropdown>
                                     <Dropdown.Toggle id="dropdown-basic" className={styles["drop-down-buttons"]}>
-                                    <BusinessCenterIcon/> All Categories
+                                    <span> <BusinessCenterIcon/> All Categories </span>
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu className={styles["drop-down-menus"]}>
                                         <Dropdown.Item href="#/action-1">Agriculture, Food & Natural Resources</Dropdown.Item>
@@ -211,12 +211,13 @@ const FindJob=()=> {
                                 </Form.Group>
                             </Form>
                         </Col>
-                        <Col className={styles['search-bar-cols']}>
-                            <Form>
+                        <Col className={styles['search-bar-cols']} style={{borderRight:'none'}}>
+                            <Button type='submit'> Find Job</Button>
+                            {/* <Form>
                                 <Form.Group  controlId="formCity">
                                 <Dropdown >
                                     <Dropdown.Toggle id="dropdown-basic" className={styles["drop-down-buttons"]}>
-                                    <LocationOnIcon/> City or "Remote"
+                                    <span>  <LocationOnIcon/> City or "Remote" </span>
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu className={styles["drop-down-menus"]}>
                                         <Dropdown.Item href="#/action-1">
@@ -292,7 +293,7 @@ const FindJob=()=> {
                                     </Dropdown.Menu>
                                     </Dropdown>
                                 </Form.Group>
-                            </Form>
+                            </Form> */}
                         </Col>
                     </Row>
                 </Row>

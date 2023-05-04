@@ -7,22 +7,27 @@ import {Row, Dropdown, Col,Form, Navbar, Nav, Button, Container,Offcanvas} from 
 const NavbarJobs =()=> {
     const expand='md';
   return (
-    <Navbar key={expand} bg="light" expand={expand} className={styles['job-navigation']}>
+    <Navbar  key={expand} bg="light" expand={expand} className={styles['job-navigation']}>
     <Container className={styles['job-navigation']} fluid>
       <Navbar.Brand href="#" ><img className={styles['logo-navbar']} src='/images/yes-logo.svg' alt='yes-logo'/></Navbar.Brand>
-      <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+      <Navbar.Toggle className={styles['toggle-button']} aria-controls={`offcanvasNavbar-expand-${expand}`}>
+              <span className={styles['navbar-toggler-icon-first']}></span>
+              <span className={styles['navbar-toggler-icon-second']}></span>
+              <span className={styles['navbar-toggler-icon-third']}></span>
+      </Navbar.Toggle>
       <Navbar.Offcanvas
         id={`offcanvasNavbar-expand-${expand}`}
         aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
         placement="end"
-      >
+        style={{width:'70%'}}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title className={styles['logo-navbar']} id={`offcanvasNavbarLabel-expand-${expand}`}>
-            <img src='/images/yes-logo.svg'/>
+          <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+            <img src='/images/yes-logo.svg' style={{width:'150px',height:'150px'}}/>
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Nav className={`${["justify-content-left flex-grow-1 pe-3"]} ${['links']}`}>
+          <Nav className={`${["justify-content-left flex-grow-1 pe-3"]} ${styles['links']}`}>
+            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/home/about">About</Nav.Link>
             <Nav.Link href="/home/about">Client Hub</Nav.Link>   
             <Nav.Link href="/jobs">Find a Job</Nav.Link>   
@@ -33,8 +38,8 @@ const NavbarJobs =()=> {
           </Nav>
          
      <Row className={styles['navbar-sign-container']}>
-         <Col><Button as='a' className={styles['navbar-sign-in']}>Sign In/ Sign Up</Button></Col>
-         <Col><Button as='a' className={styles['navbar-sign-in']}>Post Job</Button></Col>
+         <Col><Button as='a' href='/jobs/sign-in' id={styles['navbar-sign-in']} className={styles['navbar-sign-in']}>Sign In/ Sign Up</Button></Col>
+         <Col><Button as='a' href='/jobs/sign-in'  id={styles['navbar-post']}  className={styles['navbar-sign-in']}>Post Job</Button></Col>
      </Row>
       
      <Row className={styles['navbar-socials-container']} >
@@ -48,7 +53,7 @@ const NavbarJobs =()=> {
          </Col>
      </Row>
      <Row className={styles['navbar-socials-container']}>
-         <Col><p className='navbar-copy'>©2022 YES | Your Employment Solutions</p></Col>
+         <Col><p className={styles['navbar-copy']}>©2022 YES | Your Employment Solutions</p></Col>
      </Row>
 
         </Offcanvas.Body>

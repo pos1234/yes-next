@@ -2,6 +2,7 @@
     max-height: 100px;
     background-color:var(--color-white);
   }
+
   .job-navigation .logo-image img{
     width:50%;
     height:50%;
@@ -24,13 +25,13 @@
   }
   .job-navigation .links [href]{
     margin-right:1.2rem;
+    font-size: 1.rem;
   }
   .job-navigation .navbar-sign-container{
     margin-right: 1rem;
     margin-top:30px;
     height: 60px;
   }
-  
   .job-navigation .navbar-sign-in{
     background: transparent;
     color:var(--color-primary);
@@ -54,13 +55,44 @@
     margin:0rem 3rem 2rem 0rem;
   }
   @media (max-width:576px){
-
     .job-navigation .logo-navbar{
-        width:100px;
-        height:100px;
-        margin-right: 0rem;
-      }
-      
+      width:100px;
+      height:100px;
+    }
+    .navbar-toggler-icon-first,
+.navbar-toggler-icon-second,
+.navbar-toggler-icon-third{
+  width:35px;
+  height:3px;
+  margin-bottom: 0.3rem;
+  background-color: var(--color-primary);
+  display: block;
+}
+.navbar-toggler-icon-second:hover{
+  background-color: var(--color-secondary);
+}
+.navbar-toggler-icon-first{
+  width:25px;
+  margin-left: 10px;
+}
+.navbar-toggler-icon-third{
+  width:25px;
+  margin:auto;
+}
+.toggle-button{
+  position: absolute;
+  right:0;
+}
+.toggle-button,
+.btn-close,
+.btn-close:hover,
+.btn-close:focus,
+.btn-close:active{
+  border:none !important;
+  outline:none !important;
+  box-shadow: none !important;
+  outline-offset: none !important;
+}
       .navbar-socials-container{
         display: unset;
        }
@@ -71,20 +103,36 @@
         margin-top:-15px;
       }
        .navbar-socials{
-        padding-left:4rem;
-        padding-bottom: 1rem;
+        padding-left:1.8rem;
+        padding-bottom: 0rem;
         color:var(--color-primary);
       }
       .navbar-socials li{
         display: inline;
-        margin-right:40px;
+        margin-right:20px;
       }
       .navbar-socials li a{
         color:var(--color-primary);
       }
       .navbar-copy{
         color:var(--color-text-smoke);
+        font-size: 0.7rem;
+        padding-left: 1rem;
+        margin-bottom: 0;
+      }
+      #navbar-sign-in{
+        background: var(--color-primary);
+        color:var(--color-white);
+        border:1px solid var(--color-primary) !important;
+        width:150px;
+        height:50px;
+        padding-top:13px;
+        border:none;
+        border-radius: 50px;
+        margin:2rem 3rem 0rem 3rem;
         font-size: 0.9rem;
-        padding-left: 2rem;
+      }
+      #navbar-post{
+        display: none;
       }
   }
