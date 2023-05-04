@@ -144,7 +144,7 @@ const App=()=>{
 
 const FindJob=()=> {
       return (
-        <>
+        <div className={styles['jobs-container']} style={{overflowX:'hidden'}}>
           <Head>
                 <title>Explore Job Vacancies in Ethiopia | YES Job Search</title>
                 <meta name="description" content="Find your dream job in Ethiopia with YES. Browse our extensive listings for fresh graduates, experienced professionals, skilled workers, UN jobs, NGO positions, and more"/>
@@ -302,8 +302,8 @@ const FindJob=()=> {
 
                 <App/>
          
-          <FooterJobs/>
-      </>
+          <FooterJobs />
+      </div>
       )
     }
 
