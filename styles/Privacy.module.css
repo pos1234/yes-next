@@ -1,0 +1,34 @@
+.terms-conditions{
+    margin-top: 60px;
+    padding:0 8% !important;
+  }
+  .terms-conditions h1{
+    text-align: center;
+    line-height: 1.2em;
+    font-size: 40px;
+    font-weight: 600;
+    color:#181b31;
+    margin-bottom: 3rem;
+  }
+  .terms-conditions h2{
+    line-height: 1.2em;
+    font-size: 25px;
+    font-weight: 600;
+    color:#181b31;
+  }
+  .terms-conditions p{
+    color: rgb(122,122,122);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    margin-top: 0;
+    margin-bottom: 1.5em;
+    overflow-wrap: break-word;
+  }
+  .terms-conditions ul{
+    color: rgb(122,122,122);
+    font-size: 18px;
+    overflow-wrap: break-word;
+    line-height: 30px;
+  }
+  

@@ -25,6 +25,7 @@ const Blog = () => {
         <Head>
                 <title>YES Blog | Expert Insights on Ethiopian Job Market & HR Trends</title>
                 <meta name="description" content="Stay ahead with YES Blog, your source for expert insights on the Ethiopian job market, HR trends, and practical tips to navigate the ever-evolving labor landscape."/>
+                <link rel="shortcut icon" href="/images/yes-logo.svg" />
             </Head>
          <Navigation/>
         <Container fluid style={{padding:0}}>

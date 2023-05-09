@@ -10,7 +10,7 @@ import styles from '@/styles/About.module.css'
 const Boxes = (props)=>{
     return(
         <Col className={styles["Boxes"]}>
-            <h1>{props.title}</h1>
+            <h1><a style={{textDecoration:'none',color:'black'}} href={props.link}>{props.title}</a></h1>
             <img src={props.imageSrc} alt="image-for-boxes" />
         </Col>
     )
@@ -22,6 +22,7 @@ const About = () =>{
             <Head>
                 <title>About YES | Empowering Ethiopian Business & Job Seekers</title>
                 <meta name="description" content="Learn how YES has transformed the Ethiopian labor market by connecting business with top talent and providing innovative HR solutions for sustainable growth"/>
+                <link rel="shortcut icon" href="/images/yes-logo.svg" />
             </Head>
        <div className={styles["about-container"]}>
         
@@ -105,23 +106,23 @@ const About = () =>{
         <Row className={styles["Boxe-container"]} data-aos="fade-up" data-aos-duration="2000">
             <Row>
             <Boxes title='Recruitment & Staffing'
-            imageSrc='/images/icon-image-1.avif'/>
+            imageSrc='/images/icon-image-1.avif' link="#Recruitment"/>
             <Boxes title='Outsourcing & Payroll Management'
-            imageSrc='/images/icon-image-2.avif'/>
+            imageSrc='/images/icon-image-2.avif' link="#Outsourcing"/>
             <Boxes title='Executive Search'
-            imageSrc='/images/icon-image-3.avif'/>
+            imageSrc='/images/icon-image-3.avif' link="#Executive"/>
             </Row>
             <Row>
             <Boxes title='Assessment and Background Check'
-            imageSrc='/images/icon-image-4.avif'/>
+            imageSrc='/images/icon-image-4.avif' link="#Assessment"/>
             <Boxes title='Career Coaching'
-            imageSrc='/images/icon-image-5.avif'/>
+            imageSrc='/images/icon-image-5.avif' link="#Career"/>
             <Boxes title='Training and Development'
-            imageSrc='/images/icon-image-6.avif'/>
+            imageSrc='/images/icon-image-6.avif' link="#Training"/>
             </Row>
         </Row>
     </Container>
-    <Container className={styles["about-common-style"]} id={styles["section"]}>
+    <Container className={styles["about-common-style"]} id='Recruitment'>
         <Row data-aos="fade-up" data-aos-duration="2000">
             <Col sm={6} className={styles["about-common-style-left"]}>
                 
@@ -153,7 +154,7 @@ const About = () =>{
             </Col>
         </Row>
     </Container>
-    <Container className={styles["about-common-style"]}>
+    <Container className={styles["about-common-style"]} id='Outsourcing'>
         
         <Row data-aos="fade-up" data-aos-duration="2000">
             <Col>
@@ -180,7 +181,7 @@ const About = () =>{
            
         </Row>
     </Container>
-    <Container className={styles["about-common-style"]}>
+    <Container className={styles["about-common-style"]} id='Executive'>
         <Row data-aos="fade-up" data-aos-duration="2000">
         <Col>
             <img src= '/images/image-1-6.avif' alt="people chatting"/> 
@@ -195,7 +196,7 @@ const About = () =>{
            
         </Row>
     </Container>
-    <Container className={styles["about-common-style"]}>
+    <Container className={styles["about-common-style"]} id='Career'>
         <Row data-aos="fade-up" data-aos-duration="2000">
             <Col sm={6} className={styles["about-common-style-left"]}>
                 <h1  className={styles["about-headings"]}><StyledUrContent texts='Career' /> Coaching</h1>
@@ -208,7 +209,7 @@ const About = () =>{
             </Col>
         </Row>
     </Container>
-    <Container className={`${styles["about-common-style"]} ${styles["about-white-back"]}`} fluid>
+    <Container className={`${styles["about-common-style"]} ${styles["about-white-back"]}`} id='Assessment' fluid>
         <Row data-aos="fade-up" data-aos-duration="2000">
         <Col>
             <img src='/images/image-1-8.avif' alt="people argueing"/> 
@@ -244,7 +245,7 @@ const About = () =>{
         </Row>
     </Container>
     
-    <Container className={styles["about-common-style"]}>
+    <Container className={styles["about-common-style"]} id='Training'>
         <Row data-aos="fade-up" data-aos-duration="2000">
             <Col sm={6} className={styles["about-common-style-left"]}>
                 <h1  className={styles["about-headings"]}><StyledUrContent texts='Training' />  and Development</h1>

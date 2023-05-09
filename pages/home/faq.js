@@ -1,10 +1,13 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import { useState } from 'react'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {Row, Col, Button, Container,Collapse} from 'react-bootstrap'
 import Footer from '../Components/Footer'
 import Navigation from '../Components/Navigation'
+
+import {StyledUrContent} from '../Components/StyledUr'
 import styles from '@/styles/Faq.module.css'
 const ToggledContent = (props) => {
 
@@ -49,19 +52,19 @@ const FAQ =()=> {
                     <Col xs={12} sm={3} className={styles['faq-order']}>
                            <ul>
                                 <li>
-                                    FAQ
+                                <a href='#faq' style={{textDecoration:'none',color:'unset'}}>  FAQ </a>
                                 </li>
                                 <li>
-                                    Service
+                                   <a href='#service' style={{textDecoration:'none',color:'unset'}}> Service </a>
                                 </li>
                                 <li>
-                                    Contact Us
+                                    <Link style={{textDecoration:'none',color:'unset'}} href='/home/contact-us'>Contact Us </Link>
                                 </li>
                             </ul>
                     </Col>
                     <Col className={styles['faq-toggled-content']}>
-                        <Row>
-                            <h1>FREQUENTLY ASKED QUESTIONS (FAQS)</h1>
+                        <Row id='faq'>
+                            <h1 style={{lineHeight:'30px'}}> <StyledUrContent texts="FREQUENTLY ASKED QUESTIONS (FAQS)"/></h1>
                             <div className={styles['faq-toggled-items']}>
                                 <ToggledContent 
                                     btnText='What services does YES offer?'
@@ -81,8 +84,8 @@ const FAQ =()=> {
                                 />
                             </div>
                         </Row>
-                        <Row>
-                            <h1>SERVICES</h1>
+                        <Row id='service'>
+                            <h1 style={{lineHeight:'30px'}}><StyledUrContent texts="SERVICES"/> </h1>
                             <div className={styles['faq-toggled-items']}>
                                 <ToggledContent 
                                     btnText='Does YES offer executive search services?'

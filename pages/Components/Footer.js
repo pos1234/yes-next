@@ -59,7 +59,7 @@ const Footer = () =>{
                     <p className={styles["silver-paragraph"]}>©2023 YES Your Employment Solution.</p>
                 </Col>
                 <Col>
-                    <Link className={styles["silver-paragraph"]} href='/home/terms'>Terms and Conditions | </Link>  <Link className="silver-paragraph" href='/home/policy'>Privacy Policy</Link>
+                    <Link className={styles["silver-paragraph"]} href='/home/terms'>Terms and Conditions | </Link>  <Link className={styles["silver-paragraph"]} href='/home/policy'>Privacy Policy</Link>
                 </Col>
             </Row>
             

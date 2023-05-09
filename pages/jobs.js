@@ -12,7 +12,8 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import FooterJobs from './Components/FooterJobs'
 import styles from '@/styles/Jobs.module.css'
-
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 const App=()=>{
     const [disp,setDisp]=useState(true);
     const [disp2,setDisp2]=useState(true);
@@ -38,7 +39,7 @@ const App=()=>{
     } 
   
     return(
-        <Container className={styles['search-results']}>
+        <Container className={styles['search-results']} fluid>
         <Row style={{margin:0,padding:0}}>
         <Col>    
       <Nav className={disp ? `${styles['sidebar']} ${styles['displays']}`:`${styles['sidebar']} ${styles['no-displays']}`} onClick={hideShow} /* style={{display: disp ? 'block':'none'}} */>
@@ -63,7 +64,7 @@ const App=()=>{
         }
         </Nav>
         </Col>
-      <Col xs={12} md={7} className={disp ? `${styles['click-result']} ${styles['no-displays']}`: `${styles['click-result']} ${styles['displays']}`} /* style={{display: disp ? 'none':'block'}} */>
+      <Col xs={12} md={8} className={disp ? `${styles['click-result']} ${styles['no-displays']}`: `${styles['click-result']} ${styles['displays']}`} /* style={{display: disp ? 'none':'block'}} */>
             <Row>
                 {
                     selectedData && (
@@ -143,14 +144,21 @@ const App=()=>{
 
 
 const FindJob=()=> {
+    const {status,data} = useSession();
+    const router = useRouter();
+    useEffect(()=>{
+        if(status==="unauthenticated") router.replace("/jobs/sign-in");
+    },[status]);
+    if(status==="authenticated")
       return (
         <div className={styles['jobs-container']} style={{overflowX:'hidden'}}>
           <Head>
                 <title>Explore Job Vacancies in Ethiopia | YES Job Search</title>
                 <meta name="description" content="Find your dream job in Ethiopia with YES. Browse our extensive listings for fresh graduates, experienced professionals, skilled workers, UN jobs, NGO positions, and more"/>
+                <link rel="shortcut icon" href="/images/yes-logo.svg" />
             </Head>
-        <NavbarJobs/>
-          <Container className={styles['search-bar-container']} fluid='xs'>
+            <NavbarJobs/>
+          <Container className={styles['search-bar-container']} fluid>
                 <Row className={styles['search-bar-inner-container']}>
                     <Row>
                         <Col sm={12} md={'auto'} className={styles['search-bar-cols']}>

@@ -8,9 +8,10 @@ import Navigation from './Components/Navigation'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import StyledUr,{StyledUrContent} from './Components/StyledUr'
 import Footer from './Components/Footer'
+
 const YourHr = (props)=>{
   return(
-          <Row className={styles['home-your-hr-lists']}>
+          <Row className={styles['home-your-hr-lists']} >
               <Col className={styles['icon-image-container']}>
                   <img alt='icon-image' width={35} height={35} src={props.imageSrc} style={{ display: 'block',maxWidth:'35px', maxHeight:'35px',width:'auto',height:'auto'}}/>
               </Col>
@@ -49,11 +50,16 @@ const Seeker = (props)=>{
 const Home = ()=>{
   return(
           <>
+          <Head>
+            <title>YES | Ethiopia's Leading Recruitment & HR Solutions Agency</title>
+            <meta name="description" content="Empower your business with YES, Ethiopia's top recruitment and HR solutions agency, offering job placement, payroll management, and outsourcing services."/>
+            <link rel="shortcut icon" href="/images/yes-logo.svg" />
+          </Head>
           <div className={styles['home-container']}>
               {/* Home entry */}
               <div className={styles['home-entry']} >
                   <div className={styles['home-entry-content']} >
-                   <Navigation/>
+                   <Navigation />
                       <Row className={styles['home-entry-headings']} data-aos="fade-up" data-aos-duration="2000">
                           <h1 className={styles['h1']}>Right &nbsp;
                               <StyledUr text='fit!' />
@@ -94,7 +100,7 @@ const Home = ()=>{
                       <Col data-aos="fade-up" data-aos-duration="2000">
                       <div className={styles["scene"]}>
                               <div className={styles["card"]}>
-                                  <div className={`${styles["face"]} ${styles["front"]} ${styles['second-first']}`}>
+                                  <div className={`${styles["face"]} ${styles["front"]} ${styles['second-front']}`}>
                                       <Button className={styles['bridge-button']}>Job Seekers</Button>
                                       <h2>Find a Job</h2>
                                   </div>
@@ -128,8 +134,8 @@ const Home = ()=>{
                           To='/home/about/'/>
                           </div>
                       </Col>
-                      <Col data-aos="fade-up" data-aos-duration="2000" className={styles['home-your-hr-side-image']} sm={12} lg={6}>
-                          <img src='/images/image-1-11.avif' alt='home-side-image' width={440}/>
+                      <Col data-aos="fade-up" data-aos-duration="2000" className={styles['home-your-hr-side-image']} sm={12} lg={5}>
+                          <img src='/images/image-1-11.avif' alt='home-side-image'/>
                       </Col>
                   </Row>
               </Container>
@@ -148,13 +154,13 @@ const Home = ()=>{
                   </Row>
                   </div>
                   <Row className={styles['how-help-boxes-container']}>
-                      <Col data-aos="fade-up" data-aos-duration="2000">
+                      <Col xs={12} md={6} data-aos="fade-up" data-aos-duration="2000">
                           <HowHelp imageSrc='/images/icon-image-10.avif'
                            title='RECRUITMENT & STAFFING'
                            content='YES delivers full-cycle recruitment services to find the right talent for your open roles. Our innovative approaches focus on matching you with top talent in a wide range of industries. With YES’s expert services at your fingertips – hiring just got easier!'
                           />    
                       </Col>
-                      <Col data-aos="fade-up" data-aos-duration="2000">
+                      <Col xs={12} md={6} data-aos="fade-up" data-aos-duration="2000">
                       <HowHelp imageSrc='/images/icon-image-11.avif' 
                            title='EXECUTIVE SEARCH'
                            content='Behind every successful business is a great leader. YES’ Executive Search will empower your organization by finding leaders of tomorrow today that will drive sustainable growth. With our deep and connected network, knowledge, and proven experience, we will find a leader who fits the business needs'
@@ -162,13 +168,13 @@ const Home = ()=>{
                       </Col>
                   </Row>
                   <Row className={styles['how-help-boxes-container']}>
-                      <Col data-aos="fade-up" data-aos-duration="2000">
+                      <Col xs={12} sm={12} md={6} data-aos="fade-up" data-aos-duration="2000">
                           <HowHelp imageSrc='/images/icon-image-12.avif'
                            title='OUTSOURCING'
                            content='Focus on your core business and outsource some or all HR functions. YES will be your HR partner and function as an extension of your HR staff. We can handle hiring, engagement, employee issues, payroll, benefits, compensation, talent, compliance and more.'
                            />    
                       </Col>
-                      <Col data-aos="fade-up" data-aos-duration="2000">
+                      <Col xs={12} sm={12} md={6} data-aos="fade-up" data-aos-duration="2000">
                       <HowHelp imageSrc='/images/icon-image-13.avif'
                            title='TRAINING AND ONBOARDING'
                            content='In addition to training on vital skills that are necessary in today’s job market, we also work together with clients to facilitate the onboarding process for new hires. Our training and onboarding processes are designed to create smooth and efficient experience for both job seekers and employers.'
@@ -178,7 +184,7 @@ const Home = ()=>{
 
                   <Row className={styles['home-how-help-center-see']}>
                       <Col data-aos="fade-up" data-aos-duration="2000">
-                      <Button as={Link} to={'/home/about'} className={styles['home-how-help-see-more']} href='' name='see-more-button-link'>About Us</Button>
+                      <Button as={Link} href='/home/about' className={styles['home-how-help-see-more']} name='see-more-button-link'>About Us</Button>
                       </Col>
                   </Row>
               </Container>

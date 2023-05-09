@@ -37,16 +37,15 @@
    padding-bottom: 3rem;
   }
   .faq-toggled-content h1{
-  /*   background-color:green;
-   */  text-align: center;
-    font-size: 1rem;
+    text-align: center;
+    font-size: 14px;
     padding-bottom: 3rem;
     padding-top: 2rem;
     font-weight: 600;
   }
   .faq-toggled-content .faq-toggled-items #ToggledButton{
     background-color:transparent !important;
-    color:black;
+    color:rgb(24,27,49);
     border-radius: 0;
     display: block;
     width:85%;
@@ -56,8 +55,9 @@
     padding-left: 2rem;
     border:none;
     outline: none;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 400;
+
    }
   .faq-toggled-content .faq-toggled-items .toggle-button-spacer{
     display: flex;
@@ -66,10 +66,11 @@
     margin-right:10px;
   }
   .faq-toggled-content .faq-toggled-items .toggled-paragraph{
-    width:90%;
-    font-size: 1rem;
-    color:var(--color-text-smoke);
-    margin:auto;
+    width:80%;
+    font-size: 18px;
+    color:rgb(122,122, 122);
+    padding:0 5%;
+    
    }
    @media (max-width:576px){
     .faq-container-title h1{

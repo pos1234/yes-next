@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
+import {SessionProvider} from 'next-auth/react'
 import '@/styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-/* import 'jquery/dist/jquery.min.js'
-import 'popper.js/dist/popper.min.js'
-import 'bootstrap/dist/js/bootstrap.min.js' */
 
-export default function App({ Component, pageProps }) {
+
+export default function App({ Component, pageProps}) {
   useEffect(()=>{
   Aos.init({
     duration:1000,
@@ -15,5 +14,9 @@ export default function App({ Component, pageProps }) {
     once:true
   });
 })
-  return <Component {...pageProps} />
+  return(
+    <SessionProvider session={pageProps.session}>
+      <Component {...pageProps} />
+    </SessionProvider>
+  ) 
 }

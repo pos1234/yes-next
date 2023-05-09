@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import {useState,useEffect} from 'react'
+import { signIn, signOut } from "next-auth/react"
 import { Container,Row,Col,Form,Button } from 'react-bootstrap'
 import  Link  from 'next/link'
 import NavbarJobs from '../Components/NavbarJobs'
@@ -6,11 +7,13 @@ import GoogleIcon from '@mui/icons-material/Google'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import FooterJobs from '../Components/FooterJobs'
 import styles from '@/styles/Login.module.css'
+import { useRouter } from 'next/router'
+import { useSession } from 'next-auth/react'
 
-const SignIn = ()=>{
-    const [validated, setValidated] = useState(false);
-
-    const handleSubmit = (event) => {
+const Login = ()=>{
+    /* const [validated, setValidated] = useState(false);
+    const { data: session } = useSession() */
+  /*   const handleSubmit = (event) => {
       const form = event.currentTarget;
       if (form.checkValidity() === false) {
         event.preventDefault();
@@ -18,7 +21,37 @@ const SignIn = ()=>{
       }
   
       setValidated(true);
-    };
+    }; */
+
+    
+const router = useRouter();
+const {session,data} = useSession();
+    const [userInfo,setUserInfo] = useState({email:"",password:""});
+ const handleSub = async (event)=>{
+    event.preventDefault()
+              const res = await signIn('credentials',{
+                redirect:false,
+                email:userInfo.email,
+                password:userInfo.password,
+                callbackUrl:"/",
+              })
+              if(res.status==200){
+                router.push("/jobs/");
+                console.log('worked')
+              } 
+             /*  if(res.status==200){
+                router.push("/jobs/sign-in");
+              }else{
+                    console.log("didn't worked");
+                } */
+             
+ } 
+/* const {session,data} = useSession();
+    
+    useEffect(()=>{
+      
+        console.log('it should changed route');
+    },[session]); */
     return(
      
         <>
@@ -30,15 +63,15 @@ const SignIn = ()=>{
                 <img src='/images/image-1-4.avif'/>
             </Col>
             <Col md={5}>
-            <Form className={styles['login-form']} noValidate validated={validated} onSubmit={handleSubmit}>
+            <Form className={styles['login-form']} onSubmit={handleSub}>
                 <h1>Welcome to YES</h1>
-                <Form.Group className="mb-4 " controlId="formBasicEmail">
+                <Form.Group className="mb-4 " >
                     <Form.Label>Email</Form.Label>
-                    <Form.Control className={styles["text-field"]} type="email text-field" placeholder="Enter email" required/>
+                    <Form.Control value={userInfo.email} onChange={(event)=>setUserInfo({...userInfo,email : event.target.value})} className={styles["text-field"]} type="email text-field" placeholder="Enter email" required/>
                 </Form.Group>
                 <Form.Group className="mb-4" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control className={`${styles["text-field"]} ${["mb-3"]}`} type="password" placeholder="Password" required/>
+                    <Form.Control value={userInfo.password} onChange={(event)=>setUserInfo({...userInfo,password : event.target.value})} className={`${styles["text-field"]} ${["mb-3"]}`} type="password" placeholder="Password" required/>
                 </Form.Group>
                 <Row>
                     <Col>
@@ -89,4 +122,4 @@ const SignIn = ()=>{
     </>
     )
 }
- export default SignIn
+ export default Login

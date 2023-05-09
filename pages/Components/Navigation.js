@@ -1,14 +1,36 @@
 import React from 'react'
 import Link from 'next/link'
-import {Row, Col, Navbar, Nav, Button, Container,Offcanvas,Badge} from 'react-bootstrap'
+import { signIn } from 'next-auth/react';
+import {Row, Col, Navbar, Nav, Button, Container,Offcanvas,Badge, Form} from 'react-bootstrap'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import styles from '@/styles/Navigation.module.css'
 export default function Navigation() {
-  return (
-    <Navbar key='expand' bg='' expand='expand' className={styles['navigation']}>
+/*     const {data: session,status} = useSession()
+ */  return (
+    <>
+     <style type="text/css">
+        {`
+    .btn-close {
+         position: relative !important;
+         left: -90% !important;
+         top: -30px !important; 
+    }
+            .btn-close,
+        .btn-close:hover,
+        .btn-close:focus,
+        .btn-close:active{
+        border:none !important;
+        outline:none !important;
+        box-shadow: none !important;
+        outline-offset: none !important;
+        } 
+    `}
+      </style>
+   
+    <Navbar key='expand' bg='' expand='expand' className={styles['navigation']} >
     <Container >
          <Navbar.Brand as={Link} href='/' name="home" className={styles['logo-image']}><img src='/images/yes-logo.svg' alt='brand-logo'/></Navbar.Brand>
          <Navbar.Toggle className={styles['toggle-button']} aria-controls={`offcanvasNavbarLabel-expand-${'expand'}`} >
@@ -27,7 +49,7 @@ export default function Navigation() {
          <Offcanvas.Body>
          <Nav className={`${styles["justify-content-end"]} ${styles["flex-grow-1"]} ${styles["pe-3"]} ${styles["navbar-navs"]}`}>
          <Nav.Link as={Link} href='/home/about'>About</Nav.Link>   
-         <Nav.Link as={Link} href='/home/about/section'>Client Hub</Nav.Link>   
+         <Nav.Link as={Link} href='/home/about'>Client Hub</Nav.Link>   
          <Nav.Link as={Link} href='/jobs'>Find a Job</Nav.Link>   
          <Nav.Link as={Link} href='/home/hris'>Products <span className={styles['badge-span']}><Badge className={styles['badge']}>New</Badge></span></Nav.Link>   
          <Nav.Link as={Link} href='/home/blog'>Blog</Nav.Link>
@@ -37,7 +59,7 @@ export default function Navigation() {
 
           <Row>
              <Row>
-                 <Col><Button as={Link} id={styles['navbar-sign-in']} href='/jobs/sign-in'>Sign In/ Sign Up</Button></Col>
+                <Col><Button id={styles['navbar-sign-in']} onClick={()=>signIn()} >Sign In/ Sign Up</Button></Col>
              </Row>
              <Row>
                  <Col>
@@ -57,5 +79,6 @@ export default function Navigation() {
          </Navbar.Offcanvas>
      </Container>
  </Navbar>
+  </>
   )
 }
