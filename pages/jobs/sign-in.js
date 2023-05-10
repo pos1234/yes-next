@@ -39,19 +39,8 @@ const {session,data} = useSession();
                 router.push("/jobs/");
                 console.log('worked')
               } 
-             /*  if(res.status==200){
-                router.push("/jobs/sign-in");
-              }else{
-                    console.log("didn't worked");
-                } */
-             
  } 
-/* const {session,data} = useSession();
-    
-    useEffect(()=>{
-      
-        console.log('it should changed route');
-    },[session]); */
+
     return(
      
         <>

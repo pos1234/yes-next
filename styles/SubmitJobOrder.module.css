@@ -1,0 +1,109 @@
+.submitJobOrderContainer{
+    text-align: center;
+    padding: 3% 0;
+}
+.submitJobOrderButton{
+    background-color: var(--color-accent);
+    outline:none;
+    border:none;
+    width:200px;
+    border-radius: 20px;
+    height:30px;
+    padding:5px;
+    padding-top: 7px;
+    font-weight: 600;
+    font-size: 0.7rem;
+    margin-bottom: 2%;
+  }
+.submitJobOrderButton:hover{
+    background-color: var(--color-accent);
+  }
+.submitJobOrderContainer .submitJobOrderTitle{
+    font-weight: 600;
+    font-size: 2.4rem;
+    padding-bottom: 1%;
+}
+.submitJobOrderContainer p{
+    font-weight: 400;
+    color:var(--color-text-smoke);
+    padding-bottom: 2%;
+}
+.submitJobOrderContainer form{
+    text-align: left;
+}
+.submitJobOrderContainer form input{
+    height: 4rem;
+}
+.submitJobOrderContainer form input:focus,
+.submitJobOrderContainer form textarea:focus,
+.submitJobOrderContainer form .drop-downs:focus{
+    border:2px solid var(--color-primary);
+    box-shadow: none;
+}
+.submitJobOrderContainer form .drop-down-buttons{
+    height: 4rem;
+    width: 100%;
+    text-align: left;
+    background:#fff;
+    color:var(--color-text-smoke);
+    border:1px solid silver;
+}
+.submitJobOrderContainer form .drop-downs{
+   height: 4rem;
+    text-align: left;
+    color:var(--color-text-smoke);
+    border:1px solid silver;
+ }
+.submitJobOrderContainer form .drop-down-menus{
+    width: 100%;
+}
+.submitJobOrderContainer form h1{
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.submitJobOrderContainer form h2{
+    font-size: 1.3rem;
+    color:var(--color-text-smoke);
+}
+.home-last-content-button{
+    background-color: var(--color-primary);
+    border-radius:50px;
+    border:none;
+    font-size:0.9rem;
+    padding:15px;
+    height: 50px;
+    width: 30%;
+    margin-left: 40%;
+  }
+  
+.home-last-content-button:hover,
+.home-last-content-button:active{
+    background-color: var(--color-primary);
+    transform: translateY(5px);
+    transition: all 0.5s;
+    cursor: pointer !important;
+  }
+@media (max-width:576px){
+    .submitJobOrderContainer{
+        text-align: center;
+        padding:3%;
+    }
+    .submitJobOrderButton{
+        margin-bottom: 5%;
+      }
+    .submitJobOrderContainer .submitJobOrderTitle{
+    font-weight: 600;
+    font-size: 2rem;
+    padding-bottom: 1%;
+}
+.home-last-content-button{
+    background-color: var(--color-primary);
+    border-radius:50px;
+    border:none;
+    font-size:0.9rem;
+    padding:15px;
+    height: 50px;
+    width: 100%;
+    margin-left:0%;
+  }
+}

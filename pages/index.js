@@ -8,7 +8,6 @@ import Navigation from './Components/Navigation'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import StyledUr,{StyledUrContent} from './Components/StyledUr'
 import Footer from './Components/Footer'
-
 const YourHr = (props)=>{
   return(
           <Row className={styles['home-your-hr-lists']} >
@@ -18,7 +17,7 @@ const YourHr = (props)=>{
               <Col xm={6} className={styles['home-hr-texts']}>
                   <h2>{props.title}</h2>
                   <p>{props.content}</p>
-                  <Button role='link' as={Link} href='/' aria-label='your HR is good' className={styles['list-button']} name='button-down-home'><ArrowRightAltIcon/></Button>
+                  <Button role='link' as={Link} href={props.To} aria-label='your HR is good' className={styles['list-button']} name='button-down-home'><ArrowRightAltIcon/></Button>
               </Col>
           </Row>
   )
@@ -42,7 +41,7 @@ const Seeker = (props)=>{
           <img src={props.imageSrc} alt='home-seeker-image' width={80}/>
           <h2>{props.title}</h2>
           <p>{props.content}</p>
-          <Button role='link' as={Link} href='/' aria-label='links' className={styles['list-button']} name='link-button' ><ArrowRightAltIcon/></Button>
+          <Button role='link' as={Link} href={props.To} aria-label='links' className={styles['list-button']} name='link-button' ><ArrowRightAltIcon/></Button>
       </Col>
   )
 }
@@ -55,6 +54,7 @@ const Home = ()=>{
             <meta name="description" content="Empower your business with YES, Ethiopia's top recruitment and HR solutions agency, offering job placement, payroll management, and outsourcing services."/>
             <link rel="shortcut icon" href="/images/yes-logo.svg" />
           </Head>
+
           <div className={styles['home-container']}>
               {/* Home entry */}
               <div className={styles['home-entry']} >
@@ -113,7 +113,7 @@ const Home = ()=>{
                   </Row>
                   </Container>
               {/* Your HR */}
-              <Container className={styles['home-your-hr']} id={styles['employer']}>
+              <Container className={styles['home-your-hr']} id='employer'>
                   <Row>
                       <Col className={styles['home-your-hr-content']} data-aos="fade-up" data-aos-duration="2000">
                           <Button as='a' className={styles['home-your-hr-button']} href='' name='employers-button-link'>EMPLOYERS</Button>
@@ -123,7 +123,7 @@ const Home = ()=>{
                           <YourHr imageSrc='/images/icon-image-7.avif'
                            title='Find Talent'
                            content='Hiring made easy! Let us do the hard work for you by finding top talent for your open positions.'
-                           To='findtalent'/>
+                           To='/home/submit-job-order'/>
                           <YourHr imageSrc='/images/icon-image-8.avif'
                           title='Post a Job'
                           content='Click, Post, Hire'
