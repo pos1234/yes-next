@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,createContext,useContext } from 'react'
 import axios from 'axios'
 import {Row, Dropdown, Col,Form, Nav, Button, Container, Badge} from 'react-bootstrap'
 import NavbarJobs from './Components/NavbarJobs'
@@ -14,23 +14,26 @@ import FooterJobs from './Components/FooterJobs'
 import styles from '@/styles/Jobs.module.css'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import AppContext from './AppContext'
 const App=()=>{
+    const context = useContext(AppContext)
     const [disp,setDisp]=useState(true);
     const [disp2,setDisp2]=useState(true);
     const [data,setData]=useState([])
     const [selectedId,setSelectedId]=useState(null)
-    const [selectedData,setSelectedData]=useState([])
-    const url='https://jsonplaceholder.typicode.com/todos/';
+    const [selectedData,setSelectedData]=useState(false)
+    const url='https://yes.et/jobs/wp-json/wp/v2/job_listing/';
     useEffect(()=>{
         axios.get(`${url}`)
         .then(response=>setData(response.data.slice(0,10)))
-        .then(response=>handleItemClick(1))
-    },[]);
+/*         .then(response=>context.setNameContext(response.data.slice(0,10)))
+ */       .then(response=>handleItemClick(13635))
+     },[]);
     function handleItemClick(id){
-        setSelectedId(id);
+         setSelectedId(id);
         axios.get(`${url}${id}`)
-        .then(response=>setSelectedData(response.data));
-    }
+        .then(response=>setSelectedData(response.data)); 
+    } 
     function hideShow(){
         setDisp(false)
     }
@@ -49,10 +52,14 @@ const App=()=>{
         <Nav.Link  eventKey={select.id}>
             <Row className={styles['one-search']} tabIndex={1}>
                 <Col  >
-                    <h1>{select.title}</h1>
+                <h1>{context.nameContext[0]}</h1>
+                <h1 dangerouslySetInnerHTML={{__html:select.title.rendered}}/>
+                <h2 dangerouslySetInnerHTML={{__html:select.metas._job_employer_name}}/>
+                
+{/*                     <h1>{select.title}</h1>
                     <h2>{select.title}</h2>
                     <p className={styles['content']}>{select.title}</p>
-                    <p>Estimated: {select.title} &nbsp; <InfoIcon sx={{fontSize:20}}/> <span className='quick'>Quick Apply</span></p>
+                    <p>Estimated: {select.title} &nbsp; <InfoIcon sx={{fontSize:20}}/> <span className='quick'>Quick Apply</span></p> */}
                     </Col>
                 <Col xs={1}>
                     <FavoriteBorderIcon style={{color:'black'}}/>
@@ -67,15 +74,15 @@ const App=()=>{
       <Col xs={12} md={8} className={disp ? `${styles['click-result']} ${styles['no-displays']}`: `${styles['click-result']} ${styles['displays']}`} /* style={{display: disp ? 'none':'block'}} */>
             <Row>
                 {
-                    selectedData && (
+                    (selectedData) ?  (
                         <Col sx={12}>
                             <Button className={styles['jobs-show-button']} onClick={showHide}>Back To Search Result</Button>
-                        <h1>{selectedData.title}</h1>
+                          <img style={{width:50,height:50,borderRadius:'0px',display:'inline',marginBottom:'20px'}} src={selectedData.metas._job_logo}/> <span>  <h1 style={{display:'inline'}} dangerouslySetInnerHTML={{__html:selectedData.title.rendered}}/> </span>
                         <Row>
                             <Row >
                                 <Col md={6}>
-                                    <p><ApartmentIcon style={{fontSize:20}}/> Digital Reach Agency</p>
-                                    <p><LocationOnIcon style={{fontSize:20}}/> Ohio, IL</p>
+                                  <p><ApartmentIcon style={{fontSize:20}}/>  <span dangerouslySetInnerHTML={{__html:selectedData.metas._job_employer_name}}/> </p>
+                                    <LocationOnIcon style={{fontSize:20}}/> <span dangerouslySetInnerHTML={{__html:selectedData.metas._job_location[194]}}/> <span dangerouslySetInnerHTML={{__html:selectedData.metas._job_location[527]}}/>
                                 </Col>
                                 <Col className={`${styles['quick-padding']} ${['col-12 col-md-6 text-end']}`}>
                                     <ul>
@@ -86,7 +93,7 @@ const App=()=>{
                                           <span> <FavoriteBorderIcon  className={`${['bg-light border border-secondary rounded-circle']}`}  style={{fontSize:50,padding:'10px',paddingTop:'12px'}}/></span>
                                         </li>
                                         <li>
-                                        <Button as='a' className={styles['quick-apply-button']}>Quick Apply</Button>   
+                                        <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
                                         </li>
                                     </ul>
                                 </Col>
@@ -95,22 +102,21 @@ const App=()=>{
                             <Row className={styles['job-details']}>
                                 <Col className={styles['col-md-6']}>
                                     <h1>Job Details</h1>
-                                    <p><BusinessCenterIcon style={{fontSize:20,marginTop:'-5px'}}/> Contract</p>
+                                    <p><BusinessCenterIcon style={{fontSize:20,marginTop:'-5px'}}/> <span dangerouslySetInnerHTML={{__html:selectedData.metas._job_type[47]}}/></p>
                                 </Col>
                                 <Col className={['col-md-6 d-flex align-items-center']}>
-                                    <p className={['mt-4 pt-2']}><AttachMoneyIcon/>$50-$90 an hour</p>
+                                  {selectedData.metas._job_salary_type &&  <p className={['mt-4 pt-2']}><AttachMoneyIcon/><span dangerouslySetInnerHTML={{__html:selectedData.metas._job_salary_type}}/></p> }
                                 </Col>
-                             
+                             {selectedData.metas._job_qualification &&
                                 <Col xs={12}>
-                                    <h1 className={styles['qual']}>Qualifications</h1>
-                                    <Badge className={styles['badge']}>AJAX</Badge>
+                                     <h1 className={styles['qual']}>Qualifications</h1>
+                                   <Badge className={styles['badge']}><span dangerouslySetInnerHTML={{__html:selectedData.metas._job_qualification}}/></Badge> 
                                 </Col>
+}
                                 <hr className={styles['horizontal-rule']}/>
                                 <Col md={12} className={styles['discription']}>
                                 <h1 className={styles['qual']}>Full Job Description</h1>
-                                    <p>
-                                    Digital Reach Agency is a full-service digital marketing agency for B2B SaaS & Tech companies. We're an enthusiastic, open-minded team of compassionate and talented people. Our company prides itself on the amazing people who are a part of our team – employee well-being is our priority, our work matters to us, we foster growth & learning in the workplace, and have implemented initiatives to ensure we're engaging our team and empowering every member to succeed.
-                                    </p>
+                                <span dangerouslySetInnerHTML={{__html:selectedData.content.rendered}}/>
                                 </Col>
                             </Row>
                             <hr className={styles['horizontal-rule']}/>
@@ -126,14 +132,14 @@ const App=()=>{
                                           <span> <FavoriteBorderIcon className={`${['bg-light border border-secondary rounded-circle']}`}  style={{fontSize:50,padding:'10px',paddingTop:'12px'}}/></span>
                                         </li>
                                         <li>
-                                        <Button as='a' className={styles['quick-apply-button']}>Quick Apply</Button>   
+                                        <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']} className={styles['quick-apply-button']}>Quick Apply</Button>   
                                         </li>
                                     </ul>
                                 </Col>
                             </Row>
                         </Row>
                     </Col>
-                    )
+                    ) : <div>no data to display</div>
                 }  
             </Row>
       </Col>
@@ -144,12 +150,12 @@ const App=()=>{
 
 
 const FindJob=()=> {
-    const {status,data} = useSession();
+/*     const {status,data} = useSession();
     const router = useRouter();
     useEffect(()=>{
         if(status==="unauthenticated") router.replace("/jobs/sign-in");
     },[status]);
-    if(status==="authenticated")
+    if(status==="authenticated") */
       return (
         <div className={styles['jobs-container']} style={{overflowX:'hidden'}}>
           <Head>
@@ -172,55 +178,47 @@ const FindJob=()=> {
                         <Col xs={12} md={'auto'} className={styles['search-bar-cols']}>
                             <Form>
                                 <Form.Group controlId="formCity">
-                                <Dropdown >
-                                    <Dropdown.Toggle id="dropdown-basic" className={styles["drop-down-buttons"]}>
-                                     <span> <LocationOnIcon/> City or "Remote" </span>
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu className={styles["drop-down-menus"]}>
-                                        <Dropdown.Item href="#/action-1">Addis Ababa</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">Assosa</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Bahir Dar</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Debre Birhan</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Ethiopia</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Jijiga</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Mekelle</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Remote</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                    </Dropdown>
+                                <Form.Select className={styles["drop-downs"]} onChange={(event)=>setSubmitJob({...submitJob,sector : event.target.value})}>
+                                        <option  value='' disabled> {/* <LocationOnIcon/> */} City or "Remote" </option>
+                                        <option value='AddisAbeba'>Addis Abeba</option>
+                                        <option value='Assosa'>Assosa</option>
+                                        <option value='BahirDar'>Bahir Dar</option>
+                                        <option value='Ethiopia'>Ethiopia</option>
+                                        <option value='Jigjiga'>Jigjiga</option>
+                                        <option value='Mekelle'>Mekelle</option>
+                                        <option value='Remote'>Remote</option>
+                                </Form.Select>
+                              
                                 </Form.Group>
                             </Form>
                         </Col>
                         <Col xs={12} md={'auto'} className={styles['search-bar-cols']}>
                             <Form>
                                 <Form.Group  controlId="formCity">
-                                <Dropdown>
-                                    <Dropdown.Toggle id="dropdown-basic" className={styles["drop-down-buttons"]}>
-                                    <span> <BusinessCenterIcon/> All Categories </span>
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu className={styles["drop-down-menus"]}>
-                                        <Dropdown.Item href="#/action-1">Agriculture, Food & Natural Resources</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">Arts, Audio/ Video Technology & Communications</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Business Management and Administration</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Education & Training</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Finance</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Government & Public Administration</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Health Science</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Hospitality & Tourism</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Human Resources</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Information Technology</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">International Trade & Development</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Manufacturing</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Marketing</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Other</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Science, Technology, Engineering & Mathematics</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Transportation, Distribution & Logistics</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                    </Dropdown>
+                                <Form.Select className={styles["drop-downs"]} onChange={(event)=>setSubmitJob({...submitJob,sector : event.target.value})}>
+                                        <option  value='' > {/* <BusinessCenterIcon/> */}  All Categories</option>
+                                        <option value='Agriculture, Food & Natural Resources'>Agriculture, Food & Natural Resources</option>
+                                        <option value='Arts, Audio/ Video Technology & Communications'>Arts, Audio/ Video Technology & Communications</option>
+                                        <option value='Business Management and Administration'>Business Management and Administration</option>
+                                        <option value='Education & Training'>Education & Training</option>
+                                        <option value='Finance'>Finance</option>
+                                        <option value='Government & Public Administration'>Government & Public Administration</option>
+                                        <option value='Health Science'>Health Science</option>
+                                        <option value='Hospitality & Tourism'>Hospitality & Tourism</option>
+                                        <option value='Human Resources'>Human Resources</option>
+                                        <option value='Information Technology'>Information Technology</option>
+                                        <option value='International Trade & Development'>International Trade & Development</option>
+                                        <option value='Manufacturing'>Manufacturing</option>
+                                        <option value='Marketing'>Marketing</option>
+                                        <option value='Other'>Other</option>
+                                        <option value='Science, Technology, Engineering & Mathematics'>Science, Technology, Engineering & Mathematics</option>
+                                        <option value='Transportation, Distribution & Logistics'>Transportation, Distribution & Logistics</option>
+                                </Form.Select>
                                 </Form.Group>
                             </Form>
                         </Col>
                         <Col className={styles['search-bar-cols']} style={{borderRight:'none'}}>
-                            <Button type='submit'> Find Job</Button>
+                            <Button type='submit'> Find Jobs</Button>
                             {/* <Form>
                                 <Form.Group  controlId="formCity">
                                 <Dropdown >
@@ -316,3 +314,5 @@ const FindJob=()=> {
     }
 
 export default FindJob
+
+

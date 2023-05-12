@@ -6,6 +6,7 @@ import FooterJobs from '../Components/FooterJobs';
 import Link  from 'next/link'
 import style from '@/styles/Register.module.css'
 const Register=()=> {
+    
   return (
     <>
     <NavbarJobs/>

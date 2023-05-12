@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect,createContext, useState } from 'react';
 import {SessionProvider} from 'next-auth/react'
 import '@/styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-
+import AppContext from './AppContext';
 
 export default function App({ Component, pageProps}) {
   useEffect(()=>{
@@ -14,9 +14,18 @@ export default function App({ Component, pageProps}) {
     once:true
   });
 })
+const [nameContext,setNameContext] =  useState("")
+const datas = nameContext;
+/* console.log(datas.id)
+ */  
+/* { vArray &&  vArray.map(abc =>{
+   console.log(abc)})
+  }  */ 
   return(
-    <SessionProvider session={pageProps.session}>
-      <Component {...pageProps} />
+   <SessionProvider session={pageProps.session}>
+      <AppContext.Provider value={{nameContext,setNameContext}}>
+        <Component {...pageProps} />
+      </AppContext.Provider>
     </SessionProvider>
-  ) 
+   ) 
 }

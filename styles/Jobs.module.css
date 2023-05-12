@@ -190,7 +190,7 @@
     top: 0px;
     bottom: 0;
     left: -5px;
-    max-height:620px;
+    max-height:100vh;
     overflow-y: auto;
     border:1px solid var(--color-text);
     border-radius: 5px;
@@ -240,6 +240,8 @@
     border:1px solid var(--color-text);
     border-radius: 5px;
     padding-left: 20px;
+    max-height: 100vh;
+    overflow-y: auto;
   }
   .search-results .click-result .jobs-show-button{
     display: none;
@@ -304,6 +306,20 @@
     margin:15px 2.5%;
     width:95%;
   }
+   .drop-downs{
+    height: 4rem;
+     text-align: left;
+     color:var(--color-text-smoke);
+     border:0px solid silver;
+  }
+   .drop-downs:focus{
+    box-shadow: none;
+    padding-top: 2rem;
+  }
+ .drop-down-menus{
+     width: 100%;
+ }
+
   @media (max-width:576px){
     .search-bar-cols .drop-down-menus {
       width: 100% !important;
