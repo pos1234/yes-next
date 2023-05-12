@@ -1,4 +1,4 @@
-import React, { useEffect, useState,createContext,useContext } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import axios from 'axios'
 import {Row, Dropdown, Col,Form, Nav, Button, Container, Badge} from 'react-bootstrap'
 import NavbarJobs from './Components/NavbarJobs'
@@ -14,45 +14,64 @@ import FooterJobs from './Components/FooterJobs'
 import styles from '@/styles/Jobs.module.css'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
-import AppContext from './AppContext'
+import {AppContext} from './AppContext'
+import { set } from 'react-hook-form'
 const App=()=>{
-    const context = useContext(AppContext)
+    const {data} = useContext(AppContext)
     const [disp,setDisp]=useState(true);
     const [disp2,setDisp2]=useState(true);
-    const [data,setData]=useState([])
+    const [datas,setDatas]=useState([])
+    const [dataone,setDataOne] = useState()
+    
     const [selectedId,setSelectedId]=useState(null)
-    const [selectedData,setSelectedData]=useState(false)
-    const url='https://yes.et/jobs/wp-json/wp/v2/job_listing/';
+  const [selectedData,setSelectedData]=useState('')
+ 
+   /*  const url='https://yes.et/jobs/wp-json/wp/v2/job_listing/';
     useEffect(()=>{
         axios.get(`${url}`)
         .then(response=>setData(response.data.slice(0,10)))
 /*         .then(response=>context.setNameContext(response.data.slice(0,10)))
- */       .then(response=>handleItemClick(13635))
+       .then(response=>handleItemClick(13635))
      },[]);
+     */
+    /* {
+        data && 
+        console.log(setDataOne[data[1]]);
+     
+    } */
+    /*  {
+        (data) ? handleItemClick(data[0].id) : null;
+     } */
+   
     function handleItemClick(id){
-         setSelectedId(id);
-        axios.get(`${url}${id}`)
-        .then(response=>setSelectedData(response.data)); 
-    } 
-    function hideShow(){
+        setSelectedId(id);
+        const post = data.find(post => post.id === id)
+            setSelectedData(post) 
+    /*    axios.get(`${url}${id}`)
+        .then(response=>setSelectedData(response.data));  */
+    }  
+    
+/*     handleItemClick(data[1].id)
+ */    function hideShow(){
         setDisp(false)
     }
     function showHide(){
         setDisp(true);
     } 
-  
+/*     {data && handleItemClick(data[1].id)}
+ *//*   console.log(data[1].id)
+ */ 
     return(
         <Container className={styles['search-results']} fluid>
         <Row style={{margin:0,padding:0}}>
         <Col>    
       <Nav className={disp ? `${styles['sidebar']} ${styles['displays']}`:`${styles['sidebar']} ${styles['no-displays']}`} onClick={hideShow} /* style={{display: disp ? 'block':'none'}} */>
-        {
+        { data &&
             data.map(select=>(
                <Nav.Item key={select.id} style={{margin:0,padding:0,width:'100%'}} onClick={()=>handleItemClick(select.id)}>
         <Nav.Link  eventKey={select.id}>
             <Row className={styles['one-search']} tabIndex={1}>
                 <Col  >
-                <h1>{context.nameContext[0]}</h1>
                 <h1 dangerouslySetInnerHTML={{__html:select.title.rendered}}/>
                 <h2 dangerouslySetInnerHTML={{__html:select.metas._job_employer_name}}/>
                 
@@ -74,7 +93,7 @@ const App=()=>{
       <Col xs={12} md={8} className={disp ? `${styles['click-result']} ${styles['no-displays']}`: `${styles['click-result']} ${styles['displays']}`} /* style={{display: disp ? 'none':'block'}} */>
             <Row>
                 {
-                    (selectedData) ?  (
+                    (selectedData) ?  ( 
                         <Col sx={12}>
                             <Button className={styles['jobs-show-button']} onClick={showHide}>Back To Search Result</Button>
                           <img style={{width:50,height:50,borderRadius:'0px',display:'inline',marginBottom:'20px'}} src={selectedData.metas._job_logo}/> <span>  <h1 style={{display:'inline'}} dangerouslySetInnerHTML={{__html:selectedData.title.rendered}}/> </span>
