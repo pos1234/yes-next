@@ -1,0 +1,18 @@
+.paginationContainer{
+/*     background-color: red;
+ */    margin-top: 10%;
+    justify-content: space-around;
+}
+.paginationContainer > li > *{
+    border-radius: 50%;
+    color:#25CED1;
+}
+.active > *{
+    background-color: #25CED1 !important;
+    color:white !important;
+}
+.active > *:focus{
+    box-shadow: none;
+    color:white;
+}
+

@@ -29,6 +29,23 @@ const SubmitJobOrder = ()=>{
         try{
                 await sendJobOrder(submitJob);
                 setError('succesfully sent the data')
+                setSubmitJob({
+                    companyName:"",
+                    companyWebsite:"",
+                    sector:"",
+                    companyPersonEmail:"",
+                    fullName:"",
+                    contactPersonPhone:"",
+                    companyAdress:"",
+                    specialization:"",
+                    jobLocation:"",
+                    paymentRange:"",
+                    hiringPosition:"",
+                    preferredGender:"",
+                    numberOfOpenings:"",
+                    jobDescription:"",
+                    jobFile:"",
+                })
         }catch(error){
             setError(error.message)
         }

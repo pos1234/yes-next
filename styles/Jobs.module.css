@@ -2,6 +2,37 @@
     max-height: 100px;
     background-color:var(--color-white);
   }
+  .clipBoard{
+    background-color:var(--color-accent);
+    width: 20%;
+    position: fixed;
+    right:0;
+    top:0;
+    z-index: 200;
+    padding:10px;
+    font-weight: 600;
+    opacity: 0;
+    animation-name: abc;
+    animation-duration: 3s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+    color:white;
+  }
+  @keyframes abc{
+    0%{
+        opacity: 0;
+    }
+    50%{
+      opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+  }
+  .loading{
+    position: relative;
+    left:40%;
+  }
   .job-navigation .logo-image img{
     width:50%;
     height:50%;
@@ -185,6 +216,11 @@
     position: relative;
     padding-bottom: 3rem;
   }
+  .sidebarColContainer{
+/*     background-color: red;
+ */    position: relative;
+ 
+  }
   .sidebar {
     position:relative;
     top: 0px;
@@ -194,6 +230,7 @@
     overflow-y: auto;
     border:1px solid var(--color-text);
     border-radius: 5px;
+    background-attachment: fixed;
 /*     background-color: green;
  */  }
   .sidebar .one-search{
@@ -240,8 +277,9 @@
     border:1px solid var(--color-text);
     border-radius: 5px;
     padding-left: 20px;
-    max-height: 100vh;
-    overflow-y: auto;
+/*     max-height: 100vh;
+ */    
+ overflow-y: auto;
   }
   .search-results .click-result .jobs-show-button{
     display: none;
@@ -299,8 +337,8 @@
     border-radius: 3px !important;
   }
   .search-results .job-details .discription{
-    max-height: 600px;
-    overflow-y: auto;
+/*     max-height: 600px;
+ */    overflow-y: auto;
   }
   .search-results .horizontal-rule{
     margin:15px 2.5%;

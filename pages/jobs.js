@@ -16,70 +16,82 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import {AppContext} from './AppContext'
 import { set } from 'react-hook-form'
+import CheckIcon from '@mui/icons-material/Check';
+import FPagination from './Components/Pagination'
+import { paginate } from '@/utils/paginate'
 const App=()=>{
-    const {data} = useContext(AppContext)
+    const {data,loading,one} = useContext(AppContext)
     const [disp,setDisp]=useState(true);
     const [disp2,setDisp2]=useState(true);
     const [datas,setDatas]=useState([])
-    const [dataone,setDataOne] = useState()
-    
-    const [selectedId,setSelectedId]=useState(null)
-  const [selectedData,setSelectedData]=useState('')
- 
-   /*  const url='https://yes.et/jobs/wp-json/wp/v2/job_listing/';
+    const [selectedData,setSelectedData]=useState(one)
+    const [clip,setClip]  = useState (false)
+    const [currentPage,setCurrentPage] = useState (1);
+  
+    const pageSize = 10;
     useEffect(()=>{
-        axios.get(`${url}`)
-        .then(response=>setData(response.data.slice(0,10)))
-/*         .then(response=>context.setNameContext(response.data.slice(0,10)))
-       .then(response=>handleItemClick(13635))
-     },[]);
-     */
-    /* {
-        data && 
-        console.log(setDataOne[data[1]]);
-     
-    } */
-    /*  {
-        (data) ? handleItemClick(data[0].id) : null;
-     } */
-   
+        setSelectedData(one)
+    },[one])    
+    const handlePageChange =(page)=>{
+        setCurrentPage(page);
+    }
+    const paginatePosts = paginate (data,currentPage,pageSize);
+   function clipBoard(){
+     navigator.clipboard.writeText(selectedData.metas._job_apply_url);
+        setClip(true)
+        clipReset();
+   }
+   function clipReset(){
+            if(clip){
+                setClip(false)
+            }
+   }
     function handleItemClick(id){
-        setSelectedId(id);
+        
         const post = data.find(post => post.id === id)
             setSelectedData(post) 
-    /*    axios.get(`${url}${id}`)
-        .then(response=>setSelectedData(response.data));  */
     }  
-    
-/*     handleItemClick(data[1].id)
- */    function hideShow(){
+        function hideShow(){
         setDisp(false)
     }
     function showHide(){
         setDisp(true);
     } 
-/*     {data && handleItemClick(data[1].id)}
- *//*   console.log(data[1].id)
- */ 
     return(
+        <>
+        {
+            (data) ? 
+       
         <Container className={styles['search-results']} fluid>
+                   {
+                clip &&
+             <div className={styles['clipBoard']}>
+                <Row>
+                    <Col xs={1} style={{paddingTop:'15px',paddingRight:'10px'}}>
+                        <CheckIcon/>
+                    </Col>
+                    <Col>
+                    <p>The Link is Copied to the clipboard.</p>
+                 <p>Share with your friend</p>
+                    </Col>
+                </Row>
+                
+            </div> 
+}
         <Row style={{margin:0,padding:0}}>
-        <Col>    
+        <Col className={styles['sidebarColContainer']}>    
       <Nav className={disp ? `${styles['sidebar']} ${styles['displays']}`:`${styles['sidebar']} ${styles['no-displays']}`} onClick={hideShow} /* style={{display: disp ? 'block':'none'}} */>
-        { data &&
-            data.map(select=>(
+        { 
+        
+        data &&
+            paginatePosts.map(select=>(
                <Nav.Item key={select.id} style={{margin:0,padding:0,width:'100%'}} onClick={()=>handleItemClick(select.id)}>
         <Nav.Link  eventKey={select.id}>
             <Row className={styles['one-search']} tabIndex={1}>
                 <Col  >
-                <h1 dangerouslySetInnerHTML={{__html:select.title.rendered}}/>
-                <h2 dangerouslySetInnerHTML={{__html:select.metas._job_employer_name}}/>
-                
-{/*                     <h1>{select.title}</h1>
-                    <h2>{select.title}</h2>
-                    <p className={styles['content']}>{select.title}</p>
-                    <p>Estimated: {select.title} &nbsp; <InfoIcon sx={{fontSize:20}}/> <span className='quick'>Quick Apply</span></p> */}
-                    </Col>
+                    <h1 dangerouslySetInnerHTML={{__html:select.title.rendered}}/>
+                    <h2 dangerouslySetInnerHTML={{__html:select.metas._job_employer_name}}/>
+                </Col>
                 <Col xs={1}>
                     <FavoriteBorderIcon style={{color:'black'}}/>
                 </Col>
@@ -89,12 +101,20 @@ const App=()=>{
             ))
         }
         </Nav>
+
+        
+        <FPagination 
+            items={data.length} 
+            currentPage={currentPage}
+            pageSize={pageSize}
+            onPageChange={handlePageChange}
+        />
         </Col>
       <Col xs={12} md={8} className={disp ? `${styles['click-result']} ${styles['no-displays']}`: `${styles['click-result']} ${styles['displays']}`} /* style={{display: disp ? 'none':'block'}} */>
             <Row>
                 {
                     (selectedData) ?  ( 
-                        <Col sx={12}>
+                        <Col sx={12} >
                             <Button className={styles['jobs-show-button']} onClick={showHide}>Back To Search Result</Button>
                           <img style={{width:50,height:50,borderRadius:'0px',display:'inline',marginBottom:'20px'}} src={selectedData.metas._job_logo}/> <span>  <h1 style={{display:'inline'}} dangerouslySetInnerHTML={{__html:selectedData.title.rendered}}/> </span>
                         <Row>
@@ -106,7 +126,7 @@ const App=()=>{
                                 <Col className={`${styles['quick-padding']} ${['col-12 col-md-6 text-end']}`}>
                                     <ul>
                                         <li>
-                                            <ReplyIcon className={`${['bg-light border border-secondary rounded-circle']}`}  style={{transform:'rotateY(180deg)',fontSize:50,padding:'10px',paddingTop:'12px'}}/>
+                                            <ReplyIcon onClick={clipBoard} className={`${['bg-light border border-secondary rounded-circle']}`}  style={{transform:'rotateY(180deg)',fontSize:50,padding:'10px',paddingTop:'12px'}}/>
                                         </li>
                                         <li>
                                           <span> <FavoriteBorderIcon  className={`${['bg-light border border-secondary rounded-circle']}`}  style={{fontSize:50,padding:'10px',paddingTop:'12px'}}/></span>
@@ -145,13 +165,16 @@ const App=()=>{
                                 <Col className={`${styles['quick-padding']} ${['col-12 col-md-6 text-end']}`}>
                                     <ul>
                                         <li>
-                                            <ReplyIcon className={`${['bg-light border border-secondary rounded-circle']}`} style={{transform:'rotateY(180deg)',fontSize:50,padding:'10px',paddingTop:'12px'}}/>
+
+                                            <ReplyIcon onClick={clipBoard}
+                                                        className={`${['bg-light border border-secondary rounded-circle']}`} style={{transform:'rotateY(180deg)',fontSize:50,padding:'10px',paddingTop:'12px'}}/>
+                                        
                                         </li>
                                         <li>
                                           <span> <FavoriteBorderIcon className={`${['bg-light border border-secondary rounded-circle']}`}  style={{fontSize:50,padding:'10px',paddingTop:'12px'}}/></span>
                                         </li>
                                         <li>
-                                        <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']} className={styles['quick-apply-button']}>Quick Apply</Button>   
+                                        <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
                                         </li>
                                     </ul>
                                 </Col>
@@ -163,7 +186,9 @@ const App=()=>{
             </Row>
       </Col>
       </Row>
-      </Container>
+      </Container> : <img className={styles['loading']} src='/images/Dual Ring-1s-200px.svg'/>
+        }
+        </>
     )
 }
 
@@ -175,6 +200,7 @@ const FindJob=()=> {
         if(status==="unauthenticated") router.replace("/jobs/sign-in");
     },[status]);
     if(status==="authenticated") */
+ 
       return (
         <div className={styles['jobs-container']} style={{overflowX:'hidden'}}>
           <Head>
@@ -183,6 +209,7 @@ const FindJob=()=> {
                 <link rel="shortcut icon" href="/images/yes-logo.svg" />
             </Head>
             <NavbarJobs/>
+     
           <Container className={styles['search-bar-container']} fluid>
                 <Row className={styles['search-bar-inner-container']}>
                     <Row>
@@ -190,7 +217,7 @@ const FindJob=()=> {
                             
                             <Form>
                                 <Form.Group  controlId="formJobTitle">
-                                  <Form.Control className={styles["input-text"]} type="text" placeholder="Job title, keywords..." />
+                                  <Form.Control className={styles["input-text"]} type="text" placeholder="Job title, keywords..." onChange={(e)=>setSearch(e.target.value)}/>
                                 </Form.Group>
                             </Form>
                         </Col>
