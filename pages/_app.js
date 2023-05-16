@@ -4,7 +4,7 @@ import '@/styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import {DataProvider} from './AppContext';
+import {DataProvider} from '../lib/AppContext';
 
 export default function App({ Component, pageProps}) {
   useEffect(()=>{

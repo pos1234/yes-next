@@ -14,7 +14,7 @@ import FooterJobs from './Components/FooterJobs'
 import styles from '@/styles/Jobs.module.css'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
-import {AppContext} from './AppContext'
+import {AppContext} from '../lib/AppContext'
 import { set } from 'react-hook-form'
 import CheckIcon from '@mui/icons-material/Check';
 import FPagination from './Components/Pagination'
