@@ -51,7 +51,7 @@ export default function Navigation() {
          <Nav.Link as={Link} href='/home/about'>About</Nav.Link>   
          <Nav.Link as={Link} href='/home/about'>Client Hub</Nav.Link>   
          <Nav.Link as={Link} href='/jobs'>Find a Job</Nav.Link>   
-         <Nav.Link as={Link} href='/home/hris'>Products <span className={styles['badge-span']}><Badge className={styles['badge']}>New</Badge></span></Nav.Link>   
+         <Nav.Link as={Link} href='/home/hris' style={{position:'relative'}}>Products <span className={styles['badge-span']}><Badge className={styles['badge']}>New</Badge></span></Nav.Link>   
          <Nav.Link as={Link} href='/home/blog'>Blog</Nav.Link>
          <Nav.Link as={Link} href='/home/faq'>FAQ</Nav.Link>   
          <Nav.Link as={Link} href='/home/contact-us'>Get in Touch</Nav.Link>   

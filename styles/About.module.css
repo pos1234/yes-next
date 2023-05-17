@@ -1,3 +1,11 @@
+
+.aos-init {
+  pointer-events: none;
+}
+
+.aos-animate.aos-init {
+  pointer-events: auto;
+}
 #ToggledButton{
     background-color:var(--color-primary);
     border-radius: 50px;

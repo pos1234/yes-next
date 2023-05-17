@@ -47,16 +47,6 @@
   margin:auto;
 }
 
-/* .offcanvas-header button.close{
-  background: none;
-  position: relative;
-  left: -340px;
-  top: -30px;
-  font-size: 1.5rem;  
-  background-color: red !important;
-} 
- */
-
 .toggle-button{
   border:none !important;
   outline:none !important;
@@ -120,9 +110,7 @@
   margin-top: 0px;
   margin-left: 70px;
 }
-/* .navigation{
-  z-index:1 !important;
-} */
+
 .offcanvas-navbar{
   background-color:rgba(255, 255, 255, 0.8);
  } 
@@ -141,9 +129,9 @@
         margin-left: 40px;
       }
       .navigation .toggle-button{
-/*         position: fixed;
- */        left:80%;
-        z-index: 100000 !important;
+       position: fixed;
+        left:80%;
+        z-index: 100;
       }
        .offcanvas-navbar{
        width:70% !important;

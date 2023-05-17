@@ -6,7 +6,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import styles from '@/styles/NavbarJobs.module.css'
-export default function Navigation() {
+export default function Navigation(props) {
   return (
     <>
      <style type="text/css">
@@ -49,7 +49,7 @@ export default function Navigation() {
          </Offcanvas.Header> 
          <Offcanvas.Body>
          <Nav className={`${styles["justify-content-end"]} ${styles["flex-grow-1"]} ${styles["pe-3"]} ${styles["navbar-navs"]}`}>
-         <Nav.Link as={Link} href='/'>Home</Nav.Link>   
+         <Nav.Link as={Link} href={props.hrefHome}>{props.home}</Nav.Link>   
          <Nav.Link as={Link} href='/home/about'>About</Nav.Link>   
          <Nav.Link as={Link} href='/home/about/section'>Client Hub</Nav.Link>   
          <Nav.Link as={Link} href='/home/hris' style={{position:'relative'}}>Products <Badge className={styles['badge']}>New</Badge></Nav.Link>   

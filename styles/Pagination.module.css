@@ -15,4 +15,18 @@
     box-shadow: none;
     color:white;
 }
-
+@media (max-width:576px){
+    .paginationContainer > li > *{
+        border-radius: 50%;
+        width:30px;
+        height:30px;
+        padding:5px;
+        padding-left:10px;
+    } 
+    .displays{
+        display: block !important;
+      }
+      .no-displays{
+        display: none !important;
+      }
+}

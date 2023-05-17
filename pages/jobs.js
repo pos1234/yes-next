@@ -5,12 +5,13 @@ import NavbarJobs from './Components/NavbarJobs'
 import Head from 'next/head'
 import InfoIcon from '@mui/icons-material/Info';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import ReplyIcon from '@mui/icons-material/Reply';
+import ShareIcon from '@mui/icons-material/Share';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import FooterJobs from './Components/FooterJobs'
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import styles from '@/styles/Jobs.module.css'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
@@ -19,6 +20,10 @@ import { set } from 'react-hook-form'
 import CheckIcon from '@mui/icons-material/Check';
 import FPagination from './Components/Pagination'
 import { paginate } from '@/utils/paginate'
+import { LinkedinShareButton,FacebookShareButton,TwitterShareButton} from 'react-share';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 const App=()=>{
     const {data,loading,one} = useContext(AppContext)
     const [disp,setDisp]=useState(true);
@@ -27,7 +32,13 @@ const App=()=>{
     const [selectedData,setSelectedData]=useState(one)
     const [clip,setClip]  = useState (false)
     const [currentPage,setCurrentPage] = useState (1);
-  
+    const [show, setShow] = useState(false);
+    const showDropdown = (e)=>{
+        setShow(!show);
+    }
+    const hideDropdown = e => {
+        setShow(false);
+    }
     const pageSize = 10;
     useEffect(()=>{
         setSelectedData(one)
@@ -54,6 +65,14 @@ const App=()=>{
         function hideShow(){
         setDisp(false)
     }
+    useEffect(()=>{
+        if(!disp){
+            setDisp2(false)
+        }
+        else{
+            setDisp2(true)
+        }
+    },[disp])
     function showHide(){
         setDisp(true);
     } 
@@ -79,8 +98,8 @@ const App=()=>{
             </div> 
 }
         <Row style={{margin:0,padding:0}}>
-        <Col className={styles['sidebarColContainer']}>    
-      <Nav className={disp ? `${styles['sidebar']} ${styles['displays']}`:`${styles['sidebar']} ${styles['no-displays']}`} onClick={hideShow} /* style={{display: disp ? 'block':'none'}} */>
+        <Col  className={styles['sidebarColContainer']}>    
+      <Nav  className={disp ? `${styles['sidebar']} ${styles['displays']}`:`${styles['sidebar']} ${styles['no-displays']}`} onClick={hideShow} /* style={{display: disp ? 'block':'none'}} */>
         { 
         
         data &&
@@ -101,14 +120,18 @@ const App=()=>{
             ))
         }
         </Nav>
+        <div  className={disp ? `${styles['displays']}`:`${styles['no-displays']}`}>
 
-        
-        <FPagination 
+      
+            <FPagination 
             items={data.length} 
             currentPage={currentPage}
             pageSize={pageSize}
-            onPageChange={handlePageChange}
+            onPageChange={handlePageChange} 
+           
         />
+          </div>
+        
         </Col>
       <Col xs={12} md={8} className={disp ? `${styles['click-result']} ${styles['no-displays']}`: `${styles['click-result']} ${styles['displays']}`} /* style={{display: disp ? 'none':'block'}} */>
             <Row>
@@ -124,17 +147,52 @@ const App=()=>{
                                     <LocationOnIcon style={{fontSize:20}}/> <span dangerouslySetInnerHTML={{__html:selectedData.metas._job_location[194]}}/> <span dangerouslySetInnerHTML={{__html:selectedData.metas._job_location[527]}}/>
                                 </Col>
                                 <Col className={`${styles['quick-padding']} ${['col-12 col-md-6 text-end']}`}>
-                                    <ul>
-                                        <li>
-                                            <ReplyIcon onClick={clipBoard} className={`${['bg-light border border-secondary rounded-circle']}`}  style={{transform:'rotateY(180deg)',fontSize:50,padding:'10px',paddingTop:'12px'}}/>
-                                        </li>
-                                        <li>
-                                          <span> <FavoriteBorderIcon  className={`${['bg-light border border-secondary rounded-circle']}`}  style={{fontSize:50,padding:'10px',paddingTop:'12px'}}/></span>
-                                        </li>
-                                        <li>
-                                        <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
-                                        </li>
-                                    </ul>
+                                <Row >
+                                            <Col xs={2}>
+                                            <Dropdown show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
+                                                    <Dropdown.Toggle className={styles['shareIcon']}>
+                                                        <ShareIcon /> 
+                                                    </Dropdown.Toggle>
+
+                                                    <Dropdown.Menu  className={styles['copyIcons']}>
+                                                        <Dropdown.Item>
+                                                            <ContentCopyIcon onClick={clipBoard}/> <span>copy Link </span>
+                                                        </Dropdown.Item>
+                                                        <Dropdown.Item>
+                                                            <FacebookShareButton
+                                                                url={selectedData.metas._job_apply_url}
+                                                                title="Share job to Facebook"
+                                                            >
+                                                            <FacebookIcon/> <span>Facebook </span>
+                                                        </FacebookShareButton>
+                                                        </Dropdown.Item>
+                                                        <Dropdown.Item>
+                                                            <TwitterShareButton 
+                                                                url={selectedData.metas._job_apply_url}
+                                                                title="Share job to Twitter"                                                    >
+                                                            <TwitterIcon/><span>Twitter </span>
+                                                        </TwitterShareButton>
+                                                        </Dropdown.Item>
+                                                        <Dropdown.Item>
+                                                        <LinkedinShareButton 
+                                                            url={selectedData.metas._job_apply_url}
+                                                            title="Share job to LinkedIn"                                                    >
+                                                        <LinkedInIcon/> <span>LinkedIn </span>
+                                                    </LinkedinShareButton>
+                                                        </Dropdown.Item>
+                                                    </Dropdown.Menu>
+                                                    </Dropdown>
+                                                
+      
+                                            </Col>
+                                            <Col xs={2}>
+                                                <FavoriteBorderIcon className={styles['shareIcon']}/>
+                                            </Col>
+                                            <Col xs={6}  >
+                                            <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
+
+                                            </Col>
+                                        </Row>
                                 </Col>
                                 <hr className={styles['horizontal-rule']}/>
                             </Row>
@@ -163,20 +221,53 @@ const App=()=>{
                                 <Col>
                                 </Col>
                                 <Col className={`${styles['quick-padding']} ${['col-12 col-md-6 text-end']}`}>
-                                    <ul>
-                                        <li>
+                                  
+                                        <Row >
+                                            <Col xs={2}>
+                                            <Dropdown show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
+                                                    <Dropdown.Toggle className={styles['shareIcon']}>
+                                                        <ShareIcon /> 
+                                                    </Dropdown.Toggle>
 
-                                            <ReplyIcon onClick={clipBoard}
-                                                        className={`${['bg-light border border-secondary rounded-circle']}`} style={{transform:'rotateY(180deg)',fontSize:50,padding:'10px',paddingTop:'12px'}}/>
-                                        
-                                        </li>
-                                        <li>
-                                          <span> <FavoriteBorderIcon className={`${['bg-light border border-secondary rounded-circle']}`}  style={{fontSize:50,padding:'10px',paddingTop:'12px'}}/></span>
-                                        </li>
-                                        <li>
-                                        <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
-                                        </li>
-                                    </ul>
+                                                    <Dropdown.Menu  className={styles['copyIcons']}>
+                                                        <Dropdown.Item>
+                                                            <ContentCopyIcon onClick={clipBoard}/> <span>copy Link </span>
+                                                        </Dropdown.Item>
+                                                        <Dropdown.Item>
+                                                            <FacebookShareButton
+                                                                url={selectedData.metas._job_apply_url}
+                                                                title="Share job to Facebook"
+                                                            >
+                                                            <FacebookIcon/> <span>Facebook </span>
+                                                        </FacebookShareButton>
+                                                        </Dropdown.Item>
+                                                        <Dropdown.Item>
+                                                            <TwitterShareButton 
+                                                                url={selectedData.metas._job_apply_url}
+                                                                title="Share job to Twitter"                                                    >
+                                                            <TwitterIcon/><span>Twitter </span>
+                                                        </TwitterShareButton>
+                                                        </Dropdown.Item>
+                                                        <Dropdown.Item>
+                                                        <LinkedinShareButton 
+                                                            url={selectedData.metas._job_apply_url}
+                                                            title="Share job to LinkedIn"                                                    >
+                                                        <LinkedInIcon/> <span>LinkedIn </span>
+                                                    </LinkedinShareButton>
+                                                        </Dropdown.Item>
+                                                    </Dropdown.Menu>
+                                                    </Dropdown>
+                                                
+      
+                                            </Col>
+                                            <Col xs={2}>
+                                                <FavoriteBorderIcon className={styles['shareIcon']}/>
+                                            </Col>
+                                            <Col xs={6}  >
+                                            <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
+
+                                            </Col>
+                                        </Row>
                                 </Col>
                             </Row>
                         </Row>
@@ -208,7 +299,7 @@ const FindJob=()=> {
                 <meta name="description" content="Find your dream job in Ethiopia with YES. Browse our extensive listings for fresh graduates, experienced professionals, skilled workers, UN jobs, NGO positions, and more"/>
                 <link rel="shortcut icon" href="/images/yes-logo.svg" />
             </Head>
-            <NavbarJobs/>
+            <NavbarJobs home='home' hrefHome='/'/>
      
           <Container className={styles['search-bar-container']} fluid>
                 <Row className={styles['search-bar-inner-container']}>

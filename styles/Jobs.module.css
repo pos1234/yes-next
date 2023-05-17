@@ -1,3 +1,6 @@
+.body{
+  background-color: red;
+}
 .job-navigation{
     max-height: 100px;
     background-color:var(--color-white);
@@ -213,26 +216,25 @@
     margin-left: -20px;
   }
   .search-results{
-    position: relative;
+   position: inherit;
     padding-bottom: 3rem;
+    z-index: 101;
   }
   .sidebarColContainer{
-/*     background-color: red;
- */    position: relative;
- 
+    position: relative;
+    max-height: 100vh;
   }
   .sidebar {
-    position:relative;
+   position:relative;
     top: 0px;
     bottom: 0;
     left: -5px;
-    max-height:100vh;
+    max-height:89vh;
     overflow-y: auto;
     border:1px solid var(--color-text);
     border-radius: 5px;
-    background-attachment: fixed;
-/*     background-color: green;
- */  }
+  }
+
   .sidebar .one-search{
     padding-top: 1rem;
     border-bottom: 1px solid var(--color-text);
@@ -277,9 +279,12 @@
     border:1px solid var(--color-text);
     border-radius: 5px;
     padding-left: 20px;
-/*     max-height: 100vh;
- */    
- overflow-y: auto;
+   max-height: 100vh;
+ overflow-y: scroll;
+ padding-bottom: 2%;
+  }
+  .search-results .click-result::-webkit-scrollbar{
+    display: none;
   }
   .search-results .click-result .jobs-show-button{
     display: none;
@@ -300,23 +305,67 @@
     margin-right:15px;
    color:var(--color-text-smoke);
   }
-  .search-results .click-result ul .quick-apply-button{
+  .shareIcon{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    padding:10px;
+    border: 1px solid var(--color-text-smoke);
+    cursor: pointer;
+    background-color: unset !important;
+    color:unset !important;
+    border-color:unset !important;
+
+  }
+  .shareIcon:hover{
+  
+    background-color:var(--color-icons) !important;
+
+  }
+  .shareIcon::after{
+    display: none;
+  }
+  /* .shareIcon:hover{
+    cursor: pointer;
+  } */
+  /* .shareIcon:hover ~.copyIcons{
+    display: block;
+  } */
+ 
+  .copyIcons{
+  
+    box-shadow: 10px 30px 100px -1px rgba(0, 0, 0, 0.14);
+    }
+  .copyIcons span{
+    color:var(--color-primary);
+    font-size: 12px;
+  }
+  .copyIcons > *{
+/*     background-color: red;
+ */    display: block !important;
+    color:var(--color-primary);
+    margin-bottom: 10px;
+    position:relative;
+    
+  }
+   .quick-apply-button{
     border-radius: 50px;
     height:50px;
-    width: 50%;
+    width: 100%;
     padding-top: 10px;
     font-weight: 600;
     font-size: 1.2rem;
     background-color: var(--color-primary);
     border:0;
   }
-  .search-results .click-result ul .quick-apply-button:hover{
+  .quick-apply-button:hover{
     background-color: var(--color-primary);
     filter: brightness(95%);
   }
   .search-results .job-details{
     margin:0;
     padding:0;
+  
   }
   .search-results .job-details h1{
     font-size: 1.5rem;
@@ -425,6 +474,7 @@
         max-width:80%;
         margin:auto;
          padding-bottom: 3rem;
+
       }
       .search-bar-container .search-bar-inner-container .search-bar-cols{
        /*  background-color: red; */
