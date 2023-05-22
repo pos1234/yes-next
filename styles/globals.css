@@ -17,3 +17,6 @@ body{
   overflow-x: hidden !important;
   z-index: -300 !important;
 }
+.aos-init[data-aos][data-aos].aos-animate {
+  transform: unset;
+}

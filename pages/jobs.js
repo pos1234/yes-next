@@ -24,7 +24,22 @@ import { LinkedinShareButton,FacebookShareButton,TwitterShareButton} from 'react
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-const App=()=>{
+/* const App=()=>{
+   
+    return(
+       
+    )
+} */
+
+
+const FindJob=()=> {
+/*     const {status,data} = useSession();
+    const router = useRouter();
+    useEffect(()=>{
+        if(status==="unauthenticated") router.replace("/jobs/sign-in");
+    },[status]);
+    if(status==="authenticated") */
+
     const {data,loading,one} = useContext(AppContext)
     const [disp,setDisp]=useState(true);
     const [disp2,setDisp2]=useState(true);
@@ -33,13 +48,19 @@ const App=()=>{
     const [clip,setClip]  = useState (false)
     const [currentPage,setCurrentPage] = useState (1);
     const [show, setShow] = useState(false);
+    const [search,setSearch]=useState("");
+ 
+    const pageSize = 10;
+
+    
+  
     const showDropdown = (e)=>{
         setShow(!show);
     }
     const hideDropdown = e => {
         setShow(false);
     }
-    const pageSize = 10;
+  
     useEffect(()=>{
         setSelectedData(one)
     },[one])    
@@ -76,8 +97,169 @@ const App=()=>{
     function showHide(){
         setDisp(true);
     } 
-    return(
-        <>
+        
+      return (
+        <div className={styles['jobs-container']} style={{overflowX:'hidden'}}>
+          <Head>
+                <title>Explore Job Vacancies in Ethiopia | YES Job Search</title>
+                <meta name="description" content="Find your dream job in Ethiopia with YES. Browse our extensive listings for fresh graduates, experienced professionals, skilled workers, UN jobs, NGO positions, and more"/>
+                <link rel="shortcut icon" href="/images/yes-logo.svg" />
+            </Head>
+            <NavbarJobs  
+                        hrefHome="/" home='Home'
+                        hrefAbout="/home/about" about='About'
+                        hrefClient="/home/about" client='Client Hub'
+                        hrefJobs="/jobs" jobs=''
+                        hrefHris="/home/hris" hris='Products'
+                        hrefBlog="/home/blog" blog='Blog'
+                        hrefFaq="/home/faq" faq='FAQ'
+                        hrefContact="/home/contact-us" contact='Get in Touch'
+                   />
+     
+                   
+
+          <Container className={styles['search-bar-container']} fluid>
+                <Row className={styles['search-bar-inner-container']}>
+                    <Row>
+                        <Col sm={12} md={'auto'} className={styles['search-bar-cols']}>
+                            
+                            <Form>
+                                <Form.Group  controlId="formJobTitle">
+                                  <Form.Control className={styles["input-text"]} type="text" placeholder="Job title, keywords..." onChange={(e)=>setSearch(e.target.value)}/>
+                                </Form.Group>
+                            </Form>
+                        </Col>
+                        <Col xs={12} md={'auto'} className={styles['search-bar-cols']}>
+                            <Form>
+                                <Form.Group controlId="formCity">
+                                <Form.Select className={styles["drop-downs"]} onChange={(event)=>setSubmitJob({...submitJob,sector : event.target.value})}>
+                                        <option  value='' disabled> {/* <LocationOnIcon/> */} City or "Remote" </option>
+                                        <option value='AddisAbeba'>Addis Abeba</option>
+                                        <option value='Assosa'>Assosa</option>
+                                        <option value='BahirDar'>Bahir Dar</option>
+                                        <option value='Ethiopia'>Ethiopia</option>
+                                        <option value='Jigjiga'>Jigjiga</option>
+                                        <option value='Mekelle'>Mekelle</option>
+                                        <option value='Remote'>Remote</option>
+                                </Form.Select>
+                              
+                                </Form.Group>
+                            </Form>
+                        </Col>
+                        <Col xs={12} md={'auto'} className={styles['search-bar-cols']}>
+                            <Form>
+                                <Form.Group  controlId="formCity">
+                                <Form.Select className={styles["drop-downs"]} onChange={(event)=>setSubmitJob({...submitJob,sector : event.target.value})}>
+                                        <option  value='' > {/* <BusinessCenterIcon/> */}  All Categories</option>
+                                        <option value='Agriculture, Food & Natural Resources'>Agriculture, Food & Natural Resources</option>
+                                        <option value='Arts, Audio/ Video Technology & Communications'>Arts, Audio/ Video Technology & Communications</option>
+                                        <option value='Business Management and Administration'>Business Management and Administration</option>
+                                        <option value='Education & Training'>Education & Training</option>
+                                        <option value='Finance'>Finance</option>
+                                        <option value='Government & Public Administration'>Government & Public Administration</option>
+                                        <option value='Health Science'>Health Science</option>
+                                        <option value='Hospitality & Tourism'>Hospitality & Tourism</option>
+                                        <option value='Human Resources'>Human Resources</option>
+                                        <option value='Information Technology'>Information Technology</option>
+                                        <option value='International Trade & Development'>International Trade & Development</option>
+                                        <option value='Manufacturing'>Manufacturing</option>
+                                        <option value='Marketing'>Marketing</option>
+                                        <option value='Other'>Other</option>
+                                        <option value='Science, Technology, Engineering & Mathematics'>Science, Technology, Engineering & Mathematics</option>
+                                        <option value='Transportation, Distribution & Logistics'>Transportation, Distribution & Logistics</option>
+                                </Form.Select>
+                                </Form.Group>
+                            </Form>
+                        </Col>
+                        <Col className={styles['search-bar-cols']} style={{borderRight:'none'}}>
+                            <Button type='submit'> Find Jobs</Button>
+                            {/* <Form>
+                                <Form.Group  controlId="formCity">
+                                <Dropdown >
+                                    <Dropdown.Toggle id="dropdown-basic" className={styles["drop-down-buttons"]}>
+                                    <span>  <LocationOnIcon/> City or "Remote" </span>
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu className={styles["drop-down-menus"]}>
+                                        <Dropdown.Item href="#/action-1">
+                                            Type
+                                        <Form>
+                                            <Form.Check 
+                                                type="switch"
+                                                id="custom-switch"
+                                                label="Contrat"
+                                            />
+                                            <Form.Check 
+                                                type="switch"
+                                                id="custom-switch"
+                                                label="Freelance"
+                                            />
+                                            <Form.Check 
+                                                type="switch"
+                                                id="custom-switch"
+                                                label="Full Time"
+                                            />
+                                            <Form.Check 
+                                                type="switch"
+                                                id="custom-switch"
+                                                label="Internship"
+                                            />
+                                            <Form.Check 
+                                                type="switch"
+                                                id="custom-switch"
+                                                label="Part-Time"
+                                            />
+                                            <Form.Check 
+                                                type="switch"
+                                                id="custom-switch"
+                                                label="Remote"
+                                            />
+                                            </Form>
+                                        </Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1">
+                                            Qualification
+                                        <Form>
+                                            <Form.Check 
+                                                type="switch"
+                                                id="custom-switch"
+                                                label="Certificate"/>
+                                            <Form.Check 
+                                                type="switch"
+                                                id="custom-switch"
+                                                label="Bachelor Degr.."
+                                            />
+                                            <Form.Check 
+                                                type="switch"
+                                                id="custom-switch"
+                                                label="Master's Degree"
+                                            />
+                                            <Form.Check 
+                                                type="switch"
+                                                id="custom-switch"
+                                                label="Doctorate Deg.."
+                                            />
+                                            </Form>
+                                        </Dropdown.Item>
+                                        <Dropdown.Item>
+                                            Salary Range
+                                            <Dropdown.Menu>
+                                                <Dropdown.Item href="#/action-1">0 - 10,000 Monthly</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-2">10,001 - 30,000 Monthly</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-3">60,001 - 100,000 Monthly</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-3">100,001 - 200,000 Monthly</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-3">200,001 - 400,000 Monthly</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-3">400,001 and above in a Month</Dropdown.Item>
+                                        </Dropdown.Menu>
+                                        </Dropdown.Item>
+                                    </Dropdown.Menu>
+                                    </Dropdown>
+                                </Form.Group>
+                            </Form> */}
+                        </Col>
+                    </Row>
+                </Row>
+          </Container>
+
+          <>
         {
             (data) ? 
        
@@ -94,16 +276,17 @@ const App=()=>{
                  <p>Share with your friend</p>
                     </Col>
                 </Row>
-                
             </div> 
 }
         <Row style={{margin:0,padding:0}}>
         <Col  className={styles['sidebarColContainer']}>    
       <Nav  className={disp ? `${styles['sidebar']} ${styles['displays']}`:`${styles['sidebar']} ${styles['no-displays']}`} onClick={hideShow} /* style={{display: disp ? 'block':'none'}} */>
         { 
-        
-        data &&
-            paginatePosts.map(select=>(
+        data && paginatePosts.filter((data) => {
+            const titleLower = data.title.rendered.toLowerCase();
+            const inputLower = search.toLowerCase();
+            return titleLower.includes(inputLower)        
+        }) .map(select=>(
                <Nav.Item key={select.id} style={{margin:0,padding:0,width:'100%'}} onClick={()=>handleItemClick(select.id)}>
         <Nav.Link  eventKey={select.id}>
             <Row className={styles['one-search']} tabIndex={1}>
@@ -121,10 +304,8 @@ const App=()=>{
         }
         </Nav>
         <div  className={disp ? `${styles['displays']}`:`${styles['no-displays']}`}>
-
-      
             <FPagination 
-            items={data.length} 
+            item={data.length} 
             currentPage={currentPage}
             pageSize={pageSize}
             onPageChange={handlePageChange} 
@@ -280,170 +461,6 @@ const App=()=>{
       </Container> : <img className={styles['loading']} src='/images/Dual Ring-1s-200px.svg'/>
         }
         </>
-    )
-}
-
-
-const FindJob=()=> {
-/*     const {status,data} = useSession();
-    const router = useRouter();
-    useEffect(()=>{
-        if(status==="unauthenticated") router.replace("/jobs/sign-in");
-    },[status]);
-    if(status==="authenticated") */
- 
-      return (
-        <div className={styles['jobs-container']} style={{overflowX:'hidden'}}>
-          <Head>
-                <title>Explore Job Vacancies in Ethiopia | YES Job Search</title>
-                <meta name="description" content="Find your dream job in Ethiopia with YES. Browse our extensive listings for fresh graduates, experienced professionals, skilled workers, UN jobs, NGO positions, and more"/>
-                <link rel="shortcut icon" href="/images/yes-logo.svg" />
-            </Head>
-            <NavbarJobs home='home' hrefHome='/'/>
-     
-          <Container className={styles['search-bar-container']} fluid>
-                <Row className={styles['search-bar-inner-container']}>
-                    <Row>
-                        <Col sm={12} md={'auto'} className={styles['search-bar-cols']}>
-                            
-                            <Form>
-                                <Form.Group  controlId="formJobTitle">
-                                  <Form.Control className={styles["input-text"]} type="text" placeholder="Job title, keywords..." onChange={(e)=>setSearch(e.target.value)}/>
-                                </Form.Group>
-                            </Form>
-                        </Col>
-                        <Col xs={12} md={'auto'} className={styles['search-bar-cols']}>
-                            <Form>
-                                <Form.Group controlId="formCity">
-                                <Form.Select className={styles["drop-downs"]} onChange={(event)=>setSubmitJob({...submitJob,sector : event.target.value})}>
-                                        <option  value='' disabled> {/* <LocationOnIcon/> */} City or "Remote" </option>
-                                        <option value='AddisAbeba'>Addis Abeba</option>
-                                        <option value='Assosa'>Assosa</option>
-                                        <option value='BahirDar'>Bahir Dar</option>
-                                        <option value='Ethiopia'>Ethiopia</option>
-                                        <option value='Jigjiga'>Jigjiga</option>
-                                        <option value='Mekelle'>Mekelle</option>
-                                        <option value='Remote'>Remote</option>
-                                </Form.Select>
-                              
-                                </Form.Group>
-                            </Form>
-                        </Col>
-                        <Col xs={12} md={'auto'} className={styles['search-bar-cols']}>
-                            <Form>
-                                <Form.Group  controlId="formCity">
-                                <Form.Select className={styles["drop-downs"]} onChange={(event)=>setSubmitJob({...submitJob,sector : event.target.value})}>
-                                        <option  value='' > {/* <BusinessCenterIcon/> */}  All Categories</option>
-                                        <option value='Agriculture, Food & Natural Resources'>Agriculture, Food & Natural Resources</option>
-                                        <option value='Arts, Audio/ Video Technology & Communications'>Arts, Audio/ Video Technology & Communications</option>
-                                        <option value='Business Management and Administration'>Business Management and Administration</option>
-                                        <option value='Education & Training'>Education & Training</option>
-                                        <option value='Finance'>Finance</option>
-                                        <option value='Government & Public Administration'>Government & Public Administration</option>
-                                        <option value='Health Science'>Health Science</option>
-                                        <option value='Hospitality & Tourism'>Hospitality & Tourism</option>
-                                        <option value='Human Resources'>Human Resources</option>
-                                        <option value='Information Technology'>Information Technology</option>
-                                        <option value='International Trade & Development'>International Trade & Development</option>
-                                        <option value='Manufacturing'>Manufacturing</option>
-                                        <option value='Marketing'>Marketing</option>
-                                        <option value='Other'>Other</option>
-                                        <option value='Science, Technology, Engineering & Mathematics'>Science, Technology, Engineering & Mathematics</option>
-                                        <option value='Transportation, Distribution & Logistics'>Transportation, Distribution & Logistics</option>
-                                </Form.Select>
-                                </Form.Group>
-                            </Form>
-                        </Col>
-                        <Col className={styles['search-bar-cols']} style={{borderRight:'none'}}>
-                            <Button type='submit'> Find Jobs</Button>
-                            {/* <Form>
-                                <Form.Group  controlId="formCity">
-                                <Dropdown >
-                                    <Dropdown.Toggle id="dropdown-basic" className={styles["drop-down-buttons"]}>
-                                    <span>  <LocationOnIcon/> City or "Remote" </span>
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu className={styles["drop-down-menus"]}>
-                                        <Dropdown.Item href="#/action-1">
-                                            Type
-                                        <Form>
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Contrat"
-                                            />
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Freelance"
-                                            />
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Full Time"
-                                            />
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Internship"
-                                            />
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Part-Time"
-                                            />
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Remote"
-                                            />
-                                            </Form>
-                                        </Dropdown.Item>
-                                        <Dropdown.Item href="#/action-1">
-                                            Qualification
-                                        <Form>
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Certificate"/>
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Bachelor Degr.."
-                                            />
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Master's Degree"
-                                            />
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Doctorate Deg.."
-                                            />
-                                            </Form>
-                                        </Dropdown.Item>
-                                        <Dropdown.Item>
-                                            Salary Range
-                                            <Dropdown.Menu>
-                                                <Dropdown.Item href="#/action-1">0 - 10,000 Monthly</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-2">10,001 - 30,000 Monthly</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">60,001 - 100,000 Monthly</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">100,001 - 200,000 Monthly</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">200,001 - 400,000 Monthly</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">400,001 and above in a Month</Dropdown.Item>
-                                        </Dropdown.Menu>
-                                        </Dropdown.Item>
-                                    </Dropdown.Menu>
-                                    </Dropdown>
-                                </Form.Group>
-                            </Form> */}
-                        </Col>
-                    </Row>
-                </Row>
-          </Container>
-
-
-                <App/>
          
           <FooterJobs />
       </div>

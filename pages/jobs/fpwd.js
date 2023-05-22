@@ -18,8 +18,16 @@ const ForgetPassword=()=> {
     };
   return (
     <>
-    <NavbarJobs/>
-    <Container className={style['emp-can-form-container']} fluid>
+                <NavbarJobs  
+                        hrefHome="/" home='Home'
+                        hrefAbout="/home/about" about='About'
+                        hrefClient="/home/about" client='Client Hub'
+                        hrefJobs="/jobs" jobs='Find a Job'
+                        hrefHris="/home/hris" hris='Products'
+                        hrefBlog="/home/blog" blog='Blog'
+                        hrefFaq="/home/faq" faq='FAQ'
+                        hrefContact="/home/contact-us" contact='Get in Touch'
+                   />    <Container className={style['emp-can-form-container']} fluid>
         <Row>
             <Col className={style['emp-can-form-side-image']}>
             <img src='/images/image-1-4.avif'/>   

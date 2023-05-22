@@ -16,11 +16,6 @@ export default function App({ Component, pageProps}) {
 })
 const [nameContext,setNameContext] =  useState("")
 const datas = nameContext;
-/* console.log(datas.id)
- */  
-/* { vArray &&  vArray.map(abc =>{
-   console.log(abc)})
-  }  */ 
   return(
    <SessionProvider session={pageProps.session}>
       <DataProvider>

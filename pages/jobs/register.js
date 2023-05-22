@@ -9,7 +9,16 @@ const Register=()=> {
     
   return (
     <>
-    <NavbarJobs/>
+     <NavbarJobs  
+                        hrefHome="/" home='Home'
+                        hrefAbout="/home/about" about='About'
+                        hrefClient="/home/about" client='Client Hub'
+                        hrefJobs="/jobs" jobs='Find a Job'
+                        hrefHris="/home/hris" hris='Products'
+                        hrefBlog="/home/blog" blog='Blog'
+                        hrefFaq="/home/faq" faq='FAQ'
+                        hrefContact="/home/contact-us" contact='Get in Touch'
+                   />
     <Container className={style['reg-type-container']} fluid>
 <Row>
     <Col className={style['log-side-image']}>

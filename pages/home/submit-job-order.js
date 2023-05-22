@@ -2,7 +2,7 @@ import { useState } from 'react'
 import {Row, Col, Button, Container,Form,Dropdown} from 'react-bootstrap'
 import styles from '@/styles/SubmitJobOrder.module.css'
 import {StyledUrContent} from '../Components/StyledUr'
-import Navigation from '../Components/Navigation'
+import NavbarJobs from '../Components/NavbarJobs'
 import Footer from '../Components/Footer'
 import { sendJobOrder } from '@/lib/api'
 const SubmitJobOrder = ()=>{
@@ -53,7 +53,16 @@ const SubmitJobOrder = ()=>{
      } 
     return (
         <>
-        <Navigation/>
+         <NavbarJobs  
+                        hrefHome="/" home='Home'
+                        hrefAbout="/home/about" about='About'
+                        hrefClient="/home/about" client='Client Hub'
+                        hrefJobs="/jobs" jobs='Find a Job'
+                        hrefHris="/home/hris" hris='Products'
+                        hrefBlog="/home/blog" blog='Blog'
+                        hrefFaq="/home/faq" faq='FAQ'
+                        hrefContact="/home/contact-us" contact='Get in Touch'
+        />
         <Container className={styles['submitJobOrderContainer']}>
             <Button className={styles['submitJobOrderButton']} href='' name='employers-button-link'>   REQUEST NEEDED TALENT</Button>
             <h1 className={styles['submitJobOrderTitle']}>Tell Us About Your <StyledUrContent texts="Hiring Needs"/></h1>

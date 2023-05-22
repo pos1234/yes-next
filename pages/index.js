@@ -4,7 +4,9 @@ import {Row, Col, Button, Container} from 'react-bootstrap'
 import styles from '@/styles/Home.module.css'
 import StarIcon from '@mui/icons-material/Star';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
-import Navigation from './Components/Navigation'
+/* import Navigation from './Components/Navigation'
+ */
+import NavbarJobs from './Components/NavbarJobs';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import StyledUr,{StyledUrContent} from './Components/StyledUr'
 import Footer from './Components/Footer'
@@ -59,7 +61,17 @@ const Home = ()=>{
               {/* Home entry */}
               <div className={styles['home-entry']} >
                   <div className={styles['home-entry-content']} >
-                   <Navigation />
+                   {/* <Navigation /> */}
+                   <NavbarJobs  
+                        hrefHome="/" home=''
+                        hrefAbout="/home/about" about='About'
+                        hrefClient="/home/about" client='Client Hub'
+                        hrefJobs="/jobs" jobs='Find a Job'
+                        hrefHris="/home/hris" hris='Products'
+                        hrefBlog="/home/blog" blog='Blog'
+                        hrefFaq="/home/faq" faq='FAQ'
+                        hrefContact="/home/contact-us" contact='Get in Touch'
+                   />
                       <Row className={styles['home-entry-headings']} data-aos="fade-up" data-aos-duration="2000">
                           <h1 className={styles['h1']}>Right &nbsp;
                               <StyledUr text='fit!' />

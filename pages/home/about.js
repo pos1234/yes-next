@@ -3,7 +3,7 @@ import StyledUr,{StyledUrContent} from '../Components/StyledUr'
 import Link from 'next/link'
 import Head from 'next/head'
 import Footer from '../Components/Footer'
-import Navigation from '../Components/Navigation'
+import NavbarJobs from '../Components/NavbarJobs'
 import ToggledContent from "../Components/ToggledContent"
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import styles from '@/styles/About.module.css'
@@ -28,7 +28,16 @@ const About = () =>{
         
        <div className={styles['about-entry']}>
                     <div className={styles['about-entry-content']}>
-                     <Navigation/>
+                    <NavbarJobs  
+                        hrefHome="/" home='Home'
+                        hrefAbout="" about=''
+                        hrefClient="/home/about" client='Client Hub'
+                        hrefJobs="/jobs" jobs='Find a Job'
+                        hrefHris="/home/hris" hris='Products'
+                        hrefBlog="/home/blog" blog='Blog'
+                        hrefFaq="/home/faq" faq='FAQ'
+                        hrefContact="/home/contact-us" contact='Get in Touch'
+                   />
                         <Row className={styles['about-entry-headings']} >
                             <h1 className={`${styles['display-1']} ${['styled-ur']}`}>Your one-stop-shop for employment solutions in <StyledUr text='Ethiopia!' /></h1>
                             <Row className={styles['about-icon-container']}>

@@ -112,7 +112,7 @@
 }
 
 .offcanvas-navbar{
-  background-color:rgba(255, 255, 255, 0.8);
+  background-color:rgba(255, 255, 255, 0.85);
  } 
 @media (max-width:576px){
   
@@ -130,8 +130,8 @@
       }
       .navigation .toggle-button{
        position: fixed;
-        left:80%;
-        z-index: 100;
+        left:87%;
+        z-index: 100 !important;
       }
        .offcanvas-navbar{
        width:70% !important;

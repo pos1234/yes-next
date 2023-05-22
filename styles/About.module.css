@@ -1,11 +1,4 @@
 
-.aos-init {
-  pointer-events: none;
-}
-
-.aos-animate.aos-init {
-  pointer-events: auto;
-}
 #ToggledButton{
     background-color:var(--color-primary);
     border-radius: 50px;
@@ -209,12 +202,11 @@
   .about-common-style .about-common-style-left{
     margin-right:50px;
     padding-top: 10%;
-    z-index: 1 !important;
+    z-index: 1;
   }
   .about-common-style .about-common-style-right{
     margin-left:50px;
     padding-top: 10%;
-    z-index: 1 !important;
   }
   .about-common-style p,
   .about-common-style ul{
@@ -364,6 +356,7 @@
           font-weight:600;
           font-size: 2.1rem;
           padding-bottom: 1rem;
+          
       }
       .about-common-style .learn-more-link{
         width: 30%;

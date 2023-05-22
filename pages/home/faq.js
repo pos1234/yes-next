@@ -5,8 +5,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {Row, Col, Button, Container,Collapse} from 'react-bootstrap'
 import Footer from '../Components/Footer'
-import Navigation from '../Components/Navigation'
-
+import NavbarJobs from '../Components/NavbarJobs'
 import {StyledUrContent} from '../Components/StyledUr'
 import styles from '@/styles/Faq.module.css'
 const ToggledContent = (props) => {
@@ -42,7 +41,16 @@ const FAQ =()=> {
                 <title>FAQ YES | Empowering Ethiopian Business & Job Seekers</title>
                 <meta name="description" content="View Frequently Asked Questions About Yes"/>
             </Head>
-        <Navigation/>
+            <NavbarJobs  
+                        hrefHome="/" home='Home'
+                        hrefAbout="/home/about" about='About'
+                        hrefClient="/home/about" client='Client Hub'
+                        hrefJobs="/jobs" jobs='Find a Job'
+                        hrefHris="/home/hris" hris='Products'
+                        hrefBlog="/home/blog" blog='Blog'
+                        hrefFaq="/home/faq" faq=''
+                        hrefContact="/home/contact-us" contact='Get in Touch'
+                />
             <Container>
                 <Row className={styles['faq-container-title']}>
                 <img src='/images/Message-1.svg' style={{width:'70px'}} width={70} alt='message-icon'/>

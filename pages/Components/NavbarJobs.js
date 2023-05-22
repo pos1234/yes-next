@@ -49,18 +49,19 @@ export default function Navigation(props) {
          </Offcanvas.Header> 
          <Offcanvas.Body>
          <Nav className={`${styles["justify-content-end"]} ${styles["flex-grow-1"]} ${styles["pe-3"]} ${styles["navbar-navs"]}`}>
-         <Nav.Link as={Link} href={props.hrefHome}>{props.home}</Nav.Link>   
-         <Nav.Link as={Link} href='/home/about'>About</Nav.Link>   
-         <Nav.Link as={Link} href='/home/about/section'>Client Hub</Nav.Link>   
-         <Nav.Link as={Link} href='/home/hris' style={{position:'relative'}}>Products <Badge className={styles['badge']}>New</Badge></Nav.Link>   
-         <Nav.Link as={Link} href='/home/blog'>Blog</Nav.Link>
-         <Nav.Link as={Link} href='/home/faq'>FAQ</Nav.Link>   
-         <Nav.Link as={Link} href='/home/contact-us'>Get in Touch</Nav.Link>   
+        <Nav.Link as={Link} href={props.hrefHome}>{props.home}</Nav.Link>   
+         <Nav.Link as={Link} href={props.hrefAbout}>{props.about}</Nav.Link>   
+         <Nav.Link as={Link} href={props.hrefClient}>{props.client}</Nav.Link>   
+         <Nav.Link as={Link} href={props.hrefJobs}>{props.jobs}</Nav.Link>   
+         <Nav.Link as={Link} href={props.hrefHris}style={{position:'relative'}}>{props.hris} <Badge className={styles['badge']}>New</Badge></Nav.Link>   
+         <Nav.Link as={Link} href={props.hrefBlog}>{props.blog}</Nav.Link>
+         <Nav.Link as={Link} href={props.hrefFaq}>{props.faq}</Nav.Link>   
+         <Nav.Link as={Link} href={props.hrefContact}>{props.contact}</Nav.Link>   
           </Nav> 
           <Row>
              <Row>
                  <Col xs={6}><Button as={Link} id={styles['navbar-sign-in']} href='/jobs/sign-in'>Sign In/ Sign Up</Button></Col>
-                 <Col xs={6}><Button as={Link} id={styles['navbar-sign-in']} href='/jobs/sign-in'>Post Job</Button></Col>
+                 <Col xs={6}><Button as={Link} id={styles['navbar-sign-in']} href='/jobs/sign-in'>Post Jobs</Button></Col>
              </Row>
              <Row>
                  <Col>
