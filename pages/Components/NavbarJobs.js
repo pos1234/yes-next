@@ -6,7 +6,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import styles from '@/styles/NavbarJobs.module.css'
-export default function Navigation(props) {
+const NavbarJobs = (props)=> {
   return (
     <>
      <style type="text/css">
@@ -29,7 +29,7 @@ export default function Navigation(props) {
       </style>
     <Navbar key='expand' bg='' expand='expand' className={styles['navigation']}>
     <Container >
-         <Navbar.Brand as={Link} href='/' name="home" className={styles['logo-image']}><img src='/images/yes-logo.svg' alt='brand-logo'/></Navbar.Brand>
+         <Navbar.Brand as='a' href='/' name="home" className={styles['logo-image']}><img src='/images/yes-logo.svg' alt='brand-logo'/></Navbar.Brand>
          <Row className={styles['navbar-sign-container']}>
          <Col><Button as='a' href='/jobs/sign-in' className={styles['navbar-sign-in']}>Sign In/ Sign Up</Button></Col>
          <Col><Button as='a' href='/jobs/sign-in'  className={styles['navbar-sign-in']} >Post Job</Button></Col>
@@ -84,3 +84,4 @@ export default function Navigation(props) {
  </>
   )
 }
+export default NavbarJobs

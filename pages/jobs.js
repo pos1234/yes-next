@@ -286,7 +286,7 @@ const FindJob=()=> {
             const titleLower = data.title.rendered.toLowerCase();
             const inputLower = search.toLowerCase();
             return titleLower.includes(inputLower)        
-        }) .map(select=>(
+        }).map(select=>(
                <Nav.Item key={select.id} style={{margin:0,padding:0,width:'100%'}} onClick={()=>handleItemClick(select.id)}>
         <Nav.Link  eventKey={select.id}>
             <Row className={styles['one-search']} tabIndex={1}>
