@@ -29,7 +29,7 @@ const NavbarJobs = (props)=> {
       </style>
     <Navbar key='expand' bg='' expand='expand' className={styles['navigation']}>
     <Container >
-         <Navbar.Brand as='a' href='/' name="home" className={styles['logo-image']}><img src='/images/yes-logo.svg' alt='brand-logo'/></Navbar.Brand>
+         <Navbar.Brand as={Link} href='/' name="home" className={styles['logo-image']}><img src='/images/yes-logo.svg' alt='brand-logo'/></Navbar.Brand>
          <Row className={styles['navbar-sign-container']}>
          <Col><Button as='a' href='/jobs/sign-in' className={styles['navbar-sign-in']}>Sign In/ Sign Up</Button></Col>
          <Col><Button as='a' href='/jobs/sign-in'  className={styles['navbar-sign-in']} >Post Job</Button></Col>
@@ -49,14 +49,14 @@ const NavbarJobs = (props)=> {
          </Offcanvas.Header> 
          <Offcanvas.Body>
          <Nav className={`${styles["justify-content-end"]} ${styles["flex-grow-1"]} ${styles["pe-3"]} ${styles["navbar-navs"]}`}>
-        <Nav.Link as={Link} href={props.hrefHome}>{props.home}</Nav.Link>   
-         <Nav.Link as={Link} href={props.hrefAbout}>{props.about}</Nav.Link>   
-         <Nav.Link as={Link} href={props.hrefClient}>{props.client}</Nav.Link>   
-         <Nav.Link as={Link} href={props.hrefJobs}>{props.jobs}</Nav.Link>   
-         <Nav.Link as={Link} href={props.hrefHris}style={{position:'relative'}}>{props.hris} <Badge className={styles['badge']}>New</Badge></Nav.Link>   
-         <Nav.Link as={Link} href={props.hrefBlog}>{props.blog}</Nav.Link>
-         <Nav.Link as={Link} href={props.hrefFaq}>{props.faq}</Nav.Link>   
-         <Nav.Link as={Link} href={props.hrefContact}>{props.contact}</Nav.Link>   
+        <Nav.Link as={Link} href={`${props.hrefHome}`}>{props.home}</Nav.Link>   
+            <Nav.Link as={Link} href={`${props.hrefAbout}`}>{props.about}</Nav.Link>   
+            <Nav.Link as={Link} href={`${props.hrefClient}`}>{props.client}</Nav.Link>   
+            <Nav.Link as={Link} href={`${props.hrefJobs}`}>{props.jobs}</Nav.Link>   
+            <Nav.Link as={Link} href={`${props.hrefHris}`}style={{position:'relative'}}>{props.hris} <Badge className={styles['badge']}>New</Badge></Nav.Link>   
+            <Nav.Link as={Link} href={`${props.hrefBlog}`}>{props.blog}</Nav.Link>
+            <Nav.Link as={Link} href={`${props.hrefFaq}`}>{props.faq}</Nav.Link>   
+            <Nav.Link as={Link} href={`${props.hrefContact}`}>{props.contact}</Nav.Link>   
           </Nav> 
           <Row>
              <Row>
