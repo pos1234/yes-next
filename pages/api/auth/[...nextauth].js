@@ -19,9 +19,9 @@ import CredentialsProvider from "next-auth/providers/credentials";
               }
               return {id:'1234',name:'abc doe',email:"abc@gmail.com"};
             }
-              
             })
           ],
+          secret: 'mysecretvalue',
           pages:{
             signIn:"/jobs/sign-in"
           }
