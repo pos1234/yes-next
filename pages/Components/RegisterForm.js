@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import { Container,Row,Col,Form,Button,FormGroup } from 'react-bootstrap';
 import { useRouter } from 'next/router'
 import NavbarJobs from './NavbarJobs'
-import FooterJobs from './FooterJobs';
+import Footer from './Footer';
 import Link  from 'next/link';
 import styles from '@/styles/RegisterForm.module.css'
 const RegisterForm=(props)=>{
@@ -86,7 +86,7 @@ const RegisterForm=(props)=>{
             </Col>
         </Row>
     </Container>
-    <FooterJobs/>
+    <Footer/>
     </>
     )
 }

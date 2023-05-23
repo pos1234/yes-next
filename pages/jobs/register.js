@@ -2,7 +2,7 @@ import { Container,Row,Col,Form,Button } from 'react-bootstrap';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import BusinessCenterOutlinedIcon from '@mui/icons-material/BusinessCenterOutlined';
 import NavbarJobs from '../Components/NavbarJobs'
-import FooterJobs from '../Components/FooterJobs';
+import Footer from '../Components/Footer';
 import Link  from 'next/link'
 import style from '@/styles/Register.module.css'
 const Register=()=> {
@@ -50,7 +50,7 @@ const Register=()=> {
     </Col>
 </Row>
 </Container>
-<FooterJobs /> 
+<Footer /> 
 </>
   )
 }

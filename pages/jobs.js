@@ -10,11 +10,10 @@ import ApartmentIcon from '@mui/icons-material/Apartment';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import FooterJobs from './Components/FooterJobs'
+import Footer from './Components/Footer'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import styles from '@/styles/Jobs.module.css'
-import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/router'
+
 import {AppContext} from '../lib/AppContext'
 import { set } from 'react-hook-form'
 import CheckIcon from '@mui/icons-material/Check';
@@ -24,21 +23,10 @@ import { LinkedinShareButton,FacebookShareButton,TwitterShareButton} from 'react
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-/* const App=()=>{
-   
-    return(
-       
-    )
-} */
-
+import _ from 'lodash'
 
 const FindJob=()=> {
-/*     const {status,data} = useSession();
-    const router = useRouter();
-    useEffect(()=>{
-        if(status==="unauthenticated") router.replace("/jobs/sign-in");
-    },[status]);
-    if(status==="authenticated") */
+  
 
     const {data,loading,one} = useContext(AppContext)
     const [disp,setDisp]=useState(true);
@@ -49,7 +37,7 @@ const FindJob=()=> {
     const [currentPage,setCurrentPage] = useState (1);
     const [show, setShow] = useState(false);
     const [search,setSearch]=useState("");
- 
+    const [abc,setAbc] = useState(data);
     const pageSize = 10;
 
     
@@ -67,7 +55,12 @@ const FindJob=()=> {
     const handlePageChange =(page)=>{
         setCurrentPage(page);
     }
-    const paginatePosts = paginate (data,currentPage,pageSize);
+    const filtered=  _.filter(data, function(o) {
+        const titleLower = o.title.rendered.toLowerCase();
+        const inputLower = search.toLowerCase();
+        return titleLower.includes(inputLower)        
+    }) 
+    const paginatePosts = paginate (filtered,currentPage,pageSize);
    function clipBoard(){
      navigator.clipboard.writeText(selectedData.metas._job_apply_url);
         setClip(true)
@@ -97,7 +90,8 @@ const FindJob=()=> {
     function showHide(){
         setDisp(true);
     } 
-        
+ 
+    
       return (
         <div className={styles['jobs-container']} style={{overflowX:'hidden'}}>
           <Head>
@@ -132,7 +126,7 @@ const FindJob=()=> {
                         <Col xs={12} md={'auto'} className={styles['search-bar-cols']}>
                             <Form>
                                 <Form.Group controlId="formCity">
-                                <Form.Select className={styles["drop-downs"]} onChange={(event)=>setSubmitJob({...submitJob,sector : event.target.value})}>
+                                <Form.Select className={styles["drop-downs"]}>
                                         <option  value='' disabled> {/* <LocationOnIcon/> */} City or "Remote" </option>
                                         <option value='AddisAbeba'>Addis Abeba</option>
                                         <option value='Assosa'>Assosa</option>
@@ -149,7 +143,7 @@ const FindJob=()=> {
                         <Col xs={12} md={'auto'} className={styles['search-bar-cols']}>
                             <Form>
                                 <Form.Group  controlId="formCity">
-                                <Form.Select className={styles["drop-downs"]} onChange={(event)=>setSubmitJob({...submitJob,sector : event.target.value})}>
+                                <Form.Select className={styles["drop-downs"]}>
                                         <option  value='' > {/* <BusinessCenterIcon/> */}  All Categories</option>
                                         <option value='Agriculture, Food & Natural Resources'>Agriculture, Food & Natural Resources</option>
                                         <option value='Arts, Audio/ Video Technology & Communications'>Arts, Audio/ Video Technology & Communications</option>
@@ -282,11 +276,7 @@ const FindJob=()=> {
         <Col  className={styles['sidebarColContainer']}>    
       <Nav  className={disp ? `${styles['sidebar']} ${styles['displays']}`:`${styles['sidebar']} ${styles['no-displays']}`} onClick={hideShow} /* style={{display: disp ? 'block':'none'}} */>
         { 
-        data && paginatePosts.filter((data) => {
-            const titleLower = data.title.rendered.toLowerCase();
-            const inputLower = search.toLowerCase();
-            return titleLower.includes(inputLower)        
-        }).map(select=>(
+        data && paginatePosts.map(select=>(
                <Nav.Item key={select.id} style={{margin:0,padding:0,width:'100%'}} onClick={()=>handleItemClick(select.id)}>
         <Nav.Link  eventKey={select.id}>
             <Row className={styles['one-search']} tabIndex={1}>
@@ -305,7 +295,7 @@ const FindJob=()=> {
         </Nav>
         <div  className={disp ? `${styles['displays']}`:`${styles['no-displays']}`}>
             <FPagination 
-            item={data.length} 
+            item={ filtered.length} 
             currentPage={currentPage}
             pageSize={pageSize}
             onPageChange={handlePageChange} 
@@ -462,7 +452,7 @@ const FindJob=()=> {
         }
         </>
          
-          <FooterJobs />
+          <Footer/>
       </div>
       )
     }

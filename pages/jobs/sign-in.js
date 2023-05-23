@@ -5,7 +5,7 @@ import  Link  from 'next/link'
 import NavbarJobs from '../Components/NavbarJobs'
 import GoogleIcon from '@mui/icons-material/Google'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
-import FooterJobs from '../Components/FooterJobs'
+import Footer from '../Components/Footer'
 import styles from '@/styles/Login.module.css'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
@@ -36,7 +36,7 @@ const {session,data} = useSession();
                 callbackUrl:"/",
               })
               if(res.status==200){
-                router.push("/jobs/");
+                router.push("/home/faq");
                 console.log('worked')
               } 
  } 
@@ -72,7 +72,7 @@ const {session,data} = useSession();
                 </Form.Group>
                 <Row>
                     <Col>
-                    <Form.Group className="mb-3" controlId="formKeepMeSigned">
+                    <Form.Group className="mb-3" >
                         <Form.Check type="checkbox" label="Keep me signed in" />
                     </Form.Group>
                     </Col>
@@ -115,7 +115,7 @@ const {session,data} = useSession();
             </Col>
         </Row>
     </Container>
-    <FooterJobs /> 
+    <Footer /> 
     </>
     )
 }

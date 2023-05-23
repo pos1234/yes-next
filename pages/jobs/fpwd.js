@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { Container,Row,Col,Form,Button } from 'react-bootstrap';
 import NavbarJobs from '../Components/NavbarJobs'
-import FooterJobs from '../Components/FooterJobs';
+import Footer from '../Components/Footer';
 import Link  from 'next/link';
 import style from '@/styles/Fpwd.module.css'
 const ForgetPassword=()=> {
@@ -53,7 +53,7 @@ const ForgetPassword=()=> {
             </Col>
         </Row>
     </Container>
-<FooterJobs /> 
+<Footer /> 
 </>
   )
 }

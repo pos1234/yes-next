@@ -1,15 +1,21 @@
 import Head from 'next/head'
-import {Row, Col, Button, Container, Nav} from 'react-bootstrap'
+import {Row, Col, Button,Form, Container, Nav} from 'react-bootstrap'
 import Footer from '../Components/Footer'
 import NavbarJobs from '../Components/NavbarJobs'
 import styles from '@/styles/Blog.module.css'
 import { useEffect, useState } from 'react'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 const Blog = () => { 
     const [data,setData] = useState("")
     const [number,setNumber] = useState()
     const [blog,setBlog] = useState('')
+    const [comment,setComment]=useState({
+        name:"",
+        email:"",
+        website:"",
+        comment:""
+    })
     const fetchdata = async ()=>{
         const url='https://yes.et/home/wp-json/wp/v2/posts';
         const res = await fetch(url)
@@ -24,7 +30,20 @@ const Blog = () => {
     const justOne = data.find(post => post.id == id);
     setBlog(justOne)
     setNumber(id)
-  }   
+  }  
+const handleClick =()=>{
+    setNumber('')
+} 
+const handleSubmit = (e)=>{
+    e.preventDefault();
+    setComment({
+        name:"",
+        email:"",
+        website:"",
+        comment:""
+    })
+    console.log(comment);
+}
     return (
        
         <>
@@ -44,16 +63,47 @@ const Blog = () => {
                         hrefContact="/home/contact-us" contact='Get in Touch'
                 />
        {
-        (number) ? (<Container>
+        (number) ? (<Container className={styles['blogDetailContainer']}>
+            <Button variant='outline-info' style={{border:'none'}}><ArrowBackIcon sx={{ fontSize: 30 }} onClick={handleClick}/></Button>
             <Row>
                 <Col>
-                    <h1>{blog.title.rendered}</h1>
+                    <h1 className={styles['blogDetailHeading']}>{blog.title.rendered}</h1>
                 </Col>
             </Row>
             <Row>
                 <Col>
                 <div dangerouslySetInnerHTML={{__html:blog.content.rendered}}/>
                 </Col>
+            </Row>
+            <Row >
+                <Col xs={7}>
+            <Form onSubmit={handleSubmit}>
+                    <h1  className='py-3' style={{color:'black'}}>Leave a comment</h1>
+                    <Row>
+                        <Col>
+                        <Form.Group className="mb-4" >
+                            <Form.Control type="text" value={comment.name} placeholder="name *"  onChange={(e)=>setComment({...comment,name:e.target.value})} required/>
+                        </Form.Group>
+                        </Col>
+                        <Col>
+                            <Form.Group className="mb-4">
+                                <Form.Control type="email" placeholder="email *" value={comment.email} onChange={(e)=>setComment({...comment,email:e.target.value})} required/>
+                            </Form.Group>
+                        </Col>
+                        <Col>
+                            <Form.Group className="mb-3" >
+                            <Form.Control type="text" onChange={(e)=>setComment({...comment,website:e.target.value})} placeholder="Website" />
+                            </Form.Group>
+                        </Col>
+                    </Row>
+                    <Form.Group className="mb-3">
+                        <Form.Control as="textarea" cols={10} rows={10} onChange={(e)=>setComment({...comment,comment:e.target.value})} placeholder="Comment" />
+                    </Form.Group>
+                    <Button variant="dark" className='rounded-pill py-2 px-5' type="submit">
+                        Submit
+                    </Button>
+            </Form>
+            </Col>
             </Row>
         </Container>) :
         (<Container fluid style={{padding:0}}>

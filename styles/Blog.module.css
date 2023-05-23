@@ -70,8 +70,17 @@
       display: block; */
       clip-path: inset(0 0 0 0);
   } 
+  .blogDetailContainer{
+    padding: 3% 0 10% 10%;
+    color: rgb(122, 122, 122);
+  }
+.blogDetailHeading{
+  font-weight: 600;
+  font-size: 3rem;
+  padding:0 20% 0% 0% !important;
+  color:black;
+}
 
- 
 
   @media (max-width:576px){
     .blog-entry{
