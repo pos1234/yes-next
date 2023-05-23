@@ -40,7 +40,6 @@ const {session,data} = useSession();
                 console.log('worked')
               } 
  } 
-
     return(
      
         <>
