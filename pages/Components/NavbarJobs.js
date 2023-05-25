@@ -27,13 +27,13 @@ const NavbarJobs = (props)=> {
         } 
     `}
       </style>
-    <Navbar key='expand' bg='' expand='expand' className={styles['navigation']}>
-    <Container >
+    <Navbar key='expand' bg='' expand='expand' className={styles['navigation']} >
+    <Container fluid>
          <Navbar.Brand as={Link} href='/' name="home" className={styles['logo-image']}><img src='/images/yes-logo.svg' alt='brand-logo'/></Navbar.Brand>
-         <Row className={styles['navbar-sign-container']}>
-         <Col><Button as='a' href='/jobs/sign-in' className={styles['navbar-sign-in']}>Sign In/ Sign Up</Button></Col>
-         <Col><Button as='a' href='/jobs/sign-in'  className={styles['navbar-sign-in']} >Post Job</Button></Col>
-     </Row>
+        <Row className={styles['navbar-sign-container']}>
+            <Col><Button as='a' href='/jobs/sign-in' className={styles['navbar-sign-in']}>Sign In/ Sign Up</Button></Col>
+            <Col><Button as='a' href='/jobs/sign-in'  className={styles['navbar-sign-in']} >Post Job</Button></Col>
+        </Row>
          <Navbar.Toggle className={styles['toggle-button']} aria-controls={`offcanvasNavbarLabel-expand-${'expand'}`} >
               <span className={styles['navbar-toggler-icon-first']}></span>
               <span className={styles['navbar-toggler-icon-second']}></span>
@@ -41,7 +41,7 @@ const NavbarJobs = (props)=> {
          </Navbar.Toggle>
          <Navbar.Offcanvas className={styles['offcanvas-navbar']} id={`offcanvasNavbar-expand-${'expand'}`}
          aria-labelledby={`offcanvasNavbarLabel-expand-${'expand'}`}
-         placement="end">
+         placement="end" backdrop="false">
          <Offcanvas.Header closeButton>
          <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${'expand'}`}>
                 <Link href='/'> <img   src='/images/yes-logo.svg' alt='brand-logo-navbar' className={styles['logo-navbar']}/></Link>

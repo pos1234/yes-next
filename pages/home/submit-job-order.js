@@ -73,6 +73,7 @@ const SubmitJobOrder = ()=>{
                 )
             }
         <Form className={styles['login-form']} onSubmit={handleSub}>
+        
                 <Row>
                     <Col>
                         <h1>Company Details</h1>
@@ -80,7 +81,8 @@ const SubmitJobOrder = ()=>{
                         <Row>
                             <Col md={6}>
                             <Form.Group className="mb-4 ">
-                                <Form.Control value={submitJob.companyName} onChange={(event)=>setSubmitJob({...submitJob,companyName : event.target.value})} placeholder="Company Name" type="text-field" required/>
+                               
+                                <Form.Control value={submitJob.companyName} onChange={(event)=>setSubmitJob({...submitJob,companyName : event.target.value})} placeholder="Company Name *" type="text-field" required/>
                             </Form.Group>   
                             </Col>
                             <Col md={6}>
@@ -101,17 +103,17 @@ const SubmitJobOrder = ()=>{
                             </Col>
                             <Col md={6}>
                             <Form.Group className="mb-4 ">
-                                <Form.Control  value={submitJob.companyPersonEmail} onChange={(event)=>setSubmitJob({...submitJob,companyPersonEmail : event.target.value})}  placeholder="Contact Person Email" type="email" required/>
+                                <Form.Control  value={submitJob.companyPersonEmail} onChange={(event)=>setSubmitJob({...submitJob,companyPersonEmail : event.target.value})}  placeholder="Contact Person Email *" type="email" required/>
                             </Form.Group>   
                             </Col>
                             <Col md={6}>
                             <Form.Group className="mb-4 ">
-                                <Form.Control  value={submitJob.fullName} onChange={(event)=>setSubmitJob({...submitJob,fullName : event.target.value})} placeholder="Full Name" type="text-field" required/>
+                                <Form.Control  value={submitJob.fullName} onChange={(event)=>setSubmitJob({...submitJob,fullName : event.target.value})} placeholder="Full Name *" type="text-field" required/>
                             </Form.Group>   
                             </Col>
                             <Col md={6}>
                             <Form.Group className="mb-4 ">
-                                <Form.Control  value={submitJob.contactPersonPhone} onChange={(event)=>setSubmitJob({...submitJob,contactPersonPhone : event.target.value})} placeholder="Contact Person Phone" type="text-field" required/>
+                                <Form.Control  value={submitJob.contactPersonPhone} onChange={(event)=>setSubmitJob({...submitJob,contactPersonPhone : event.target.value})} placeholder="Contact Person Phone *" type="text-field" required/>
                             </Form.Group>   
                             </Col>
                             <Col xs={12}>
@@ -119,6 +121,7 @@ const SubmitJobOrder = ()=>{
                                 <Form.Control  value={submitJob.companyAdress} onChange={(event)=>setSubmitJob({...submitJob,companyAdress : event.target.value})} placeholder="Company Address" type="text-field" />
                             </Form.Group>   
                             </Col>
+                            
                         </Row>
                     </Col>
                     <Col sm={12} md={6}>
@@ -138,17 +141,17 @@ const SubmitJobOrder = ()=>{
                             </Col>
                             <Col md={6}>
                             <Form.Group className="mb-4 ">
-                                <Form.Control value={submitJob.jobLocation} onChange={(event)=>setSubmitJob({...submitJob,jobLocation: event.target.value})} placeholder="Job Location" type="text-field" required/>
+                                <Form.Control value={submitJob.jobLocation} onChange={(event)=>setSubmitJob({...submitJob,jobLocation: event.target.value})} placeholder="Job Location *" type="text-field" required/>
                             </Form.Group>   
                             </Col>
                             <Col md={6}>
                             <Form.Group className="mb-4 ">
-                                <Form.Control value={submitJob.paymentRange} onChange={(event)=>setSubmitJob({...submitJob,paymentRange: event.target.value})} placeholder="Pay Rate Range" type="text-field" required/>
+                                <Form.Control value={submitJob.paymentRange} onChange={(event)=>setSubmitJob({...submitJob,paymentRange: event.target.value})} placeholder="Pay Rate Range *" type="text-field" required/>
                             </Form.Group>   
                             </Col>
                             <Col md={6}>
                             <Form.Group className="mb-4 ">
-                                <Form.Control value={submitJob.hiringPosition} onChange={(event)=>setSubmitJob({...submitJob,hiringPosition: event.target.value})} placeholder="Position hiring for" type="text-field" required />
+                                <Form.Control value={submitJob.hiringPosition} onChange={(event)=>setSubmitJob({...submitJob,hiringPosition: event.target.value})} placeholder="Position hiring for *" type="text-field" required />
                             </Form.Group>   
                             </Col>
                             <Col md={6}>
@@ -173,7 +176,7 @@ const SubmitJobOrder = ()=>{
                             </Col>
                             <Col xs={12}>
                             <Form.Group className="mb-4">
-                                <Form.Control as={'textarea'} value={submitJob.jobDescription} onChange={(event)=>setSubmitJob({...submitJob,jobDescription: event.target.value})} placeholder="Job Description" rows={5} required/>
+                                <Form.Control as={'textarea'} value={submitJob.jobDescription} onChange={(event)=>setSubmitJob({...submitJob,jobDescription: event.target.value})} placeholder="Job Description *" rows={5} required/>
                             </Form.Group>   
                             </Col>
                             <Col xs={12}>

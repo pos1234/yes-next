@@ -76,9 +76,9 @@
    color:var(--color-white);
   }
   .footer-contact-term{
-    text-align: center;
-    padding:30px 30% 10px;
-    background-color: var(--color-white);
+    text-align: left;
+    padding:30px 0 10px 0;
+     background-color: var(--color-white);
   }
   .footer-contact-term a{
     text-decoration: none;
@@ -86,7 +86,21 @@
   .footer-contact-term a:hover{
     color:var(--color-text-smoke);
   }
-  @media(max-width:576px){
+  .paragraph-right{
+    text-align: right;
+  }
+  @media (max-width:1200px){
+    .footer-contact-yes ul{
+      padding:0;
+    }
+    .footer-contact-yes ul li{
+      display: inline;
+      margin-right: 1rem !important;
+    }
+    
+    
+  }
+  @media(max-width:768px){
     .footer-contact{
         padding:0;
         padding-left: 0%;
@@ -97,29 +111,27 @@
         padding-left: 0px !important;
       }
       .footer-contact-yes-col{
-        margin-right: 0rem;
-        margin-left: 0rem;
-        width: 50% !important;
-        margin-right:unset;
+       
       }
       .footer-contact-term{
-        padding:30px 15% 0px;
         text-align: center;
       }
       .footer-contact .footer-contact-icons{
         margin-right:0rem;
       }
       .footer-contact-term p{
-        text-align: center;
         font-size: 0.9rem;
         padding-bottom:1rem;
       }
       .footer-contact-yes ul {
         width:100%;
-        padding:0;
+        
       }
       .footer-contact-yes ul li{
         display: inline;
-        margin-right: 2rem;
+        margin-right: 1.5rem;
+      }
+      .paragraph-right{
+        text-align: unset;
       }
   }
