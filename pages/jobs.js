@@ -288,9 +288,9 @@ const textHtml = ( text)=>{
                                                     </Dropdown>
                                                 </Col>
                                                  <Col xs={2} >
-                                                    <div className={styles['shareIcon']}>
-                                                      <FavoriteBorderIcon />  
-                                                        </div>
+                                                    <div  className={styles['shareIcon']}>
+                                                      <FavoriteBorderIcon sx={{ fontSize: "28px" }}/>  
+                                                    </div>
                                                 
                                             </Col>  
                                                 <Col xs={8}>
@@ -327,10 +327,10 @@ const textHtml = ( text)=>{
                             </Row>
                             <hr className={styles['horizontal-rule']}/>
                             <Row style={{padding:"0",margin:"0"}}>  
-                            <Col xs={3} sm={4} md={3} lg={6}>
+                            <Col xs={2} sm={4} md={3} lg={6}>
                             
                             </Col> 
-                                        <Col xs={9} sm={8} md={9} lg={6}style={{padding:"0",paddingTop:"5%"}}>
+                                        <Col xs={10} sm={8} md={9} lg={6}style={{padding:"0",paddingTop:"5%"}}>
                                             <Row>
                                                 <Col xs={2}>
                                                 <Dropdown show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
@@ -368,8 +368,9 @@ const textHtml = ( text)=>{
                                                     </Dropdown>
                                                 </Col>
                                                  <Col xs={2}>
-                                                <FavoriteBorderIcon className={styles['shareIcon']}/>
-                                            </Col>  
+                                                 <div  className={styles['shareIcon']}>
+                                                      <FavoriteBorderIcon sx={{ fontSize: "28px" }}/>  
+                                                </div>                                            </Col>  
                                                 <Col xs={8}>
                                                 <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
 
