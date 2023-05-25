@@ -289,8 +289,8 @@ const textHtml = ( text)=>{
                                                     </Dropdown>
                                                 </Col>
                                                  <Col xs={2}>
-                                                <BookmarkBorderIcon className={styles['shareIcon']}/>
-                                            </Col>  
+                                                    <BookmarkBorderIcon />
+                                                </Col>  
                                                 <Col xs={8}>
                                                 <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
 
