@@ -13,7 +13,6 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import Footer from './Components/Footer'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import styles from '@/styles/Jobs.module.css'
-
 import {AppContext} from '../lib/AppContext'
 import { set } from 'react-hook-form'
 import CheckIcon from '@mui/icons-material/Check';
@@ -24,7 +23,8 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import _ from 'lodash'
-
+import { htmlToText } from 'html-to-text'
+import moment from 'moment'
 const FindJob=()=> {
   
 
@@ -38,10 +38,15 @@ const FindJob=()=> {
     const [show, setShow] = useState(false);
     const [search,setSearch]=useState("");
     const [abc,setAbc] = useState(data);
+    const [dab,setDab] = useState();
     const pageSize = 10;
 
-    
-  
+const textHtml = ( text)=>{
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(text,'text/html')
+  const secondText = doc.getElementsByTagName('p')[1]
+  return secondText.textContent.substring(0,200)
+}
     const showDropdown = (e)=>{
         setShow(!show);
     }
@@ -90,8 +95,6 @@ const FindJob=()=> {
     function showHide(){
         setDisp(true);
     } 
- 
-    
       return (
         <div className={styles['jobs-container']} style={{overflowX:'hidden'}}>
           <Head>
@@ -110,12 +113,12 @@ const FindJob=()=> {
                         hrefContact="/home/contact-us" contact='Get in Touch'
                    />
      
-                   
-
-          <Container className={styles['search-bar-container']} fluid>
+       
+          <Container className={disp ? `${styles['search-bar-container']} ${styles['displays']}`:`${styles['search-bar-container']} ${styles['no-displays']}`}
+ fluid>
                 <Row className={styles['search-bar-inner-container']}>
                     <Row>
-                        <Col sm={12} md={'auto'} className={styles['search-bar-cols']}>
+                        <Col md={3} sm={12} className={styles['search-bar-cols']}>
                             
                             <Form>
                                 <Form.Group  controlId="formJobTitle">
@@ -123,11 +126,11 @@ const FindJob=()=> {
                                 </Form.Group>
                             </Form>
                         </Col>
-                        <Col xs={12} md={'auto'} className={styles['search-bar-cols']}>
+                        <Col md={3} xs={12} className={styles['search-bar-cols']}>
                             <Form>
                                 <Form.Group controlId="formCity">
-                                <Form.Select className={styles["drop-downs"]}>
-                                        <option  value='' disabled> {/* <LocationOnIcon/> */} City or "Remote" </option>
+                                <Form.Select className={styles["drop-downs"]} placeholder='hey'>
+                                        <option key='blankChoice' value=''> {/* <LocationOnIcon/> */} City or "Remote" </option>
                                         <option value='AddisAbeba'>Addis Abeba</option>
                                         <option value='Assosa'>Assosa</option>
                                         <option value='BahirDar'>Bahir Dar</option>
@@ -136,15 +139,15 @@ const FindJob=()=> {
                                         <option value='Mekelle'>Mekelle</option>
                                         <option value='Remote'>Remote</option>
                                 </Form.Select>
-                              
+
                                 </Form.Group>
                             </Form>
                         </Col>
-                        <Col xs={12} md={'auto'} className={styles['search-bar-cols']}>
+                        <Col md={3} xs={12} className={styles['search-bar-cols']}>
                             <Form>
-                                <Form.Group  controlId="formCity">
+                                <Form.Group>
                                 <Form.Select className={styles["drop-downs"]}>
-                                        <option  value='' > {/* <BusinessCenterIcon/> */}  All Categories</option>
+                                <option key='blankChoice' value=''> {/* <BusinessCenterIcon/> */}  All Categories</option>
                                         <option value='Agriculture, Food & Natural Resources'>Agriculture, Food & Natural Resources</option>
                                         <option value='Arts, Audio/ Video Technology & Communications'>Arts, Audio/ Video Technology & Communications</option>
                                         <option value='Business Management and Administration'>Business Management and Administration</option>
@@ -165,94 +168,12 @@ const FindJob=()=> {
                                 </Form.Group>
                             </Form>
                         </Col>
-                        <Col className={styles['search-bar-cols']} style={{borderRight:'none'}}>
-                            <Button type='submit'> Find Jobs</Button>
-                            {/* <Form>
-                                <Form.Group  controlId="formCity">
-                                <Dropdown >
-                                    <Dropdown.Toggle id="dropdown-basic" className={styles["drop-down-buttons"]}>
-                                    <span>  <LocationOnIcon/> City or "Remote" </span>
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu className={styles["drop-down-menus"]}>
-                                        <Dropdown.Item href="#/action-1">
-                                            Type
-                                        <Form>
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Contrat"
-                                            />
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Freelance"
-                                            />
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Full Time"
-                                            />
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Internship"
-                                            />
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Part-Time"
-                                            />
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Remote"
-                                            />
-                                            </Form>
-                                        </Dropdown.Item>
-                                        <Dropdown.Item href="#/action-1">
-                                            Qualification
-                                        <Form>
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Certificate"/>
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Bachelor Degr.."
-                                            />
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Master's Degree"
-                                            />
-                                            <Form.Check 
-                                                type="switch"
-                                                id="custom-switch"
-                                                label="Doctorate Deg.."
-                                            />
-                                            </Form>
-                                        </Dropdown.Item>
-                                        <Dropdown.Item>
-                                            Salary Range
-                                            <Dropdown.Menu>
-                                                <Dropdown.Item href="#/action-1">0 - 10,000 Monthly</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-2">10,001 - 30,000 Monthly</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">60,001 - 100,000 Monthly</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">100,001 - 200,000 Monthly</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">200,001 - 400,000 Monthly</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">400,001 and above in a Month</Dropdown.Item>
-                                        </Dropdown.Menu>
-                                        </Dropdown.Item>
-                                    </Dropdown.Menu>
-                                    </Dropdown>
-                                </Form.Group>
-                            </Form> */}
+                        <Col md={3} xs={12} className={styles['search-bar-cols']} style={{borderRight:'none'}}>
+                            <Button type='submit' className={styles['findJob']}> Find Jobs</Button>
                         </Col>
                     </Row>
                 </Row>
           </Container>
-
           <>
         {
             (data) ? 
@@ -273,7 +194,7 @@ const FindJob=()=> {
             </div> 
 }
         <Row style={{margin:0,padding:0}}>
-        <Col  className={styles['sidebarColContainer']}>    
+        <Col  md={5} style={{padding:"0",margin:"0"}}  className={styles['sidebarColContainer']}>    
       <Nav  className={disp ? `${styles['sidebar']} ${styles['displays']}`:`${styles['sidebar']} ${styles['no-displays']}`} onClick={hideShow} /* style={{display: disp ? 'block':'none'}} */>
         { 
         data && paginatePosts.map(select=>(
@@ -283,44 +204,56 @@ const FindJob=()=> {
                 <Col  >
                     <h1 dangerouslySetInnerHTML={{__html:select.title.rendered}}/>
                     <h2 dangerouslySetInnerHTML={{__html:select.metas._job_employer_name}}/>
+                    <p>
+                        {
+                          selectedData && textHtml(select.content.rendered) 
+                        }
+                        ......
+                    </p>
+{/*                     <p >{new Date(select.date).toLocaleDateString([], { year: 'numeric', month: 'long', day: 'numeric' })} </p>
+ */}         
+ <p>{moment(select.date, "YYYYMMDD").fromNow()}</p>           
                 </Col>
-                <Col xs={1}>
+                {/* <Col xs={1}>
                     <FavoriteBorderIcon style={{color:'black'}}/>
-                </Col>
+                </Col> */}
             </Row>
         </Nav.Link>
     </Nav.Item>  
             ))
         }
         </Nav>
-        <div  className={disp ? `${styles['displays']}`:`${styles['no-displays']}`}>
-            <FPagination 
+        <div style={{padding:"0",margin:"0"}} className={disp ? `${styles['displays']}`:`${styles['no-displays']}`}>
+            <FPagination
             item={ filtered.length} 
             currentPage={currentPage}
             pageSize={pageSize}
             onPageChange={handlePageChange} 
-           
         />
           </div>
         
         </Col>
-      <Col xs={12} md={8} className={disp ? `${styles['click-result']} ${styles['no-displays']}`: `${styles['click-result']} ${styles['displays']}`} /* style={{display: disp ? 'none':'block'}} */>
+      <Col xs={12} md={7} className={disp ? `${styles['click-result']} ${styles['no-displays']}`: `${styles['click-result']} ${styles['displays']}`} /* style={{display: disp ? 'none':'block'}} */>
             <Row>
                 {
                     (selectedData) ?  ( 
-                        <Col sx={12} >
-                            <Button className={styles['jobs-show-button']} onClick={showHide}>Back To Search Result</Button>
-                          <img style={{width:50,height:50,borderRadius:'0px',display:'inline',marginBottom:'20px'}} src={selectedData.metas._job_logo}/> <span>  <h1 style={{display:'inline'}} dangerouslySetInnerHTML={{__html:selectedData.title.rendered}}/> </span>
+                        <Col sx={12} className={styles['jobDetailContainer']}>
                         <Row>
-                            <Row >
-                                <Col md={6}>
-                                  <p><ApartmentIcon style={{fontSize:20}}/>  <span dangerouslySetInnerHTML={{__html:selectedData.metas._job_employer_name}}/> </p>
-                                    <LocationOnIcon style={{fontSize:20}}/> <span dangerouslySetInnerHTML={{__html:selectedData.metas._job_location[194]}}/> <span dangerouslySetInnerHTML={{__html:selectedData.metas._job_location[527]}}/>
-                                </Col>
-                                <Col className={`${styles['quick-padding']} ${['col-12 col-md-6 text-end']}`}>
-                                <Row >
-                                            <Col xs={2}>
-                                            <Dropdown show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
+                        <Button className={styles['jobs-show-button']} onClick={showHide}>Back To Search Result</Button>
+
+                            <Row className={styles['job-details']}>
+                                  <Row>
+                                    <Col style={{padding:"0"}} xs={12}>
+                                        <img style={{width:50,height:50,display:'inline',marginBottom:'20px'}} src={selectedData.metas._job_logo}/> <span>  <h1 style={{display:'inline'}} dangerouslySetInnerHTML={{__html:selectedData.title.rendered}}/> </span>
+                                    </Col>
+                                  <Col style={{padding:"0"}}>
+                                        <p><ApartmentIcon style={{fontSize:20}}/>  <span dangerouslySetInnerHTML={{__html:selectedData.metas._job_employer_name}}/> </p>
+                                        <LocationOnIcon style={{fontSize:20}}/> <span dangerouslySetInnerHTML={{__html:selectedData.metas._job_location[194]}}/> <span dangerouslySetInnerHTML={{__html:selectedData.metas._job_location[527]}}/>
+                                    </Col>
+                                        <Col xs={12} sm={12} lg={6} className={styles["quickColContainer"]} style={{padding:"0"}}>
+                                            <Row>
+                                                <Col xs={2}>
+                                                <Dropdown show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
                                                     <Dropdown.Toggle className={styles['shareIcon']}>
                                                         <ShareIcon /> 
                                                     </Dropdown.Toggle>
@@ -353,21 +286,23 @@ const FindJob=()=> {
                                                         </Dropdown.Item>
                                                     </Dropdown.Menu>
                                                     </Dropdown>
-                                                
-      
-                                            </Col>
-                                            <Col xs={2}>
+                                                </Col>
+                                                 <Col xs={2}>
                                                 <FavoriteBorderIcon className={styles['shareIcon']}/>
-                                            </Col>
-                                            <Col xs={6}  >
-                                            <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
+                                            </Col>  
+                                                <Col xs={8}>
+                                                <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
 
-                                            </Col>
-                                        </Row>
-                                </Col>
-                                <hr className={styles['horizontal-rule']}/>
-                            </Row>
-                            <Row className={styles['job-details']}>
+                                                </Col>
+                                            </Row> 
+                                     </Col>
+
+                                            </Row>
+
+                                            <hr className={styles['horizontal-rule']}/>
+
+
+
                                 <Col className={styles['col-md-6']}>
                                     <h1>Job Details</h1>
                                     <p><BusinessCenterIcon style={{fontSize:20,marginTop:'-5px'}}/> <span dangerouslySetInnerHTML={{__html:selectedData.metas._job_type[47]}}/></p>
@@ -388,14 +323,11 @@ const FindJob=()=> {
                                 </Col>
                             </Row>
                             <hr className={styles['horizontal-rule']}/>
-                            <Row className={['d-flex']}>
-                                <Col>
-                                </Col>
-                                <Col className={`${styles['quick-padding']} ${['col-12 col-md-6 text-end']}`}>
-                                  
-                                        <Row >
-                                            <Col xs={2}>
-                                            <Dropdown show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
+                            <Row style={{padding:"0",margin:"0"}}>   
+                                        <Col xs={12} style={{padding:"0",paddingTop:"5%"}}>
+                                            <Row>
+                                                <Col xs={2}>
+                                                <Dropdown show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
                                                     <Dropdown.Toggle className={styles['shareIcon']}>
                                                         <ShareIcon /> 
                                                     </Dropdown.Toggle>
@@ -428,18 +360,17 @@ const FindJob=()=> {
                                                         </Dropdown.Item>
                                                     </Dropdown.Menu>
                                                     </Dropdown>
-                                                
-      
-                                            </Col>
-                                            <Col xs={2}>
+                                                </Col>
+                                                 <Col xs={2}>
                                                 <FavoriteBorderIcon className={styles['shareIcon']}/>
-                                            </Col>
-                                            <Col xs={6}  >
-                                            <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
+                                            </Col>  
+                                                <Col xs={8}>
+                                                <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
 
-                                            </Col>
-                                        </Row>
-                                </Col>
+                                                </Col>
+                                            </Row> 
+                                     </Col>
+                                             
                             </Row>
                         </Row>
                     </Col>

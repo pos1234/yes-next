@@ -39,11 +39,19 @@ const HowHelp = (props)=>{
 }
 const Seeker = (props)=>{
   return (
-      <Col className={styles['home-seeker-lists']}>
-          <img src={props.imageSrc} alt='home-seeker-image' width={80}/>
-          <h2>{props.title}</h2>
-          <p>{props.content}</p>
-          <Button role='link' as={Link} href={props.To} aria-label='links' className={styles['list-button']} name='link-button' ><ArrowRightAltIcon/></Button>
+      <Col  md={4} className={styles['home-seeker-lists']}>
+          <Row>
+            <Col xs={12}>
+                <img src={props.imageSrc} alt='home-seeker-image' width={80}/>
+            </Col>
+            <Col xs={12}>
+                 <h2>{props.title}</h2>
+                <p>{props.content}</p>
+            </Col>
+            <Col xs={12} style={{margin:"0"}}>
+            <Button role='link' as={Link} href={props.To} aria-label='links' className={styles['list-button']} name='link-button' ><ArrowRightAltIcon/></Button>
+            </Col>
+          </Row>
       </Col>
   )
 }
@@ -76,7 +84,7 @@ const Home = ()=>{
                           <h1 className={styles['h1']}>Right &nbsp;
                               <StyledUr text='fit!' />
                           </h1>
-                          <h1 className={`${styles['right-now']} ${styles['h1']}`}><span></span></h1>
+                          <h1 className={`${styles['right-now']} ${styles['h1']}`}><span ></span></h1>
                           <Row className={styles['home-button-container']}>
                               <Col><Button as='a' href='#employer' className={styles['home-entry-button']}>Find Talent <span  className={styles['button-icons']}><StarIcon/></span></Button></Col>
                               <Col><Button as='a' href='#jobseeker'  className={styles['home-entry-button']}>Find a Job <span  className={styles['button-icons']}><BusinessCenterIcon className='button-icons'/></span></Button></Col>
@@ -96,7 +104,7 @@ const Home = ()=>{
                       </Col>
                   </Row>
                   <Row className={styles['home-bridge-box-container']}>
-                      <Col data-aos="fade-up" data-aos-duration="2000">
+                      <Col md={6} data-aos="fade-up" data-aos-duration="2000">
                           <div className={styles["scene"]}>
                               <div className={styles["card"]}>
                                   <div className={`${styles["face"]} ${styles["front"]}`}>
@@ -109,7 +117,7 @@ const Home = ()=>{
                               </div>
                           </div>
                       </Col>
-                      <Col data-aos="fade-up" data-aos-duration="2000">
+                      <Col md={6} data-aos="fade-up" data-aos-duration="2000">
                       <div className={styles["scene"]}>
                               <div className={styles["card"]}>
                                   <div className={`${styles["face"]} ${styles["front"]} ${styles['second-front']}`}>
@@ -214,7 +222,7 @@ const Home = ()=>{
                       </Col>
                   </Row>
                   </div>
-                  <Row className={styles['home-seeker-boxes']} data-aos="fade-up" data-aos-duration="2000">
+                  <Row style={{margin:"0"}} className={styles['home-seeker-boxes']} data-aos="fade-up" data-aos-duration="2000">
                       <Seeker 
                       imageSrc='/images/icon-image-14.avif'
                       title='Build a Resume '
@@ -238,11 +246,11 @@ const Home = ()=>{
               {/* Home Last Content */}
               <Container className={styles['home-last-content']} fluid>
                   <Row>
-                      <Col className={styles['home-last-content-texts']}>
+                      <Col xs={12} sm={{ order: 'first' }} md={6} className={styles['home-last-content-texts']}>
                           <h1>We bridge the gap between talent and businesses in Ethiopia.</h1>
                           <Button as={Link} href='/home/contact-us' className={styles['home-last-content-button']} name='home-last-content-start-button'>Start Now</Button>
                       </Col>
-                      <Col>
+                      <Col xs={12} sm={{ order: 'last' }} md={6}>
                       <img src='/images/Man.svg' alt='last-content-image'/>
                       </Col>
                   </Row>
