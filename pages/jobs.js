@@ -323,8 +323,11 @@ const textHtml = ( text)=>{
                                 </Col>
                             </Row>
                             <hr className={styles['horizontal-rule']}/>
-                            <Row style={{padding:"0",margin:"0"}}>   
-                                        <Col xs={12} style={{padding:"0",paddingTop:"5%"}}>
+                            <Row style={{padding:"0",margin:"0"}}>  
+                            <Col xs={3} sm={4} md={3} lg={6}>
+                            
+                            </Col> 
+                                        <Col xs={9} sm={8} md={9} lg={6}style={{padding:"0",paddingTop:"5%"}}>
                                             <Row>
                                                 <Col xs={2}>
                                                 <Dropdown show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
