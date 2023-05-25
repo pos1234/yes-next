@@ -12,7 +12,6 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import Footer from './Components/Footer'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import styles from '@/styles/Jobs.module.css'
 import {AppContext} from '../lib/AppContext'
 import { set } from 'react-hook-form'
@@ -288,9 +287,12 @@ const textHtml = ( text)=>{
                                                     </Dropdown.Menu>
                                                     </Dropdown>
                                                 </Col>
-                                                 <Col xs={2}>
-                                                    <BookmarkBorderIcon />
-                                                </Col>  
+                                                 <Col xs={2} >
+                                                    <div className={styles['shareIcon']}>
+                                                      <FavoriteBorderIcon />  
+                                                        </div>
+                                                
+                                            </Col>  
                                                 <Col xs={8}>
                                                 <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
 
@@ -366,7 +368,7 @@ const textHtml = ( text)=>{
                                                     </Dropdown>
                                                 </Col>
                                                  <Col xs={2}>
-                                                <BookmarkBorderIcon className={styles['shareIcon']}/>
+                                                <FavoriteBorderIcon className={styles['shareIcon']}/>
                                             </Col>  
                                                 <Col xs={8}>
                                                 <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
