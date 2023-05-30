@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import {Row, Col, Button, Container,Form,Dropdown} from 'react-bootstrap'
 import styles from '@/styles/SubmitJobOrder.module.css'
-import {StyledUrContent} from '../Components/StyledUr'
-import NavbarJobs from '../Components/NavbarJobs'
-import Footer from '../Components/Footer'
+import {StyledUrContent} from '../../Components/StyledUr'
+import NavbarJobs from '../../Components/NavbarJobs'
+import Footer from '../../Components/Footer'
 import { sendJobOrder } from '@/lib/api'
 const SubmitJobOrder = ()=>{
     const [error,setError]=useState('')

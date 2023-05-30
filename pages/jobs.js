@@ -1,7 +1,7 @@
 import React, { useEffect, useState,useContext } from 'react'
 import axios from 'axios'
 import {Row, Dropdown, Col,Form, Nav, Button, Container, Badge} from 'react-bootstrap'
-import NavbarJobs from './Components/NavbarJobs'
+import NavbarJobs from '../Components/NavbarJobs'
 import Head from 'next/head'
 import InfoIcon from '@mui/icons-material/Info';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -10,13 +10,17 @@ import ApartmentIcon from '@mui/icons-material/Apartment';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import Footer from './Components/Footer'
+import Footer from '../Components/Footer'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+<<<<<<< HEAD
+import styles from '@/styles/jobs/Jobs.module.css'
+=======
 import styles from '@/styles/Jobs.module.css'
+>>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d
 import {AppContext} from '../lib/AppContext'
 import { set } from 'react-hook-form'
 import CheckIcon from '@mui/icons-material/Check';
-import FPagination from './Components/Pagination'
+import FPagination from '../Components/Pagination'
 import { paginate } from '@/utils/paginate'
 import { LinkedinShareButton,FacebookShareButton,TwitterShareButton} from 'react-share';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -39,7 +43,11 @@ const FindJob=()=> {
     const [search,setSearch]=useState("");
     const [abc,setAbc] = useState(data);
     const [dab,setDab] = useState();
+<<<<<<< HEAD
+    const pageSize = 7;
+=======
     const pageSize = 10;
+>>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d
 
 const textHtml = ( text)=>{
   const parser = new DOMParser();
@@ -69,6 +77,7 @@ const textHtml = ( text)=>{
    function clipBoard(){
      navigator.clipboard.writeText(selectedData.metas._job_apply_url);
         setClip(true)
+        console.log(clip);
         clipReset();
    }
    function clipReset(){
@@ -259,8 +268,8 @@ const textHtml = ( text)=>{
                                                     </Dropdown.Toggle>
 
                                                     <Dropdown.Menu  className={styles['copyIcons']}>
-                                                        <Dropdown.Item>
-                                                            <ContentCopyIcon onClick={clipBoard}/> <span>copy Link </span>
+                                                        <Dropdown.Item onClick={clipBoard}>
+                                                            <ContentCopyIcon /> <span>copy Link </span>
                                                         </Dropdown.Item>
                                                         <Dropdown.Item>
                                                             <FacebookShareButton
@@ -287,11 +296,18 @@ const textHtml = ( text)=>{
                                                     </Dropdown.Menu>
                                                     </Dropdown>
                                                 </Col>
+<<<<<<< HEAD
+                                                 <Col xs={2}>
+                                                 <div  className={styles['shareIcon']}>
+                                                      <FavoriteBorderIcon sx={{ fontSize: "28px" }}/>  
+                                                </div>
+=======
                                                  <Col xs={2} >
                                                     <div  className={styles['shareIcon']}>
                                                       <FavoriteBorderIcon sx={{ fontSize: "28px" }}/>  
                                                     </div>
                                                 
+>>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d
                                             </Col>  
                                                 <Col xs={8}>
                                                 <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
@@ -326,11 +342,19 @@ const textHtml = ( text)=>{
                                 </Col>
                             </Row>
                             <hr className={styles['horizontal-rule']}/>
+<<<<<<< HEAD
+                            <Row style={{padding:"0",margin:"0"}}> 
+                            <Col xs={2} sm={4} md={3} lg={6}>
+                            
+                            </Col>   
+                                        <Col xs={10} sm={8} md={9} lg={6} style={{padding:"0",paddingTop:"5%"}}>
+=======
                             <Row style={{padding:"0",margin:"0"}}>  
                             <Col xs={2} sm={4} md={3} lg={6}>
                             
                             </Col> 
                                         <Col xs={10} sm={8} md={9} lg={6}style={{padding:"0",paddingTop:"5%"}}>
+>>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d
                                             <Row>
                                                 <Col xs={2}>
                                                 <Dropdown show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
@@ -339,8 +363,8 @@ const textHtml = ( text)=>{
                                                     </Dropdown.Toggle>
 
                                                     <Dropdown.Menu  className={styles['copyIcons']}>
-                                                        <Dropdown.Item>
-                                                            <ContentCopyIcon onClick={clipBoard}/> <span>copy Link </span>
+                                                        <Dropdown.Item onClick={clipBoard}>
+                                                            <ContentCopyIcon/> <span>copy Link </span>
                                                         </Dropdown.Item>
                                                         <Dropdown.Item>
                                                             <FacebookShareButton
@@ -368,9 +392,16 @@ const textHtml = ( text)=>{
                                                     </Dropdown>
                                                 </Col>
                                                  <Col xs={2}>
+<<<<<<< HEAD
+                                                    <div  className={styles['shareIcon']}>
+                                                      <FavoriteBorderIcon sx={{ fontSize: "28px" }}/>  
+                                                    </div>
+                                            </Col>  
+=======
                                                  <div  className={styles['shareIcon']}>
                                                       <FavoriteBorderIcon sx={{ fontSize: "28px" }}/>  
                                                 </div>                                            </Col>  
+>>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d
                                                 <Col xs={8}>
                                                 <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
 

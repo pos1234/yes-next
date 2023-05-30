@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '@/styles/Navigation.module.css'
+import styles from '@/styles/NavbarJobs.module.css'
 const StyledUr =(props)=> {
   return (
     <span className={styles['styled-ur']}>

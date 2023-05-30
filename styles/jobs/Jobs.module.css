@@ -81,13 +81,23 @@
     margin:0rem 3rem 2rem 0rem;
   }
   .search-bar-container{
+<<<<<<< HEAD:styles/jobs/Jobs.module.css
+    background:url('../../public/images/pattern_2x.webp');
+     height: 150px;
+    padding:3vh 3vw 0 !important;
+    margin-bottom: 3rem;
+    position: relative; 
+=======
     background:url('../public/images/pattern_2x.webp');
     height: 150px;
     padding:3vh 3vw 0 !important;
     margin-bottom: 3rem;
     position: relative;
     
+>>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d:styles/Jobs.module.css
   }
+
+  
   .search-bar-container .search-bar-inner-container{
     background:var(--color-white);
     padding:20px;
@@ -123,48 +133,6 @@
    left:30%;
   }
  
-  .search-bar-cols .drop-down-buttons,
-  .search-bar-cols .drop-down-buttons:hover,
-  .search-bar-cols .drop-down-buttons:active,
-  .search-bar-cols .drop-down-buttons:focus{
-   background-color:var(--color-white) !important;
-   color:var(--color-text-smoke) !important; 
-    width:100% !important;
-    text-align: left !important;
-    border:none !important;
-    outline:none !important;
-    box-shadow: none !important;
-   margin-left:0;
- }
- .search-bar-cols .drop-down-buttons:hover,
- .search-bar-cols .drop-down-buttons:focus,
- .search-bar-cols .drop-down-buttons:active{
-  background-color:transparent !important;
- }
-  .search-bar-cols .drop-down-menus {
-   height: 200px;
-   padding:0px;
-   overflow-y:scroll;
-   padding-top: 4rem;
-   position: relative;
-   overflow-x: hidden;
-   line-height: 2rem;
-   width: 250px !important;
-   margin-left: -30px;
-  }
-  .search-bar-cols .drop-down-menus [href] {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  font-size: 14px;
-  white-space: normal;
-  word-break: break-word;
-  line-height: 1.1rem;
-  margin-bottom: 5px;
-  color:var(--color-text-smoke);
-  }
-  .search-bar-cols .drop-down-menus [href]:hover{
-  color:black;
-  }
   .search-bar-cols button{
     width: 80%;
     margin-left: 20%;
@@ -175,6 +143,7 @@
     border:none;
     font-size: 1.2rem;
     filter: brightness(100%) !important;
+    
   }
   .search-bar-cols button:hover{
     background-color: var(--color-primary);
@@ -437,10 +406,21 @@
   .search-bar-container .search-bar-inner-container .search-bar-cols .findJob{
     position: relative;
    max-width:80%;
+<<<<<<< HEAD:styles/jobs/Jobs.module.css
+   left:10%;
+  }
+ 
+ }
+  @media (max-width:768px){
+    .clipBoard{
+    display: none;
+    }
+=======
    left:20%;
   }
  }
   @media (max-width:768px){
+>>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d:styles/Jobs.module.css
     .search-bar-cols .drop-down-menus {
       width: 100% !important;
       margin-left: 0px;
@@ -478,7 +458,7 @@
         margin-right: 0rem;
       }
       .search-bar-container{
-        background:url('../public/images/pattern_2x.webp');
+        background:url('../../public/images/pattern_2x.webp');
         height: 80vh;
         padding:0 !important;
         margin-bottom: 2rem;
@@ -487,17 +467,32 @@
       }
       .search-bar-container .search-bar-inner-container{
         height: 70vh;
-        padding:20px 0px;
-  
+
       }
+<<<<<<< HEAD:styles/jobs/Jobs.module.css
+    
+      .drop-downs
+      ,.search-bar-container .search-bar-inner-container .input-text{
+      border-bottom:1px solid var(--color-text-smoke);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      padding-top:12%;
+      padding-left:2px;
+      height:80px;
+  }
+  .search-bar-container .search-bar-inner-container .input-text:focus{
+      border-bottom:1px solid var(--color-primary) !important;
+  }
+=======
       .search-bar-container .search-bar-inner-container .input-text{
          height:80px;
          
           }
       
+>>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d:styles/Jobs.module.css
       .search-bar-container .search-bar-inner-container .search-bar-cols{
         border-right: 0px solid var(--color-icons) !important;
-         padding:10px 0rem 0 1rem !important; 
+         padding:10px 1rem 0 1rem !important; 
       }
       .search-bar-cols .drop-down-buttons{
        background-color:var(--color-white) !important;

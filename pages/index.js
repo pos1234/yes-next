@@ -4,12 +4,10 @@ import {Row, Col, Button, Container} from 'react-bootstrap'
 import styles from '@/styles/Home.module.css'
 import StarIcon from '@mui/icons-material/Star';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
-/* import Navigation from './Components/Navigation'
- */
-import NavbarJobs from './Components/NavbarJobs';
+import NavbarJobs from '../Components/NavbarJobs';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import StyledUr,{StyledUrContent} from './Components/StyledUr'
-import Footer from './Components/Footer'
+import StyledUr,{StyledUrContent} from '../Components/StyledUr'
+import Footer from '../Components/Footer'
 const YourHr = (props)=>{
   return(
           <Row className={styles['home-your-hr-lists']} >
