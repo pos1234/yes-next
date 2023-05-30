@@ -1,10 +1,10 @@
 import { Container,Row,Col,Form,Button } from 'react-bootstrap';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import BusinessCenterOutlinedIcon from '@mui/icons-material/BusinessCenterOutlined';
-import NavbarJobs from '../Components/NavbarJobs'
-import Footer from '../Components/Footer';
+import NavbarJobs from '../../Components/NavbarJobs'
+import Footer from '../../Components/Footer';
 import Link  from 'next/link'
-import style from '@/styles/Register.module.css'
+import style from '@/styles/jobs/Register.module.css'
 const Register=()=> {
     
   return (
@@ -21,10 +21,10 @@ const Register=()=> {
                    />
     <Container className={style['reg-type-container']} fluid>
 <Row>
-    <Col className={style['log-side-image']}>
-    <img src='/images/image-1-4.avif'/>
+    <Col xs={12} lg={6} className={style['log-side-image']}>
+    <img src='/images/Group12.svg'/>
     </Col>
-    <Col md={5}>
+    <Col xs={12} lg={6}>
         <div className={style['login-form']}>
         <h1>Create a YES Account</h1>
         <Row >

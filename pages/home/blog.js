@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import {Row, Col, Button,Form, Container, Nav} from 'react-bootstrap'
-import Footer from '../Components/Footer'
-import NavbarJobs from '../Components/NavbarJobs'
+import Footer from '../../Components/Footer'
+import NavbarJobs from '../../Components/NavbarJobs'
 import styles from '@/styles/Blog.module.css'
 import { useEffect, useState } from 'react'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -119,7 +119,10 @@ const handleSubmit = (e)=>{
         <Col onClick={()=>blogDetail(oneBlog.id)} key={oneBlog.id} sm={5} className={styles['single-blog']}>
             <Row>
                 <Col sm={5}>
-                    <img src='/images/th.avif'/>
+                    <span>
+                          <img src='/images/th.avif' height={100}/>
+                    </span>
+                  
                 </Col> 
                 <Col sm={7}>
                     <p>{oneBlog.title.rendered}</p>

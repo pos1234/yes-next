@@ -128,10 +128,9 @@
     margin-left:15% !important;
     margin-bottom: 50px;
     padding:2%;
-  /*   background-color: red; 
-   */  border-radius: 14px 14px 14px 14px;
+    border-radius: 14px 14px 14px 14px;
     box-shadow: 0px 0px 16px -9px rgba(0,0,0,0.5);
-    
+
   }
   .about-deliver-boxes img{
    width:50px;
@@ -189,6 +188,7 @@
   .about-common-style{
     margin-top:10rem;
     padding:0 5% !important;
+    overflow:hidden ;
   }
   .about-common-style .learn-more-link{
     color:black;
@@ -200,12 +200,11 @@
     cursor: pointer;
   }
   .about-common-style .about-common-style-left{
-    margin-right:50px;
+    margin-right:0px;
     padding-top: 10%;
-    z-index: 1;
   }
   .about-common-style .about-common-style-right{
-    margin-left:50px;
+    margin-left:0px;
     padding-top: 10%;
   }
   .about-common-style p,
@@ -219,7 +218,7 @@
     padding-top:10%;
   }
   .about-last-content{
-    margin-bottom:5rem;
+    padding-bottom:5rem;
   }
   .about-last-content h2{
     font-size: 1rem;
@@ -231,8 +230,48 @@
     width:400px;
     height: 400px;
   }
-
-  @media (max-width:576px){
+  @media (max-width:992px){
+    .about-entry-headings{
+      text-align: center;
+      padding:20vh 10% 0;
+    }
+    .about-entry-headings h1{
+      font-size:4rem;
+    }
+    .about-deliver .about-deliver-content{
+      text-align: center;
+     padding:0 5%;
+    }
+    .about-deliver-boxes{
+      width:100%;
+      margin-left:0% !important;
+    }
+    .about-deliver-boxes .about-deliver-boxes-content{
+      padding-left: 2vw !important;
+      }
+      .about-values{
+        padding:50px 0% 0 !important;
+      }
+      .about-values .Toggle-collection{
+        width:40%;
+        margin-left:10%;
+      }
+      .about-values .Toggle-collection #ToggledButton{
+        width: 90% ;
+        margin-left:10%;
+        margin-right:0%;
+        margin-bottom: 10px ;
+      }
+      .Toggle-collection p{
+        margin:auto;
+      }
+      .about-common-style .about-common-style-left{
+        margin-right:0px;
+        padding-top: 10%;
+      }
+      
+  }
+  @media (max-width:768px){
 
     .about-container{
         overflow-x: hidden;
@@ -312,6 +351,10 @@
         .about-values .Toggle-collection{
           padding-left: 10%;
         }
+        .about-values .Toggle-collection{
+          width:unset;
+          margin-left:unset;
+        }
         .about-values .Toggle-collection #ToggledButton{
           width: 80% !important;
           margin-left:10%;
@@ -327,7 +370,7 @@
          padding:0 0%;
         }
         .about-services p{
-          padding:0 0%;
+          padding:0 0% ;
           line-height: 1.5rem;
           font-size: 15px;
          }

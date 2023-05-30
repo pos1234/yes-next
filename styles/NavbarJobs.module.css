@@ -1,4 +1,31 @@
-  
+.styled-ur{
+  display: inline-block;
+  position: relative;
+}
+.styled-ur svg{
+  fill:var(--color-accent);
+  height:1.5rem;
+  margin-top: -25px;
+  position: absolute;
+  width: 105%;
+  left:-10px;
+  display: block;
+  z-index: -1;
+}
+.styled-ur-content{
+  display: inline-block;
+  position: relative;
+}
+.styled-ur-content svg{
+  fill:#FF9F0E;
+  height:0.7rem;
+  margin-top: -10px;
+  position: absolute;
+  width: 100%;
+  display: block;
+  z-index: -1;
+}
+
 .navbar-toggler-icon-first,
 .navbar-toggler-icon-second,
 .navbar-toggler-icon-third{
@@ -49,7 +76,8 @@
   color:var(--color-primary);
 }
 .navbar-sign-container{
-  margin-left: 30%;
+  position: absolute;
+  right:10%;
 }
 .navbar-sign-in{
   border:1px solid var(--color-primary);
@@ -57,10 +85,17 @@
   color:var(--color-primary);
   width:145px;
   height:40px;
-  padding-top: 10px;
+  padding-top: 5%;
   border-radius: 50px;
   margin:0rem 0 0rem 1rem;
   overflow: hidden;
+}
+.navbar-sign-in:active{
+  background-color: var(--color-primary) !important;
+  color:white;
+ border:none;
+ transition: all 1s;
+ transform: translateY(5px);
 }
 .navbar-sign-in:hover{
   background-color: var(--color-primary);
@@ -94,9 +129,7 @@
   padding-left: 2rem;
 }
 .logo-image img{
-  width:20%;
-  height:20%;
-  margin-left: -70px;
+  width:100px;
   margin-top:5px;
 }
 .logo-navbar{
@@ -104,11 +137,19 @@
   height:150px;
   margin-top: 0px;
   margin-left: 70px;
+
 }
 .offcanvas-navbar{
-  background-color:rgba(255, 255, 255, 0.85);
+  background-color:rgba(255, 255, 255, 0.93);
  }
-@media (max-width:576px){
+@media (max-width:768px){
+  .styled-ur svg{
+
+    height:0.95rem;
+    margin-top: -15px;
+    left:-5px;
+   
+  }
     .logo-image img{
         width:150px;
         height: 150px;
@@ -125,6 +166,7 @@
       .navigation .toggle-button{
         position: fixed;
         left:87%;
+        top:5%;
         z-index: 100 !important;
         
       }

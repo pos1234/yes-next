@@ -25,22 +25,20 @@
     color:var(--color-white);
     font-size: 84px;
   }
+
 .home-entry-headings .right-now span::before {
     content: "Right now!";
     animation: animate infinite 10s;
-    transition: all 0.5s ease-in-out;
   }
-  
   @keyframes animate {
     50% {
-        transition: all 0.5s ease-in-out;
         content: "The perfect job!";
     }
     75% {
-        transition: all 0.5s ease-in-out;
         content: "The perfect candidate!";
     }
   }
+ 
   .home-entry-headings .home-entry-button{
     border:1px solid var(--color-text);
     border-radius: 9em 9em 9em 9em;
@@ -73,26 +71,29 @@
   .home-bridge{
     text-align:center;
     padding:7rem 0;
-   
   }
   .home-bridge h1{
     font-weight: 700 !important;
     font-size: 35px;
   }
   .home-bridge p{
-    width:41%;
+    width:33vw;
     margin:auto;
     font-size:19px;
     margin-top:40px;
     margin-bottom:30px;
     position: relative;
-
   }
   .home-bridge-box-container{
-    padding:0 100px;
+    padding:0 5vw;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    position: relative;
+  }
+  .front{
+    position: relative;
+    max-width: 100% !important;
   }
   .front .bridge-button{
     width:100px;
@@ -100,9 +101,9 @@
     padding:5px;
     font-size: 14px;
     font-weight: 500;
-    position: relative;
+    position: absolute;
     top:65%;
-    left:-34%;
+    left:6%;
     background-color: var(--color-white);
     outline:none;
     border:none;
@@ -138,6 +139,7 @@
     perspective: 80em;
     border:none;
     outline:none;
+  
   }
   .home-bridge .card {
     border:none;
@@ -148,6 +150,7 @@
     transform-style: preserve-3d;
     background: linear-gradient(180deg, rgba(251,251,251,0) 50%, rgba(37,206,209,1) 100%);
     perspective: 5000px;
+    
 }
   .home-bridge .face {
     width:100%;
@@ -157,9 +160,9 @@
     backface-visibility:hidden;
   }
   .card h2{
-    position: relative;
-    top:75%;
-    left:-29%;
+    position: absolute;
+    top:83%;
+    left:6%;
     font-weight: 600;
     font-size: 1.8rem;
     color:var(--color-white);
@@ -359,6 +362,7 @@ object-fit: cover;
     padding:3% 8%;
     line-height: 2rem;
   }
+  
   .home-seeker-lists img{
     width:80px;
     height:80px;
@@ -401,7 +405,7 @@ object-fit: cover;
     padding-top: 1.5rem;
   }
   .home-seeker-boxes{
-    padding:0 12%;
+    padding:0 5vw;
   }
   .home-seeker-boxes img{
     width:60px;
@@ -411,19 +415,20 @@ object-fit: cover;
   width:208px;
   font-size: 0.9rem;
   line-height: 1.5rem;
-  min-height: 100px;
+  min-height: 120px !important;
   }
   .home-last-content{
     background-color:var(--color-secondary);
     padding:0 10% !important;
-    height: 213px;
+    min-height: 213px;
     margin-top: 4rem;
   }
   .home-last-content h1{
     color:var(--color-white);
     font-weight: 600;
     font-size: 2rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
+  
   }
   .home-last-content .home-last-content-button{
     background-color: var(--color-primary);
@@ -445,9 +450,39 @@ object-fit: cover;
   }
   .home-last-content img{
     margin-top: -92px;
-    margin-left: 100px;
+    position: relative;
+    left:7vw;
+    width:350px;
+    height:350px;
   }
-
+   @media (max-width:996px){
+    .home-entry-headings h1 {
+      font-weight:550; 
+      color:var(--color-white);
+      font-size:8vw;
+    }
+    .home-bridge p{
+      width:75vw;
+    }
+    .home-bridge-box-container{
+      padding:0 0vw;
+    }
+    .home-seekers{
+      padding:0 0% !important;
+      padding-bottom: 5rem !important;
+    }
+    .home-seeker-boxes{
+      padding:0 0%;
+      max-width: 100% !important;
+    }
+    .home-last-content{
+      background-color:var(--color-secondary);
+      margin-top: 4rem;
+      padding:0 5% !important;
+      position: relative;
+    }
+   
+}
    @media (max-width:1000px){
    .home-how-help{
     width:90vw !important;
@@ -457,7 +492,7 @@ object-fit: cover;
     font-size: 1.2rem;
   }
   }
-  @media (max-width:576px){
+  @media (max-width:768px){
      .home-bridge p{
     position:unset !important;
    
@@ -468,12 +503,12 @@ object-fit: cover;
       .home-entry-headings h1 {
         font-weight:550; 
         color:var(--color-white);
-        font-size:15vw;
+        font-size:12vw;
       }
       .home-entry-headings .right-now {
         font-weight:550; 
         color:var(--color-white);
-        font-size:13vw;
+        font-size:12vw;
         height: 150px;
       }
       .home-entry-headings .home-button-container{
@@ -609,22 +644,21 @@ object-fit: cover;
     }
     .home-last-content{
       padding:0% 5%!important;
-      height: 300px;
       margin-top: 4rem;
-      height: 340px;
+      height: 300px;
     }
     .home-last-content h1{
       color:var(--color-white);
       font-size: 1.4rem;
-      margin-top: 3rem;
+      margin-top: 1rem;
     }
     .home-last-content img{
-      margin-top:-548px;
-      margin-left:130px;
+       margin-top:-70px;
+      margin-left:35vw; 
       width:245px;
       height:245px;
     }
     .home-last-content-texts{
-      margin-top: 150px !important;
+      margin-top: 0px !important;
     }
   }
