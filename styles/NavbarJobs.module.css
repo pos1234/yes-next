@@ -143,6 +143,7 @@
   background-color:rgba(255, 255, 255, 0.93);
  }
 @media (max-width:768px){
+<<<<<<< HEAD
   .styled-ur svg{
 
     height:0.95rem;
@@ -150,6 +151,8 @@
     left:-5px;
    
   }
+=======
+>>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d
     .logo-image img{
         width:150px;
         height: 150px;

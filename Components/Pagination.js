@@ -1,6 +1,10 @@
 import _ from 'lodash'
 import { Pagination,Col } from 'react-bootstrap';
+<<<<<<< HEAD:Components/Pagination.js
 import styles from '@/styles/jobs/Pagination.module.css'
+=======
+import styles from '@/styles/Pagination.module.css'
+>>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d:pages/Components/Pagination.js
 const FPagination = ({item,pageSize,currentPage,onPageChange})=>{
     const pageCount = item / pageSize;
     if(Math.ceil(pageCount)===1) return null;
