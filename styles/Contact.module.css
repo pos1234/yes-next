@@ -1,13 +1,15 @@
 .contact-entry{
     background: url('../public/images/contact-cover.avif') no-repeat;
-    background-size:100%;
-    height: 100vh;
+
+    background-size:cover;
+    height: 100vh !important;
     background-origin:center;
+    background-position-y:0px;
   }
   .contact-entry-content{
     background-color: #575757B0;
     opacity: 1;
-    height:100%;
+    height:100vh;
     text-align: center;
   }
   .contact-entry-content .contact-icon-container a{
@@ -167,7 +169,13 @@
     margin-left: 1px;
     
   } 
-  @media (max-width:576px){
+  @media(max-width:1000px){
+    .contact-content .emp-can-form{
+      width: 100%;
+      padding:2rem 1rem;
+    }
+  }
+  @media (max-width:768px){
     .contact-entry{
         background: url('../public/images/contact-cover.avif') no-repeat;
         background-size:cover;

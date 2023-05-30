@@ -1,6 +1,3 @@
-.body{
-  background-color: red;
-}
 .job-navigation{
     max-height: 100px;
     background-color:var(--color-white);
@@ -84,73 +81,49 @@
     margin:0rem 3rem 2rem 0rem;
   }
   .search-bar-container{
-    background:url('../public/images/pattern_2x.webp');
-    height: 120px;
-    padding:0.5% 10% 0 !important;
+    background:url('../../public/images/pattern_2x.webp');
+     height: 150px;
+    padding:3vh 3vw 0 !important;
     margin-bottom: 3rem;
+    position: relative; 
   }
+
+  
   .search-bar-container .search-bar-inner-container{
     background:var(--color-white);
     padding:20px;
     padding-top: 10px;
     height: 100px;
     border-radius: 50px;
+    max-width:100%;
+    position: relative;
+    max-width:100vw;
+
   }
   .search-bar-container .search-bar-inner-container .input-text{
   height:60px;
   border:none;
+  position: relative;
+   max-width:100%;
+   box-shadow: none;
   }
-  .search-bar-container .search-bar-inner-container .input-text:focus{
+  .search-bar-container .search-bar-inner-container .input-text:active{
   box-shadow: none;
   }
-
   .search-bar-container .search-bar-inner-container .search-bar-cols{
     border-right: 1px solid var(--color-icons);
-    padding:10px 2rem 0;
+    padding:10px 2px 0;
+    position: relative;
+  }
+  .search-bar-container .search-bar-inner-container .search-bar-cols .findJob{
+    position: relative;
+   max-width:60%;
+   min-width: 60%;
+   height: 80px;
+   margin-top:-10px;
+   left:30%;
   }
  
-  .search-bar-cols .drop-down-buttons,
-  .search-bar-cols .drop-down-buttons:hover,
-  .search-bar-cols .drop-down-buttons:active,
-  .search-bar-cols .drop-down-buttons:focus{
-   background-color:var(--color-white) !important;
-   color:var(--color-text-smoke) !important; 
-    width:100% !important;
-    text-align: left !important;
-    border:none !important;
-    outline:none !important;
-    box-shadow: none !important;
-   margin-left:0;
- }
- .search-bar-cols .drop-down-buttons:hover,
- .search-bar-cols .drop-down-buttons:focus,
- .search-bar-cols .drop-down-buttons:active{
-  background-color:transparent !important;
- }
-  .search-bar-cols .drop-down-menus {
-   height: 200px;
-   padding:0px;
-   overflow-y:scroll;
-   padding-top: 4rem;
-   position: relative;
-   overflow-x: hidden;
-   line-height: 2rem;
-   width: 250px !important;
-   margin-left: -30px;
-  }
-  .search-bar-cols .drop-down-menus [href] {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  font-size: 14px;
-  white-space: normal;
-  word-break: break-word;
-  line-height: 1.1rem;
-  margin-bottom: 5px;
-  color:var(--color-text-smoke);
-  }
-  .search-bar-cols .drop-down-menus [href]:hover{
-  color:black;
-  }
   .search-bar-cols button{
     width: 80%;
     margin-left: 20%;
@@ -161,6 +134,7 @@
     border:none;
     font-size: 1.2rem;
     filter: brightness(100%) !important;
+    
   }
   .search-bar-cols button:hover{
     background-color: var(--color-primary);
@@ -173,8 +147,6 @@
     transform: translateY(8px) !important;
   }
   .search-result-container{
-  /*   background-color: red;
-   */  
    margin-top: 4rem !important; 
    padding-top: 1rem;
     padding-bottom: 5rem;
@@ -219,6 +191,7 @@
    position: inherit;
     padding-bottom: 3rem;
     z-index: 101;
+    max-width:80rem !important;
   }
   .sidebarColContainer{
     position: relative;
@@ -233,6 +206,7 @@
     overflow-y: auto;
     border:1px solid var(--color-text);
     border-radius: 5px;
+
   }
 
   .sidebar .one-search{
@@ -249,16 +223,17 @@
   }
   .sidebar .one-search h1{
     font-size: 1.1rem;
-    color:var(--color-secondary);
+    color:rgb(0,30,106);
     font-weight: 600;
+  
   }
   .sidebar .one-search h1:hover{
    text-decoration: underline;
   }
   .sidebar .one-search h2{
-    font-size: 1rem;
+    font-size: 0.9rem;
     color:var(--color-secondary);
-    font-weight:500;
+    font-weight:600;
   }
   .sidebar .one-search p{
     font-size: 1rem;
@@ -362,10 +337,21 @@
     background-color: var(--color-primary);
     filter: brightness(95%);
   }
+  .quick-apply-button:active{
+    background-color: #007167 !important;
+    /* filter: brightness(95%); */
+  }
+ 
+  .search-results .jobDetailContainer{
+    padding:0 3% ;
+  }
   .search-results .job-details{
     margin:0;
     padding:0;
-  
+  }
+  .search-results .job-details > *{
+    margin:0;
+    padding:0;
   }
   .search-results .job-details h1{
     font-size: 1.5rem;
@@ -381,6 +367,7 @@
     letter-spacing: 2px;
     padding:10px;
     margin:3px;
+    margin-left: 0 !important;
     background-color: var(--color-icons) !important;
     color:black;
     border-radius: 3px !important;
@@ -390,8 +377,9 @@
  */    overflow-y: auto;
   }
   .search-results .horizontal-rule{
-    margin:15px 2.5%;
-    width:95%;
+    margin:15px 0 !important;
+/*   max-width: 95% !important; 
+  margin:auto;  */
   }
    .drop-downs{
     height: 4rem;
@@ -401,13 +389,22 @@
   }
    .drop-downs:focus{
     box-shadow: none;
-    padding-top: 2rem;
-  }
+ }
  .drop-down-menus{
      width: 100%;
  }
-
-  @media (max-width:576px){
+ @media(max-width:966px){
+  .search-bar-container .search-bar-inner-container .search-bar-cols .findJob{
+    position: relative;
+   max-width:80%;
+   left:10%;
+  }
+ 
+ }
+  @media (max-width:768px){
+    .clipBoard{
+    display: none;
+    }
     .search-bar-cols .drop-down-menus {
       width: 100% !important;
       margin-left: 0px;
@@ -445,7 +442,7 @@
         margin-right: 0rem;
       }
       .search-bar-container{
-        background:url('../public/images/pattern_2x.webp');
+        background:url('../../public/images/pattern_2x.webp');
         height: 80vh;
         padding:0 !important;
         margin-bottom: 2rem;
@@ -454,15 +451,24 @@
       }
       .search-bar-container .search-bar-inner-container{
         height: 70vh;
-        padding:20px 0px;
-  
+
       }
-      .search-bar-container .search-bar-inner-container .input-text{
-         height:80px;
-          }
+    
+      .drop-downs
+      ,.search-bar-container .search-bar-inner-container .input-text{
+      border-bottom:1px solid var(--color-text-smoke);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      padding-top:12%;
+      padding-left:2px;
+      height:80px;
+  }
+  .search-bar-container .search-bar-inner-container .input-text:focus{
+      border-bottom:1px solid var(--color-primary) !important;
+  }
       .search-bar-container .search-bar-inner-container .search-bar-cols{
         border-right: 0px solid var(--color-icons) !important;
-         padding:10px 0rem 0 1rem !important; 
+         padding:10px 1rem 0 1rem !important; 
       }
       .search-bar-cols .drop-down-buttons{
        background-color:var(--color-white) !important;
@@ -475,6 +481,9 @@
         margin:auto;
          padding-bottom: 3rem;
 
+      }
+      .quickColContainer{
+        margin-top:5%;
       }
       .search-bar-container .search-bar-inner-container .search-bar-cols{
        /*  background-color: red; */
@@ -511,5 +520,7 @@
         padding:0;
         padding-top: 20px;
       }
-
+      .search-results .jobDetailContainer{
+        padding:0 4% 0 3% ;
+      }
   }

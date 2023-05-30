@@ -4,9 +4,9 @@ import { useState,useEffect } from 'react'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {Row, Col, Button, Container,Collapse} from 'react-bootstrap'
-import Footer from '../Components/Footer'
-import NavbarJobs from '../Components/NavbarJobs'
-import {StyledUrContent} from '../Components/StyledUr'
+import Footer from '../../Components/Footer'
+import NavbarJobs from '../../Components/NavbarJobs'
+import {StyledUrContent} from '../../Components/StyledUr'
 import styles from '@/styles/Faq.module.css'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
@@ -66,7 +66,7 @@ const FAQ =()=> {
                 <h1>{data.user.email} Frequently Asked Questions</h1>
                 </Row>
                 <Row>
-                    <Col xs={12} sm={3} className={styles['faq-order']}>
+                    <Col xs={12} md={3} className={styles['faq-order']}>
                            <ul>
                                 <li>
                                 <a href='#faq' style={{textDecoration:'none',color:'unset'}}>  FAQ </a>
@@ -79,7 +79,7 @@ const FAQ =()=> {
                                 </li>
                             </ul>
                     </Col>
-                    <Col className={styles['faq-toggled-content']}>
+                    <Col xs={12} md={9} className={styles['faq-toggled-content']}>
                         <Row id='faq'>
                             <h1 style={{lineHeight:'30px'}}> <StyledUrContent texts="FREQUENTLY ASKED QUESTIONS (FAQS)"/></h1>
                             <div className={styles['faq-toggled-items']}>

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import NavbarJobs from './NavbarJobs'
 import Footer from './Footer';
 import Link  from 'next/link';
-import styles from '@/styles/RegisterForm.module.css'
+import styles from '@/styles/jobs/RegisterForm.module.css'
 const RegisterForm=(props)=>{
     const [error, setError] = useState("");
     const [col,setCol] = useState ("");
@@ -30,7 +30,7 @@ const RegisterForm=(props)=>{
          const data = await res.json()
         console.log(data)
         setError('Successfully Registerd')
-        setCol('green');
+        setCol('#FF6D00');
 /*         router.push("/jobs/sign-in");
  */        }else{
             setError('Password does not match')
@@ -53,10 +53,10 @@ const RegisterForm=(props)=>{
                 />
         <Container className={styles['emp-can-form-container']} fluid>
         <Row>
-            <Col className={styles['emp-can-form-side-image']}>
-            <img src='/images/image-1-4.avif'/>   
+            <Col xs={12} lg={6} className={styles['emp-can-form-side-image']}>
+            <img src='/images/Group12.svg'/>   
             </Col>
-            <Col md={5}>
+            <Col xs={12} lg={6}>
             <Form className={styles['emp-can-form']} onSubmit={handleSubmit}>
                 <h1>{props.title}</h1>
                 <Form.Group className={["mb-4"]} >

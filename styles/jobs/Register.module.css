@@ -1,0 +1,117 @@
+.reg-type-container{
+    padding:30px 10% 130px !important;
+      background-color: rgb(250, 250, 250);
+        text-align: center ;
+    }
+    .reg-type-container .log-side-image{
+      padding-bottom: 2vh;
+      padding-top: 10vh;
+     }
+    .reg-type-container .log-side-image img{
+      width:100% !important;
+      object-fit: contain;
+      width: 80% !important;
+      margin-left: 20%;
+    }
+    .reg-type-container h1{
+       margin-bottom: 2rem;
+       font-weight: 400;
+    }
+    .reg-type-container .login-form{
+      border-radius: 20px;
+    padding:2rem;
+   box-shadow: 0px 0px 16px -9px rgba(0,0,0,0.5) !important;
+   width:80%;
+    margin-left: 10%;
+    }
+    
+    .reg-type-container .reg-type-buttons{
+      justify-content: center;
+    }
+    .reg-type-container .login-form .can-button,
+    .reg-type-container .login-form .emp-button{
+      width: 12vw;
+      height: 50px;
+      margin-top: 0rem;
+      border-radius: 50px;
+      background-color: var(--color-primary);
+      color:var(--color-white);
+      border:none;
+      font-size: 1rem;
+      margin:2rem 0;
+      padding-top: 0.3rem;
+      font-weight: 600;
+    }
+    .reg-type-container .login-form .can-button:hover,
+    .reg-type-container .login-form .emp-button:hover{
+      background-color: var(--color-primary);
+      filter: brightness(80%);
+    }
+    .login-form .sign-link{
+        text-align: center;
+        color:black;
+        text-decoration: none;
+        cursor: pointer;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+      }
+      .login-form .sign-link span{
+        text-align: center;
+        color:var(--color-primary);
+        font-weight: bold;
+        margin-left: 1px;
+      } 
+      @media (max-width:1000px){
+        .reg-type-container{
+          padding:30px 0% 50px !important;
+          background-color: rgb(250, 250, 250);
+          position: relative;
+      /*     background-color: green;
+       */  }
+        .reg-type-container .log-side-image img{
+          width:100% !important;
+          object-fit: contain;
+          width: 100% !important;
+          margin-left: 0%;
+        }
+        .login-form{
+          border-radius: 20px;
+          padding:2rem;
+         box-shadow: 0px 0px 16px -9px rgba(0,0,0,0.5) !important;
+         width:80%;
+          margin-left: 10%;
+        }
+        .reg-type-container .log-side-image{
+          display:none;
+        }
+     
+    @media(max-width:1200px){
+         .reg-type-container .login-form .can-button,
+    .reg-type-container .login-form .emp-button{
+      width: 20vw;
+   
+    }
+    }
+      }
+@media (max-width:768px){
+    .reg-type-container .log-side-image{
+  display: none !important;
+}
+.reg-type-container{
+  padding:40px 15px 50px !important;
+}
+  .reg-type-container .login-form{
+    border-radius: 20px;
+    padding:2rem 1rem;
+   box-shadow: 0px 0px 16px -9px rgba(0,0,0,0.5) !important;
+   width:90%;
+    margin-left: 5%;
+  }
+  
+  .reg-type-container .login-form .can-button,
+.reg-type-container .login-form .emp-button{
+  width: 50%;
+  padding-top: 0.5rem;
+
+}
+}

@@ -1,6 +1,6 @@
 import _ from 'lodash'
-import { Pagination } from 'react-bootstrap';
-import styles from '@/styles/Pagination.module.css'
+import { Pagination,Col } from 'react-bootstrap';
+import styles from '@/styles/jobs/Pagination.module.css'
 const FPagination = ({item,pageSize,currentPage,onPageChange})=>{
     const pageCount = item / pageSize;
     if(Math.ceil(pageCount)===1) return null;
@@ -15,7 +15,10 @@ const FPagination = ({item,pageSize,currentPage,onPageChange})=>{
     );
     }
     return (
-<Pagination className={styles['paginationContainer']}>{items}</Pagination>
+        <Col style={{padding:"0",margin:"0"}}>
+            <Pagination  className={styles['paginationContainer']}>{items}</Pagination>
+
+        </Col>
     )
 }
 export default FPagination

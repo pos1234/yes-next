@@ -2,11 +2,11 @@ import {useState,useEffect} from 'react'
 import { signIn, signOut } from "next-auth/react"
 import { Container,Row,Col,Form,Button } from 'react-bootstrap'
 import  Link  from 'next/link'
-import NavbarJobs from '../Components/NavbarJobs'
+import NavbarJobs from '../../Components/NavbarJobs'
 import GoogleIcon from '@mui/icons-material/Google'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
-import Footer from '../Components/Footer'
-import styles from '@/styles/Login.module.css'
+import Footer from '../../Components/Footer'
+import styles from '@/styles/jobs/Login.module.css'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 
@@ -53,12 +53,12 @@ const {session,data} = useSession();
                         hrefFaq="/home/faq" faq='FAQ'
                         hrefContact="/home/contact-us" contact='Get in Touch'
                    />       
-        <Container fluid className={styles['login-container']} >
+        <Container fluid className={styles['login-container']}>
         <Row>
-            <Col md={7} className={styles['log-side-image']}>
-                <img src='/images/image-1-4.avif'/>
+            <Col xs={12} lg={6} className={styles['log-side-image']}>
+                <img src='/images/Group12.svg'/>
             </Col>
-            <Col md={5}>
+            <Col xs={12} lg={6}>
             <Form className={styles['login-form']} onSubmit={handleSub}>
                 <h1>Welcome to YES</h1>
                 <Form.Group className="mb-4 " >

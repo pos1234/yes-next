@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
 import { Container,Row,Col,Form,Button } from 'react-bootstrap';
-import NavbarJobs from '../Components/NavbarJobs'
-import Footer from '../Components/Footer';
+import NavbarJobs from '../../Components/NavbarJobs'
+import Footer from '../../Components/Footer';
 import Link  from 'next/link';
-import style from '@/styles/Fpwd.module.css'
+import style from '@/styles/jobs/Fpwd.module.css'
 const ForgetPassword=()=> {
     const [validated, setValidated] = useState(false);
 
@@ -29,10 +29,10 @@ const ForgetPassword=()=> {
                         hrefContact="/home/contact-us" contact='Get in Touch'
                    />    <Container className={style['emp-can-form-container']} fluid>
         <Row>
-            <Col className={style['emp-can-form-side-image']}>
-            <img src='/images/image-1-4.avif'/>   
+            <Col xs={12} lg={6} className={style['emp-can-form-side-image']}>
+            <img src='/images/Group12.svg'/>   
             </Col>
-            <Col md={5}>
+            <Col xs={12} lg={6}>
             <Form className={`${style['emp-can-form']} ${['pb-5']}`} noValidate validated={validated} onSubmit={handleSubmit}>
                 <h1>Welcome to YES</h1>
                 <Form.Group className={["mb-4"]} controlId="formBasicEmail">

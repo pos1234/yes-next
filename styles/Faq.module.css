@@ -13,6 +13,7 @@
   
   .faq-order{
     margin-top: 270px !important;
+    overflow: hidden;
   }
   .faq-order ul{
     background-color: var(--color-secondary);
@@ -57,7 +58,6 @@
     outline: none;
     font-size: 17px;
     font-weight: 400;
-
    }
   .faq-toggled-content .faq-toggled-items .toggle-button-spacer{
     display: flex;
@@ -72,7 +72,13 @@
     padding:0 5%;
     
    }
-   @media (max-width:576px){
+   @media(max-width:1000px){
+    .faq-toggled-content .faq-toggled-items #ToggledButton{
+      width:100%;
+   
+     }
+   }
+   @media (max-width:768px){
     .faq-container-title h1{
         font-size: 46px;
         line-height: 4rem;

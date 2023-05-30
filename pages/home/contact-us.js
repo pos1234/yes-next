@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import {Row, Col,Button, Container,Form} from 'react-bootstrap'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import StyledUr from '../Components/StyledUr'
-import NavbarJobs from '../Components/NavbarJobs'
-import Footer from '../Components/Footer'
+import StyledUr from '../../Components/StyledUr'
+import NavbarJobs from '../../Components/NavbarJobs'
+import Footer from '../../Components/Footer'
 import styles from '@/styles/Contact.module.css'
 const Contact = ()=>{
     return(
