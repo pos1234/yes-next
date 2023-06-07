@@ -145,6 +145,7 @@
 .offcanvas-navbar{
   background-color:rgba(255, 255, 255, 0.93);
  }
+<<<<<<< HEAD
 
 
 .candidateNav{
@@ -178,11 +179,22 @@
   .styled-ur svg{
 
 
+=======
+@media (max-width:768px){
+<<<<<<< HEAD
+  .styled-ur svg{
+
+>>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
     height:0.95rem;
     margin-top: -15px;
     left:-5px;
    
   }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d
+>>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
     .logo-image img{
         width:100px;
         height: 100px;
@@ -202,9 +214,15 @@
       .navigation .toggle-button{
         position: fixed;
         left:87%;
+<<<<<<< HEAD
         top:3%;
         top:5%;
         z-index: 100 !important;
+=======
+        top:5%;
+        z-index: 100 !important;
+        
+>>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
       }
       .navbar-sign-container{
         display: none;

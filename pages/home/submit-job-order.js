@@ -38,8 +38,12 @@ const SubmitJobOrder = ()=>{
 /*             setError('sending......')
  */        try{
                 await sendJobOrder(submitJob);
+<<<<<<< HEAD
                 setBad('sent')
                 setError('Succesfully sent Job Order')
+=======
+                setError('succesfully sent the data')
+>>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
                 setSubmitJob({
                     companyName:"",
                     companyWebsite:"",

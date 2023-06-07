@@ -1,13 +1,20 @@
+<<<<<<< HEAD
 import React,{useState} from 'react'
 import Link from 'next/link'
 import {Row, Col, Navbar, Nav, Button, Container,Dropdown,Offcanvas,Badge} from 'react-bootstrap'
 
 
+=======
+import React from 'react'
+import Link from 'next/link'
+import {Row, Col, Navbar, Nav, Button, Container,Offcanvas,Badge} from 'react-bootstrap'
+>>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import styles from '@/styles/NavbarJobs.module.css'
+<<<<<<< HEAD
 import PersonIcon from '@mui/icons-material/Person';
 import HttpsIcon from '@mui/icons-material/Https';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
@@ -21,6 +28,9 @@ const NavbarJobs = (props)=> {
     const handleMouseLeave = () => {
       setOpen(false);
     };
+=======
+const NavbarJobs = (props)=> {
+>>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
   return (
     <>
      <style type="text/css">
@@ -38,6 +48,7 @@ const NavbarJobs = (props)=> {
         outline:none !important;
         box-shadow: none !important;
         outline-offset: none !important;
+<<<<<<< HEAD
         }
         .dropdown-toggle::after {
             /* Remove the caret */
@@ -63,11 +74,15 @@ const NavbarJobs = (props)=> {
             color:var(--color-primary);
           }
 
+=======
+        } 
+>>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
     `}
       </style>
     <Navbar key='expand' bg='' expand='expand' className={styles['navigation']} >
     <Container fluid>
          <Navbar.Brand as={Link} href='/' name="home" className={styles['logo-image']}><img src='/images/yes-logo.svg' alt='brand-logo'/></Navbar.Brand>
+<<<<<<< HEAD
         <Row className={styles['candidateNav']}>
             <Col style={{paddingTop:"9px"}} xs={3}>
                  <Nav.Link as={Link} href='/users/candidate/user-candidate'>Dashboard</Nav.Link>
@@ -108,6 +123,10 @@ const NavbarJobs = (props)=> {
                     <Dropdown.Item className='toggleItem' href="#/action-1"> <PowerSettingsNewIcon/> Log Out</Dropdown.Item>
                 </Dropdown.Menu>
         </Dropdown>
+=======
+        <Row className={styles['navbar-sign-container']}>
+            <Col><Button as='a' href='/jobs/sign-in' className={styles['navbar-sign-in']}>Log Out</Button></Col>
+>>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
         </Row>
          <Navbar.Toggle className={styles['toggle-button']} aria-controls={`offcanvasNavbarLabel-expand-${'expand'}`} >
               <span className={styles['navbar-toggler-icon-first']}></span>
@@ -123,11 +142,14 @@ const NavbarJobs = (props)=> {
              </Offcanvas.Title>
          </Offcanvas.Header> 
          <Offcanvas.Body>
+<<<<<<< HEAD
          <Row style={{textAlign:"center"}}>
             <Col style={{justifyContent:"right"}}>
                     <PersonIcon style={{backgroundColor:"#e4e3e3",color:"#25CED1",borderRadius:"50%",marginBottom:"7px"}} sx={{fontSize:50}}/> <p>Candidate</p> 
             </Col>
         </Row>
+=======
+>>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
          <Nav className={`${styles["justify-content-end"]} ${styles["flex-grow-1"]} ${styles["pe-3"]} ${styles["navbar-navs"]}`}>
         <Nav.Link as={Link} href='/'>Home</Nav.Link>   
             <Nav.Link as={Link} href='/home/about'>About</Nav.Link>   
@@ -138,6 +160,7 @@ const NavbarJobs = (props)=> {
             <Nav.Link as={Link} href='/home/faq'>Faq</Nav.Link>   
             <Nav.Link as={Link} href='/home/contanct-us'>Get in Touch</Nav.Link>   
           </Nav> 
+<<<<<<< HEAD
           <Row style={{marginTop:"15%",marginBottom:"15%"}}>
                 <Col xs={4}>
                 <Link className='toggleItem' href="/users/candidate/profile"> <PersonIcon/> <p>Profile</p></Link>
@@ -151,6 +174,8 @@ const NavbarJobs = (props)=> {
                 
                 
             </Row>
+=======
+>>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
           <Row>
              <Row>
                  <Col>

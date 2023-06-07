@@ -63,8 +63,13 @@ const handleSubmit = (e)=>{
                         hrefContact="/home/contact-us" contact='Get in Touch'
                 />
        {
+<<<<<<< HEAD
         (number) ? (<Container fluid="xs" className={styles['blogDetailContainer']}>
             <Button className={styles['arrowBack']}><ArrowBackIcon sx={{ fontSize: 30 }} onClick={handleClick}/></Button>
+=======
+        (number) ? (<Container className={styles['blogDetailContainer']}>
+            <Button variant='outline-info' style={{border:'none'}}><ArrowBackIcon sx={{ fontSize: 30 }} onClick={handleClick}/></Button>
+>>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
             <Row>
                 <Col>
                     <h1 className={styles['blogDetailHeading']}>{blog.title.rendered}</h1>
@@ -73,10 +78,17 @@ const handleSubmit = (e)=>{
             <Row>
                 <Col>
                 <div dangerouslySetInnerHTML={{__html:blog.content.rendered}}/>
+<<<<<<< HEAD
                  </Col>
             </Row>
             <Row >
                 <Col xs={11} md={7}>
+=======
+                </Col>
+            </Row>
+            <Row >
+                <Col xs={7}>
+>>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
             <Form onSubmit={handleSubmit}>
                     <h1  className='py-3' style={{color:'black'}}>Leave a comment</h1>
                     <Row>
@@ -116,6 +128,7 @@ const handleSubmit = (e)=>{
             {
                 data && data.map(oneBlog=>(
                     
+<<<<<<< HEAD
         <Col onClick={()=>blogDetail(oneBlog.id)} key={oneBlog.id} lg={5} xs={12} className={styles['single-blog']}>
             <Row>
                 <Col sm={5}>
@@ -125,12 +138,24 @@ const handleSubmit = (e)=>{
                         </span>
                     </div>
 
+=======
+        <Col onClick={()=>blogDetail(oneBlog.id)} key={oneBlog.id} sm={5} className={styles['single-blog']}>
+            <Row>
+                <Col sm={5}>
+                    <span>
+                          <img src='/images/th.avif' height={100}/>
+                    </span>
+>>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
                   
                 </Col> 
                 <Col sm={7}>
                     <p>{oneBlog.title.rendered}</p>
                     <h1>{oneBlog.title.rendered}</h1>
+<<<<<<< HEAD
                     <ArrowForwardIcon style={{position:'relative'}}/>
+=======
+                    <ArrowForwardIcon style={{position:'relative',bottom:'-50px'}}/>
+>>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
                 </Col>
             </Row>
         </Col>     
