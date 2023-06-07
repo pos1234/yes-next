@@ -81,20 +81,13 @@
     margin:0rem 3rem 2rem 0rem;
   }
   .search-bar-container{
-<<<<<<< HEAD:styles/jobs/Jobs.module.css
     background:url('../../public/images/pattern_2x.webp');
      height: 150px;
     padding:3vh 3vw 0 !important;
     margin-bottom: 3rem;
     position: relative; 
-=======
-    background:url('../public/images/pattern_2x.webp');
-    height: 150px;
-    padding:3vh 3vw 0 !important;
-    margin-bottom: 3rem;
-    position: relative;
-    
->>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d:styles/Jobs.module.css
+
+
   }
 
   
@@ -110,7 +103,7 @@
 
   }
   .search-bar-container .search-bar-inner-container .input-text{
-  height:60px;
+  height:60px !important;
   border:none;
   position: relative;
    max-width:100%;
@@ -213,14 +206,14 @@
     left: -5px;
     max-height:89vh;
     overflow-y: auto;
-    border:1px solid var(--color-text);
+    border:none;
     border-radius: 5px;
 
   }
 
   .sidebar .one-search{
     padding-top: 1rem;
-    border-bottom: 1px solid var(--color-text);
+    border: 1px solid var(--color-text);
     padding:15px 0 !important;
 }
   .sidebar .one-search:hover{
@@ -406,21 +399,37 @@
   .search-bar-container .search-bar-inner-container .search-bar-cols .findJob{
     position: relative;
    max-width:80%;
-<<<<<<< HEAD:styles/jobs/Jobs.module.css
    left:10%;
   }
- 
+  .search-bar-container .search-bar-inner-container{
+    padding-top: 0vh !important;
+  }
+ }
+  @media (max-width:768px){
+    .search-bar-container{
+       height: 120px !important;
+    }
+    .search-bar-container .search-bar-inner-container{
+      padding-top: 1.8vh !important;
+      padding-left:25px;
+      max-height: 80px !important;
+      margin-top:-3%;
+    }
+    .search-bar-container .search-bar-inner-container .input-text{
+        padding-bottom:0px !important;
+        padding-top: 0 !important;
+        height: 40px !important;
+       
+      }
+   .drop-downs{
+    display: none;
+   }
+
  }
   @media (max-width:768px){
     .clipBoard{
     display: none;
     }
-=======
-   left:20%;
-  }
- }
-  @media (max-width:768px){
->>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d:styles/Jobs.module.css
     .search-bar-cols .drop-down-menus {
       width: 100% !important;
       margin-left: 0px;
@@ -432,6 +441,7 @@
     .search-bar-cols button{
       width: 100%;
       margin-left: 0%;
+      display: none;
     }
     .sidebar {
         position: relative;
@@ -469,7 +479,6 @@
         height: 70vh;
 
       }
-<<<<<<< HEAD:styles/jobs/Jobs.module.css
     
       .drop-downs
       ,.search-bar-container .search-bar-inner-container .input-text{
@@ -483,13 +492,7 @@
   .search-bar-container .search-bar-inner-container .input-text:focus{
       border-bottom:1px solid var(--color-primary) !important;
   }
-=======
-      .search-bar-container .search-bar-inner-container .input-text{
-         height:80px;
-         
-          }
-      
->>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d:styles/Jobs.module.css
+
       .search-bar-container .search-bar-inner-container .search-bar-cols{
         border-right: 0px solid var(--color-icons) !important;
          padding:10px 1rem 0 1rem !important; 

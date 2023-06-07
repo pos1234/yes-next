@@ -63,8 +63,9 @@ const handleSubmit = (e)=>{
                         hrefContact="/home/contact-us" contact='Get in Touch'
                 />
        {
-        (number) ? (<Container className={styles['blogDetailContainer']}>
-            <Button variant='outline-info' style={{border:'none'}}><ArrowBackIcon sx={{ fontSize: 30 }} onClick={handleClick}/></Button>
+        (number) ? (<Container fluid="xs" className={styles['blogDetailContainer']}>
+            <Button className={styles['arrowBack']}><ArrowBackIcon sx={{ fontSize: 30 }} onClick={handleClick}/></Button>
+
             <Row>
                 <Col>
                     <h1 className={styles['blogDetailHeading']}>{blog.title.rendered}</h1>
@@ -73,10 +74,12 @@ const handleSubmit = (e)=>{
             <Row>
                 <Col>
                 <div dangerouslySetInnerHTML={{__html:blog.content.rendered}}/>
-                </Col>
+
+                 </Col>
             </Row>
             <Row >
-                <Col xs={7}>
+                <Col xs={11} md={7}>
+
             <Form onSubmit={handleSubmit}>
                     <h1  className='py-3' style={{color:'black'}}>Leave a comment</h1>
                     <Row>
@@ -116,18 +119,22 @@ const handleSubmit = (e)=>{
             {
                 data && data.map(oneBlog=>(
                     
-        <Col onClick={()=>blogDetail(oneBlog.id)} key={oneBlog.id} sm={5} className={styles['single-blog']}>
+        <Col onClick={()=>blogDetail(oneBlog.id)} key={oneBlog.id} lg={5} xs={12} className={styles['single-blog']}>
             <Row>
                 <Col sm={5}>
-                    <span>
+                    <div style={{backgroundColor:"red",height:"100%",position:"relative"}}>
+                        <span>
                           <img src='/images/th.avif' height={100}/>
-                    </span>
+                        </span>
+                    </div>
+
                   
                 </Col> 
                 <Col sm={7}>
                     <p>{oneBlog.title.rendered}</p>
                     <h1>{oneBlog.title.rendered}</h1>
-                    <ArrowForwardIcon style={{position:'relative',bottom:'-50px'}}/>
+                    <ArrowForwardIcon style={{position:'relative'}}/>
+
                 </Col>
             </Row>
         </Col>     

@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {Row, Col, Button, Container,Form,Dropdown} from 'react-bootstrap'
 import styles from '@/styles/SubmitJobOrder.module.css'
 import {StyledUrContent} from '../../Components/StyledUr'
 import NavbarJobs from '../../Components/NavbarJobs'
 import Footer from '../../Components/Footer'
 import { sendJobOrder } from '@/lib/api'
+
 const SubmitJobOrder = ()=>{
     const [error,setError]=useState('')
+    const [bad,setBad]=useState('')
     const [submitJob,setSubmitJob] = useState({
         companyName:"",
         companyWebsite:"",
@@ -24,11 +26,21 @@ const SubmitJobOrder = ()=>{
         jobDescription:"",
         jobFile:"",
     });
+    const handleFile = (event)=>{
+        setSubmitJob({...submitJob,jobFile: event.target.files[0]})
+    }
+     useEffect(()=>{
+        console.log(submitJob.jobFile);
+    }) 
     const handleSub = async (event)=>{
         event.preventDefault()
-        try{
+        setBad('send')
+/*             setError('sending......')
+ */        try{
                 await sendJobOrder(submitJob);
-                setError('succesfully sent the data')
+                setBad('sent')
+                setError('Succesfully sent Job Order')
+
                 setSubmitJob({
                     companyName:"",
                     companyWebsite:"",
@@ -47,10 +59,13 @@ const SubmitJobOrder = ()=>{
                     jobFile:"",
                 })
         }catch(error){
+            setBad('error')
             setError(error.message)
         }
           
      } 
+
+     
     return (
         <>
          <NavbarJobs  
@@ -68,9 +83,11 @@ const SubmitJobOrder = ()=>{
             <h1 className={styles['submitJobOrderTitle']}>Tell Us About Your <StyledUrContent texts="Hiring Needs"/></h1>
             <p>We’re committed to fulfilling your unique hiring needs. Fill out the form below & we’ll be in touch shortly</p>
             {
-                error && (
-                    <p> {error}</p>
+                bad &&  (bad=="send") ?<img src='/images/Dual Ring-1s-200px.svg' width='100px' height="100px"/> :(
+                    error && ( <p style={{color:"white",width:"50%",margin:'auto',fontSize:"1.5rem",paddingBottom:"0.5rem",backgroundColor: (bad=="sent") ? "green": "red"}}> {error}</p>
+                ) 
                 )
+               
             }
         <Form className={styles['login-form']} onSubmit={handleSub}>
         
@@ -182,7 +199,7 @@ const SubmitJobOrder = ()=>{
                             <Col xs={12}>
                             <Form.Group className="mb-4 ">
                                 <Form.Label style={{color:'#7A7A7A'}}>Or upload the Job description:</Form.Label>
-                                <Form.Control value={submitJob.jobFile} onChange={(event)=>setSubmitJob({...submitJob,jobFile: event.target.value})} placeholder="choose file" type="file" />
+                                <Form.Control onChange={handleFile} placeholder="choose file" type="file" />
                             </Form.Group>   
                             </Col>
                         </Row>

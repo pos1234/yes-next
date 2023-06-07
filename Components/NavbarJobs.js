@@ -59,7 +59,7 @@ const NavbarJobs = (props)=> {
             <Nav.Link as={Link} href={`${props.hrefContact}`}>{props.contact}</Nav.Link>   
           </Nav> 
           <Row>
-             <Row>
+             <Row style={{padding:"0",margin:"0"}}>
                  <Col xs={6}><Button as={Link} id={styles['navbar-sign-in']} href='/jobs/sign-in'>Sign In/ Sign Up</Button></Col>
                  <Col xs={6}><Button as={Link} id={styles['navbar-sign-in']} href='/jobs/sign-in'>Post Jobs</Button></Col>
              </Row>

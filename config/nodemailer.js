@@ -1,6 +1,7 @@
 import nodemailer from 'nodemailer'
-const email = process.env.YES_EMAIL
-const pass = process.env.YES_EMAIL_PASSWORD
+const email = "paulosegebeyehu5@gmail.com"
+const pass = "iozqnxevapzzefdo"
+
 export const transporter = nodemailer.createTransport({
     service:'gmail',
     auth:{

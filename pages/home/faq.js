@@ -37,13 +37,15 @@ const ToggledContent = (props) => {
     )
   }
 const FAQ =()=> {
-    const {status,data} = useSession();
+   /*  const {status,data} = useSession();
     const router = useRouter();
     useEffect(()=>{
+        if(status==="authenticated" && data.user.name==="candidate") router.replace("/")
         if(status==="unauthenticated") router.replace("/jobs/sign-in");
     },[status]);
-    if(status==="authenticated") {
-        console.log(data);
+    if(status==="authenticated" && data.user.name==="employer") {
+        console.log(data.user); */
+
   return (
         <>
         <Head>
@@ -63,7 +65,8 @@ const FAQ =()=> {
             <Container>
                 <Row className={styles['faq-container-title']}>
                 <img src='/images/Message-1.svg' style={{width:'70px'}} width={70} alt='message-icon'/>
-                <h1>{data.user.email} Frequently Asked Questions</h1>
+                <h1>{/* {data.user.email} */} Frequently Asked Questions</h1>
+
                 </Row>
                 <Row>
                     <Col xs={12} md={3} className={styles['faq-order']}>
@@ -134,5 +137,6 @@ const FAQ =()=> {
         </>
   )
     } 
-}
+//}
+
 export default FAQ

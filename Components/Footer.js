@@ -36,15 +36,13 @@ const Footer = () =>{
                         </Col>
                         <Col xs={6} className={styles["footer-contact-yes-col"]}>
                             <h3 className={styles["footer-contact-h3"]}>For Job Seekers</h3>
-<<<<<<< HEAD:Components/Footer.js
                             <p> <Link style={{color:"unset",textDecoration:"none"}} href='/jobs/sign-in'>Post Job </Link></p>
                             <p> <Link style={{color:"unset",textDecoration:"none"}} href='/home/submit-job-order'>Submit Job Order </Link></p>
                             <p>  <Link style={{color:"unset",textDecoration:"none"}} href='/home/about'>Our Services</Link></p>
-=======
-                            <p>Post Job</p>
-                            <p>Submit Job Order</p>
-                            <p>Our Services</p>
->>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d:pages/Components/Footer.js
+                            <p> <Link style={{color:"unset",textDecoration:"none"}} href='/jobs/sign-in'>Post Job </Link></p>
+                            <p> <Link style={{color:"unset",textDecoration:"none"}} href='/home/submit-job-order'>Submit Job Order </Link></p>
+                            <p>  <Link style={{color:"unset",textDecoration:"none"}} href='/home/about'>Our Services</Link></p>
+
                             <p>My YES</p>
                         </Col>
                         </Row>

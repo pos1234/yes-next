@@ -1,5 +1,6 @@
 import {transporter,mailOptions} from '../../config/nodemailer'
-
+import { Buffer } from 'buffer';
+import path from "path";
 const generateEmailContent = (data)=>{
     const stringData = Object.entries(data).reduce((str,[key,val])=> str += `${key} : \n ${val} \n \n`
     ,"");
@@ -13,13 +14,14 @@ const generateEmailContent = (data)=>{
 }
 
 const handler = async (req,res)=>{
-    console.log(req.body)
+
     if(req.method==="POST"){
         const data = req.body;
+        console.log("hey",req.body);
         try{
             await transporter.sendMail({
                 ...mailOptions,
-                ...generateEmailContent(data),
+                 ...generateEmailContent(data),
                 subject:data.hiringPosition,
             })
             

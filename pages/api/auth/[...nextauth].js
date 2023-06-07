@@ -17,7 +17,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
               if(email !== "abc@gmail.com" || password !=="1234"){
                 throw new Error('invalid username or password');
               }
-              return {id:'1234',name:'abc doe',email:"abc@gmail.com"};
+              return {id:'1234',name:'candidate',email:"abc@gmail.com"};
             }
             })
           ],

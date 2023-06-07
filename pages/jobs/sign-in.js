@@ -27,18 +27,37 @@ const Login = ()=>{
 const router = useRouter();
 const {session,data} = useSession();
     const [userInfo,setUserInfo] = useState({email:"",password:""});
- const handleSub = async (event)=>{
+    const [stat,setStat] = useState()
+  const validate =  async()=>{
+        const res = await signIn('credentials',{
+            redirect:false,
+            email:userInfo.email,
+            password:userInfo.password,
+            callbackUrl:"/",
+          })
+          if(res.status== 200){
+                setStat(res.status)
+          }
+    }
+useEffect(()=>{
+    if(stat==200 && data.user.name === "candidate") router.push("/users/candidate/user-candidate");
+    if(stat==200 && data.user.name === "employer") router.push("/users/employer/user-employer");
+
+},[data])
+ const handleSub = (event)=>{
     event.preventDefault()
-              const res = await signIn('credentials',{
+    validate()
+             /*  const res = await signIn('credentials',{
                 redirect:false,
                 email:userInfo.email,
                 password:userInfo.password,
                 callbackUrl:"/",
               })
-              if(res.status==200){
-                router.push("/home/faq");
-                console.log('worked')
-              } 
+              if(res.status==200 && data.user.name === "candidate") router.push("/users/candidate/user-candidate");
+                    if(res.status==200 && data.data.name === "employer") router.push("/users/employer/user-employer"); */
+          
+              
+
  } 
     return(
      
