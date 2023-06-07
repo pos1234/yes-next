@@ -1,14 +1,15 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import {Row, Col, Button, Container,Collapse} from 'react-bootstrap'
-import Footer from '../Components/Footer'
-import Navigation from '../Components/Navigation'
-
-import {StyledUrContent} from '../Components/StyledUr'
+import Footer from '../../Components/Footer'
+import NavbarJobs from '../../Components/NavbarJobs'
+import {StyledUrContent} from '../../Components/StyledUr'
 import styles from '@/styles/Faq.module.css'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 const ToggledContent = (props) => {
 
     //Using Inline Function and the The Logical Not (!) to toggle state
@@ -36,20 +37,37 @@ const ToggledContent = (props) => {
     )
   }
 const FAQ =()=> {
+   /*  const {status,data} = useSession();
+    const router = useRouter();
+    useEffect(()=>{
+        if(status==="authenticated" && data.user.name==="candidate") router.replace("/")
+        if(status==="unauthenticated") router.replace("/jobs/sign-in");
+    },[status]);
+    if(status==="authenticated" && data.user.name==="employer") {
+        console.log(data.user); */
   return (
         <>
         <Head>
                 <title>FAQ YES | Empowering Ethiopian Business & Job Seekers</title>
                 <meta name="description" content="View Frequently Asked Questions About Yes"/>
             </Head>
-        <Navigation/>
+            <NavbarJobs  
+                        hrefHome="/" home='Home'
+                        hrefAbout="/home/about" about='About'
+                        hrefClient="/home/about" client='Client Hub'
+                        hrefJobs="/jobs" jobs='Find a Job'
+                        hrefHris="/home/hris" hris='Products'
+                        hrefBlog="/home/blog" blog='Blog'
+                        hrefFaq="/home/faq" faq=''
+                        hrefContact="/home/contact-us" contact='Get in Touch'
+                />
             <Container>
                 <Row className={styles['faq-container-title']}>
                 <img src='/images/Message-1.svg' style={{width:'70px'}} width={70} alt='message-icon'/>
-                <h1>Frequently Asked Questions</h1>
+                <h1>{/* {data.user.email} */} Frequently Asked Questions</h1>
                 </Row>
                 <Row>
-                    <Col xs={12} sm={3} className={styles['faq-order']}>
+                    <Col xs={12} md={3} className={styles['faq-order']}>
                            <ul>
                                 <li>
                                 <a href='#faq' style={{textDecoration:'none',color:'unset'}}>  FAQ </a>
@@ -62,7 +80,7 @@ const FAQ =()=> {
                                 </li>
                             </ul>
                     </Col>
-                    <Col className={styles['faq-toggled-content']}>
+                    <Col xs={12} md={9} className={styles['faq-toggled-content']}>
                         <Row id='faq'>
                             <h1 style={{lineHeight:'30px'}}> <StyledUrContent texts="FREQUENTLY ASKED QUESTIONS (FAQS)"/></h1>
                             <div className={styles['faq-toggled-items']}>
@@ -116,5 +134,6 @@ const FAQ =()=> {
              <Footer/>
         </>
   )
-}
+    } 
+//}
 export default FAQ

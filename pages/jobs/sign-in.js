@@ -2,11 +2,11 @@ import {useState,useEffect} from 'react'
 import { signIn, signOut } from "next-auth/react"
 import { Container,Row,Col,Form,Button } from 'react-bootstrap'
 import  Link  from 'next/link'
-import NavbarJobs from '../Components/NavbarJobs'
+import NavbarJobs from '../../Components/NavbarJobs'
 import GoogleIcon from '@mui/icons-material/Google'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
-import FooterJobs from '../Components/FooterJobs'
-import styles from '@/styles/Login.module.css'
+import Footer from '../../Components/Footer'
+import styles from '@/styles/jobs/Login.module.css'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 
@@ -27,31 +27,57 @@ const Login = ()=>{
 const router = useRouter();
 const {session,data} = useSession();
     const [userInfo,setUserInfo] = useState({email:"",password:""});
- const handleSub = async (event)=>{
+    const [stat,setStat] = useState()
+  const validate =  async()=>{
+        const res = await signIn('credentials',{
+            redirect:false,
+            email:userInfo.email,
+            password:userInfo.password,
+            callbackUrl:"/",
+          })
+          if(res.status== 200){
+                setStat(res.status)
+          }
+    }
+useEffect(()=>{
+    if(stat==200 && data.user.name === "candidate") router.push("/users/candidate/user-candidate");
+    if(stat==200 && data.user.name === "employer") router.push("/users/employer/user-employer");
+
+},[data])
+ const handleSub = (event)=>{
     event.preventDefault()
-              const res = await signIn('credentials',{
+    validate()
+             /*  const res = await signIn('credentials',{
                 redirect:false,
                 email:userInfo.email,
                 password:userInfo.password,
                 callbackUrl:"/",
               })
-              if(res.status==200){
-                router.push("/jobs/");
-                console.log('worked')
-              } 
+              if(res.status==200 && data.user.name === "candidate") router.push("/users/candidate/user-candidate");
+                    if(res.status==200 && data.data.name === "employer") router.push("/users/employer/user-employer"); */
+          
+              
  } 
 
     return(
      
         <>
-        <NavbarJobs/>
-       
-        <Container fluid className={styles['login-container']} >
+                <NavbarJobs  
+                        hrefHome="/" home='Home'
+                        hrefAbout="/home/about" about='About'
+                        hrefClient="/home/about" client='Client Hub'
+                        hrefJobs="/jobs" jobs='Find a Job'
+                        hrefHris="/home/hris" hris='Products'
+                        hrefBlog="/home/blog" blog='Blog'
+                        hrefFaq="/home/faq" faq='FAQ'
+                        hrefContact="/home/contact-us" contact='Get in Touch'
+                   />       
+        <Container fluid className={styles['login-container']}>
         <Row>
-            <Col md={7} className={styles['log-side-image']}>
-                <img src='/images/image-1-4.avif'/>
+            <Col xs={12} lg={6} className={styles['log-side-image']}>
+                <img src='/images/Group12.svg'/>
             </Col>
-            <Col md={5}>
+            <Col xs={12} lg={6}>
             <Form className={styles['login-form']} onSubmit={handleSub}>
                 <h1>Welcome to YES</h1>
                 <Form.Group className="mb-4 " >
@@ -64,7 +90,7 @@ const {session,data} = useSession();
                 </Form.Group>
                 <Row>
                     <Col>
-                    <Form.Group className="mb-3" controlId="formKeepMeSigned">
+                    <Form.Group className="mb-3" >
                         <Form.Check type="checkbox" label="Keep me signed in" />
                     </Form.Group>
                     </Col>
@@ -107,7 +133,7 @@ const {session,data} = useSession();
             </Col>
         </Row>
     </Container>
-    <FooterJobs /> 
+    <Footer /> 
     </>
     )
 }

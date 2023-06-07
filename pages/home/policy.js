@@ -1,12 +1,21 @@
 import {Col,Row,Container} from 'react-bootstrap'
-import Navigation from '../Components/Navigation'
+import NavbarJobs from '../Components/NavbarJobs'
 import Footer from '../Components/Footer'
 import styles from '@/styles/Privacy.module.css'
 
 function Policy() {
   return (
     <>
-    <Navigation/>
+                 <NavbarJobs  
+                        hrefHome="/" home='Home'
+                        hrefAbout="/home/about" about='About'
+                        hrefClient="/home/about" client='Client Hub'
+                        hrefJobs="/jobs" jobs='Find a Job'
+                        hrefHris="/home/hris" hris='Products'
+                        hrefBlog="/home/blog" blog='Blog'
+                        hrefFaq="/home/faq" faq='FAQ'
+                        hrefContact="/home/contact-us" contact='Get in Touch'
+                   />    
     <Container className={styles['terms-conditions']}>
     <h1>PRIVACY POLICY</h1>
      <Row>

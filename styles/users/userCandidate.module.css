@@ -1,0 +1,88 @@
+.dashboardContainer{
+     padding:0% 5% !important;  
+ }
+ .dashboardH1{
+    font-size: 2.5rem;
+    padding:4vh 3.5vw;
+ }
+.dashboardContainer .dashboardCards{
+    padding-bottom: 0;
+    padding:20px 30px 20px 30px;
+    max-height: 15vh;
+    border: 1px solid #ECEDF2;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px 0 rgba(64, 79, 104, 0.05);
+    margin-top: 2rem;
+    position: relative;
+    margin:0;
+}
+.dashboardTexts {
+    text-align: right;
+    font-size: 1rem;
+    position: absolute !important;
+    height: 100% !important;
+    top:0;
+    right:0;
+}
+.dashboardIcons{
+    border-radius: 8px;
+    text-align: center !important;
+    padding-top: 5%;
+    height: 8vh !important;
+}
+.dashboardNumbers{
+    font-size:2rem;
+    font-weight: bold;
+}
+.notificationContainer{
+    margin-top: 4vh;
+}
+.notfCols{
+    border: 1px solid #ECEDF2;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px 0 rgba(64, 79, 104, 0.05);   
+    padding-left:1rem;
+    padding-top:1rem;
+}
+.graphRow{
+/*     background-color: red;
+ */    min-height:60vh;
+    max-height: 60vh;
+    justify-content: space-around;
+}
+.notificationContainer .recent{
+    padding:0;
+    margin:2rem 1rem 2rem; 
+}
+@media(max-width:1300px){
+    .dashboardContainer{
+        padding:0% 0% !important;  
+    }
+    .dashboardTexts {
+        text-align: right;
+        font-size: 0.8rem;   
+    }
+    .dashboardIcons{
+        border-radius: 8px;
+        text-align: center !important;
+        padding-top: 7%;
+        height: 8vh !important;
+        padding-right:15% !important;
+    }
+}
+@media(max-width:768px){
+    .dashboardContainer{
+        padding:0% 0% !important;  
+    }
+    .dashboardTexts {
+        text-align: right;
+        font-size: 1rem;   
+    }
+    .dashboardIcons{
+      text-align: center;
+        padding-top: 4% !important;
+        height: 8vh !important;
+        padding-right:4% !important;
+    }
+  
+}

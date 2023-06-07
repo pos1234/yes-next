@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import {Row, Col,Button, Container,Form} from 'react-bootstrap'
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import StyledUr from '../Components/StyledUr'
-import Navigation from '../Components/Navigation'
-import Footer from '../Components/Footer'
+import StyledUr from '../../Components/StyledUr'
+import NavbarJobs from '../../Components/NavbarJobs'
+import Footer from '../../Components/Footer'
 import styles from '@/styles/Contact.module.css'
 const Contact = ()=>{
     return(
@@ -14,7 +14,16 @@ const Contact = ()=>{
             </Head>
             <div className={styles['contact-entry']}>
                     <div className={styles['contact-entry-content']}>
-                     <Navigation/>
+                    <NavbarJobs  
+                        hrefHome="/" home='Home'
+                        hrefAbout="/home/about" about='About'
+                        hrefClient="/home/about" client='Client Hub'
+                        hrefJobs="/jobs" jobs='Find a Job'
+                        hrefHris="/home/hris" hris='Products'
+                        hrefBlog="/home/blog" blog='Blog'
+                        hrefFaq="/home/faq" faq='FAQ'
+                        hrefContact="/home/contact-us" contact=''
+                   />
                         <Row className={styles['contact-entry-headings']} data-aos="fade-up" data-aos-duration="2000">
                             <h1 className={styles['display-1 styled-ur']}>Our talent <br/>
                             is finding you <br/>

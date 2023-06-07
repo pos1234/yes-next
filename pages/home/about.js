@@ -1,10 +1,10 @@
 import {Container,Row,Col,Button} from 'react-bootstrap'
-import StyledUr,{StyledUrContent} from '../Components/StyledUr'
+import StyledUr,{StyledUrContent} from '../../Components/StyledUr'
 import Link from 'next/link'
 import Head from 'next/head'
-import Footer from '../Components/Footer'
-import Navigation from '../Components/Navigation'
-import ToggledContent from "../Components/ToggledContent"
+import Footer from '../../Components/Footer'
+import NavbarJobs from '../../Components/NavbarJobs'
+import ToggledContent from "../../Components/ToggledContent"
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import styles from '@/styles/About.module.css'
 const Boxes = (props)=>{
@@ -28,7 +28,16 @@ const About = () =>{
         
        <div className={styles['about-entry']}>
                     <div className={styles['about-entry-content']}>
-                     <Navigation/>
+                    <NavbarJobs  
+                        hrefHome="/" home='Home'
+                        hrefAbout="" about=''
+                        hrefClient="/home/about" client='Client Hub'
+                        hrefJobs="/jobs" jobs='Find a Job'
+                        hrefHris="/home/hris" hris='Products'
+                        hrefBlog="/home/blog" blog='Blog'
+                        hrefFaq="/home/faq" faq='FAQ'
+                        hrefContact="/home/contact-us" contact='Get in Touch'
+                   />
                         <Row className={styles['about-entry-headings']} >
                             <h1 className={`${styles['display-1']} ${['styled-ur']}`}>Your one-stop-shop for employment solutions in <StyledUr text='Ethiopia!' /></h1>
                             <Row className={styles['about-icon-container']}>
@@ -39,7 +48,7 @@ const About = () =>{
                         </Row> 
                     </div>
                 </div>
-       <Container>
+      <Container>
         
         <Container className={styles["about-deliver"]} id='aboutDeliver' >
             <Row className={styles["about-deliver-content"]} data-aos="fade-up" data-aos-duration="2000">
@@ -53,7 +62,7 @@ const About = () =>{
                 </Col>
             </Row>
             <Row className={styles['about-deliver-boxes']} data-aos="fade-up" data-aos-duration="2000">
-                <Col sm={1} >
+                <Col md={1} xs={12} >
                     <img src='/images/jet-svg.svg' alt="mission-icon"/>
                 </Col>
                 <Col className={styles["about-deliver-boxes-content"]}>
@@ -62,7 +71,7 @@ const About = () =>{
                 </Col>
             </Row>
             <Row className={styles['about-deliver-boxes']} data-aos="fade-up" data-aos-duration="2000">
-                <Col sm={1}>
+                <Col md={1} xs={12}>
                     <img src='/images/micro-svg.svg' alt="vision-icon"/>
                 </Col>
                 <Col className={styles["about-deliver-boxes-content"]}>
@@ -73,12 +82,12 @@ const About = () =>{
         </Container>
         <Container className={styles["about-values"]}>
             <Row data-aos="fade-up" data-aos-duration="2000">
-            <Col>
+            <Col xs={12} md={6}>
                 <h1  className={styles["about-headings"]} >Values Are At Our Core</h1>
                 <p className={styles["sub-heading"]}>Excellence. Intergrity. Respect.</p>
-                <img src='/images/image-1-3.avif' alt='running on the steps'/>
+                <img src='/images/Group9.svg' width='80%' alt='running on the steps'/>
             </Col>
-            <Col className={styles['Toggle-collection']}>
+            <Col xs={12} md={6} className={styles['Toggle-collection']}>
                 <Row>
                     <ToggledContent btnText='Clients'
                     paragraph='We take pride in understanding the uniqueness of each recruitment process—listening and planning carefully before taking action to ensure successful results every time! #YesWeWill'
@@ -93,7 +102,7 @@ const About = () =>{
             </Col>
         </Row>
     </Container>
-    </Container>
+    </Container> 
     <Container className={styles["about-services"]}>
         <Row data-aos="fade-up" data-aos-duration="2000">
             <Col>
@@ -124,7 +133,7 @@ const About = () =>{
     </Container>
     <Container className={styles["about-common-style"]} id='Recruitment'>
         <Row data-aos="fade-up" data-aos-duration="2000">
-            <Col sm={6} className={styles["about-common-style-left"]}>
+            <Col xs={12} md={6}  className={styles["about-common-style-left"]} >
                 
                 <h1  className={styles["about-headings"]}>Recruitment & <StyledUrContent texts='Staffing' /></h1>
                 <p>
@@ -149,18 +158,18 @@ const About = () =>{
                 </Row>
                 <Link href='/home/contact-us' className={styles['learn-more-link']}>-- Learn More</Link>
             </Col>
-            <Col>
-            <img src= '/images/image-1-4.avif' alt="people discussing"/> 
+            <Col xs={12} md={6}>
+            <img src= '/images/Group12.svg' alt="people discussing"/> 
             </Col>
         </Row>
-    </Container>
-    <Container className={styles["about-common-style"]} id='Outsourcing'>
+    </Container> 
+  <Container className={styles["about-common-style"]} id='Outsourcing'>
         
         <Row data-aos="fade-up" data-aos-duration="2000">
-            <Col>
-                <img src='/images/image-1-5.avif' alt="people discussing on a table"/> 
+            <Col xs={12} md={6} >
+                <img src='/images/Group14.svg' alt="people discussing on a table"/> 
             </Col>
-            <Col sm={6} className={styles["about-common-style-right"]}>
+            <Col xs={12} md={6}  className={styles["about-common-style-right"]}>
                 <h1  className={styles["about-headings"]}><StyledUrContent texts='HR Outsourcing' /> | Payroll Management</h1>
                 <p>
                     YES is the ultimate solution for all your Ethiopian expansion and HR project needs - our reliable HR Outsourcing and Payroll Management services ensure you are in full compliance with employment regulations while minimising distractions from growing your business. Our comprehensive suite of offerings includes tailored employment contracts, payroll and benefits management based on the Ethiopian labour law, robust HRIS systems aligned to local statutory requirements and international standards giving you peace of mind along with a first class employee experience!
@@ -181,12 +190,12 @@ const About = () =>{
            
         </Row>
     </Container>
-    <Container className={styles["about-common-style"]} id='Executive'>
+    <Container  className={styles["about-common-style"]} id='Executive'>
         <Row data-aos="fade-up" data-aos-duration="2000">
-        <Col>
-            <img src= '/images/image-1-6.avif' alt="people chatting"/> 
+        <Col xs={12} md={6} >
+            <img src= '/images/Group17.svg' alt="people chatting"/> 
             </Col>
-            <Col sm={6} className={styles["about-common-style-right"]}>
+            <Col xs={12} md={6}  className={styles["about-common-style-right"]}>
                 <h1  className={styles["about-headings"]}><StyledUrContent texts='Executive' /> Search</h1>
                 <p>
                 Get the best leader for your organisation with YES' executive search services. YES provides comprehensive executive search services, bringing the right leaders to your organisation and making sure each one fits perfectly with its culture. Our expert team leverages their knowledgeable skill-set to identify and deliver candidates who match organisational culture, promising a positive leadership outcome that will take you into a brighter tomorrow!
@@ -195,26 +204,27 @@ const About = () =>{
             </Col>
            
         </Row>
-    </Container>
-    <Container className={styles["about-common-style"]} id='Career'>
+    </Container> 
+    
+   <Container className={styles["about-common-style"]} id='Career'>
         <Row data-aos="fade-up" data-aos-duration="2000">
-            <Col sm={6} className={styles["about-common-style-left"]}>
+            <Col xs={12} md={6}  className={styles["about-common-style-left"]}>
                 <h1  className={styles["about-headings"]}><StyledUrContent texts='Career' /> Coaching</h1>
                 <p>
                 Unlock your potential with YES and start down an exciting career path. Our highly-qualified team will equip you with essential tools such as resume building, interview practice and job searching strategies to help ensure that all of your hard work pays off.                </p>
                 <Link href='/home/contact-us' className={styles['learn-more-link']}>-- Learn More</Link>
             </Col>
-            <Col>
-            <img src='/images/image-1-7.avif' alt="people chatting on a table"/> 
+            <Col xs={12} md={6} >
+            <img src='/images/Group15.svg' alt="people chatting on a table"/> 
             </Col>
         </Row>
-    </Container>
-    <Container className={`${styles["about-common-style"]} ${styles["about-white-back"]}`} id='Assessment' fluid>
+    </Container> 
+     <Container className={`${styles["about-common-style"]} ${styles["about-white-back"]}`} id='Assessment' fluid>
         <Row data-aos="fade-up" data-aos-duration="2000">
-        <Col>
-            <img src='/images/image-1-8.avif' alt="people argueing"/> 
+        <Col xs={12} md={6} >
+            <img src='/images/Group54.svg' alt="people argueing"/> 
             </Col>
-            <Col sm={6} className={styles["about-common-style-right"]}>
+            <Col xs={12} md={6}  className={styles["about-common-style-right"]}>
                 <h1  className={styles["about-headings"]}><StyledUrContent texts='Assessment' />  and Background Check</h1>
                 <p>
                 Let’s make sure your new hire checks all of the boxes. With our pre-employment tests and background tests, we’ll ensure your candidate is a qualified YES match giving employers peace of mind when making new hires. Some of our assessment and background check options include:
@@ -244,10 +254,10 @@ const About = () =>{
             </Col>
         </Row>
     </Container>
-    
-    <Container className={styles["about-common-style"]} id='Training'>
+     
+     <Container className={styles["about-common-style"]} id='Training'>
         <Row data-aos="fade-up" data-aos-duration="2000">
-            <Col sm={6} className={styles["about-common-style-left"]}>
+            <Col xs={12} md={6}  className={styles["about-common-style-left"]}>
                 <h1  className={styles["about-headings"]}><StyledUrContent texts='Training' />  and Development</h1>
                 <p>
                 Finding the right fit is only the beginning. Investing in the growth and development of your team's core skills and competencies will elevate their performance to a whole new level. Our comprehensive training and development programs are designed to help your employees reach their future goals. With an array of short & long course programs to choose from, we provide practical tools and resources that professionals can use to not only ensure productivity at work but innovation as well. What makes us unique is our hands-on approach that bases all programs on actual gaps and needs observed during our analysis period. This enables us to deliver tailor made development programs that are client centric and bring long lasting change.
@@ -273,14 +283,14 @@ const About = () =>{
                 </Row>
                 <Link href='/home/contact-us' className={styles['learn-more-link']}>-- Learn More</Link>
             </Col>
-            <Col>
-            <img src='/images/image-1-9.avif' href="" alt='developer discussing'/> 
+            <Col xs={12} md={6} >
+            <img src='/images/Group8.svg' href="" alt='developer discussing'/> 
             </Col>
         </Row>
-    </Container>
-    <Container className={`${styles["about-common-style"]} ${styles["about-last-content"]}`}>
+    </Container> 
+     <Container className={`${styles["about-common-style"]} ${styles["about-last-content"]}`}>
         <Row data-aos="fade-up" data-aos-duration="2000">
-        <Col className={styles['Toggle-collection']}>
+        <Col xs={12} md={6}  className={styles['Toggle-collection']}>
             <Row>
                 <ToggledContent btnText='We Get it Right'
                 paragraph="We take a hands on, personalized approach to understand our clients' business needs and we get to know each candidate individually. Our talent acquisition experts utilize cutting edge technology and proven process to source, screen, evaluate, select and secure candidates that are the perfect fit helping to ensure 100% satisfaction, every time!"
@@ -293,13 +303,13 @@ const About = () =>{
                 />
             </Row>
         </Col>
-        <Col>
+        <Col xs={12} md={6} >
             <h1  className={styles["about-headings"]}>What Sets Us Apart</h1>
             <h2>We put the cherry on top!</h2>
             <img src='/images/image-1-10.avif' alt='running on the steps'/>
         </Col>
     </Row>
-    </Container>
+    </Container> 
     
        </div>
        <Footer />

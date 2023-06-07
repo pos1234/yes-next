@@ -1,0 +1,76 @@
+
+.resumeContainer{
+    padding-top:2rem;
+    padding-bottom: 5rem;
+}
+.resumeCols{
+    border: 1px solid #ECEDF2;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px 0 rgba(64, 79, 104, 0.05);   
+    padding-left:1rem;
+    padding-top:1rem;
+    margin-top:2rem;
+    padding-bottom: 1rem;
+}
+.resumeCols h1{
+    font-size: 1.3rem;
+}
+.resumeCols p{
+    font-size: 1rem;
+}
+.resumeDrop{
+    background-color: rgb(240, 245, 247);
+    margin:1rem 0;
+    padding:1rem 0;
+    max-width: 98.5% !important;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.buttons{
+    background-color: rgba(37, 206, 209, 0.07);
+    color:var(--color-primary);
+    border:none !important;
+    padding:1.1rem;
+    margin-top: 1rem;
+}
+.buttons:focus,
+.buttons:active,
+.buttons:hover{
+    background-color: rgba(37, 206, 209, 0.07) !important;
+    color:var(--color-primary) !important;
+    filter: brightness(90%);
+    cursor: pointer;
+}
+.inputs input{
+    width:100%;
+    height:70px;
+    padding-left:1rem;
+}
+.inputs textarea{
+    width:100%;
+    padding-left:1rem;
+    padding-top:1rem;
+    resize: none;
+}
+.submitButton{
+    background-color: rgb(37, 206, 209);
+    width: 150px;
+    height: 50px;
+    margin-top:2rem;
+    border-radius:50px;
+    font-size: 15px;
+    font-weight: 400;
+    border:none !important;
+}
+.submitButton:hover{
+    background-color: rgb(37, 206, 209);
+    filter:brightness(95%);
+}
+.exIcons{
+    color:#AA0000;
+    font-size: 20px;
+}
+.exIcons:hover{
+    color:red;
+    font-size: 20px;
+}
