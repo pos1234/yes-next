@@ -1,12 +1,10 @@
 .paginationContainer{
 /*     background-color: red;
  */    margin-top: 10%;
-<<<<<<< HEAD
     justify-content:space-evenly;
     width:80%;
   margin-left: 10%;
-=======
->>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
+
     justify-content: space-around;
 }
 .paginationContainer > li > *{
@@ -21,7 +19,6 @@
     box-shadow: none;
     color:white;
 }
-<<<<<<< HEAD
 .rightIcon{
     border:none;
 }
@@ -74,18 +71,15 @@
        width:70% !important;
      margin-left: 15% !important;
    }
-=======
->>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
+
 @media (max-width:576px){
     .paginationContainer > li > *{
         border-radius: 50%;
         width:30px;
         height:30px;
-<<<<<<< HEAD
         padding:2px;
         padding-left:9px;
-=======
->>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
+
         padding:5px;
         padding-left:10px;
     } 
@@ -96,7 +90,6 @@
         display: none !important;
       }
 }
-<<<<<<< HEAD
 }
 @media (max-width:576px){
     .paginationContainer{
@@ -106,5 +99,5 @@
    
 }
 
-=======
->>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
+
+

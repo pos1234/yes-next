@@ -12,15 +12,7 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import Footer from '../Components/Footer'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-<<<<<<< HEAD
 import styles from '@/styles/jobs/Jobs.module.css'
-=======
-<<<<<<< HEAD
-import styles from '@/styles/jobs/Jobs.module.css'
-=======
-import styles from '@/styles/Jobs.module.css'
->>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d
->>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
 import {AppContext} from '../lib/AppContext'
 import { set } from 'react-hook-form'
 import CheckIcon from '@mui/icons-material/Check';
@@ -47,26 +39,16 @@ const FindJob=()=> {
     const [search,setSearch]=useState("");
     const [abc,setAbc] = useState(data);
     const [dab,setDab] = useState();
-<<<<<<< HEAD
+
     const pageSize = 10;
 
-=======
-<<<<<<< HEAD
-    const pageSize = 7;
-=======
-    const pageSize = 10;
->>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d
->>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
+
+
 
 const textHtml = ( text)=>{
   const parser = new DOMParser();
   const doc = parser.parseFromString(text,'text/html')
-<<<<<<< HEAD
   const secondText = doc.getElementsByTagName('p')[2];
-
-=======
-  const secondText = doc.getElementsByTagName('p')[1]
->>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
   return secondText.textContent.substring(0,200)
 }
     const showDropdown = (e)=>{
@@ -151,12 +133,9 @@ const textHtml = ( text)=>{
                         </Col>
                         <Col md={3} xs={12} className={styles['search-bar-cols']}>
                             <Form>
-<<<<<<< HEAD
+
                                 <Form.Group id="formCity">
 
-=======
-                                <Form.Group controlId="formCity">
->>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
                                 <Form.Select className={styles["drop-downs"]} placeholder='hey'>
                                         <option key='blankChoice' value=''> {/* <LocationOnIcon/> */} City or "Remote" </option>
                                         <option value='AddisAbeba'>Addis Abeba</option>
@@ -240,13 +219,10 @@ const textHtml = ( text)=>{
                     </p>
 {/*                     <p >{new Date(select.date).toLocaleDateString([], { year: 'numeric', month: 'long', day: 'numeric' })} </p>
  */}         
-<<<<<<< HEAD
  <p>{moment(select.date, "YYYYMMDD").fromNow()} <span style={{marginLeft:"50%"}}>See more</span></p>
             
 
-=======
- <p>{moment(select.date, "YYYYMMDD").fromNow()}</p>           
->>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
+
                 </Col>
                 {/* <Col xs={1}>
                     <FavoriteBorderIcon style={{color:'black'}}/>
@@ -257,15 +233,12 @@ const textHtml = ( text)=>{
             ))
         }
         </Nav>
-<<<<<<< HEAD
-        <div style={{padding:"0",margin:"0"}} className={disp ? `${styles['displays']}`:`${styles['no-displays']}`}>         
+        
     
- <FPagination
 
-=======
         <div style={{padding:"0",margin:"0"}} className={disp ? `${styles['displays']}`:`${styles['no-displays']}`}>
             <FPagination
->>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
+
             item={ filtered.length} 
             currentPage={currentPage}
             pageSize={pageSize}
@@ -328,24 +301,10 @@ const textHtml = ( text)=>{
                                                     </Dropdown.Menu>
                                                     </Dropdown>
                                                 </Col>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
-                                                 <Col xs={2}>
-                                                 <div  className={styles['shareIcon']}>
-                                                      <FavoriteBorderIcon sx={{ fontSize: "28px" }}/>  
-                                                </div>
-<<<<<<< HEAD
-=======
-=======
                                                  <Col xs={2} >
                                                     <div  className={styles['shareIcon']}>
                                                       <FavoriteBorderIcon sx={{ fontSize: "28px" }}/>  
                                                     </div>
-                                                
->>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d
->>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
                                             </Col>  
                                                 <Col xs={8}>
                                                 <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
@@ -380,25 +339,12 @@ const textHtml = ( text)=>{
                                 </Col>
                             </Row>
                             <hr className={styles['horizontal-rule']}/>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
-                            <Row style={{padding:"0",margin:"0"}}> 
-                            <Col xs={2} sm={4} md={3} lg={6}>
-                            
-                            </Col>   
-                                        <Col xs={10} sm={8} md={9} lg={6} style={{padding:"0",paddingTop:"5%"}}>
-<<<<<<< HEAD
-=======
-=======
+
                             <Row style={{padding:"0",margin:"0"}}>  
                             <Col xs={2} sm={4} md={3} lg={6}>
                             
                             </Col> 
                                         <Col xs={10} sm={8} md={9} lg={6}style={{padding:"0",paddingTop:"5%"}}>
->>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d
->>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
                                             <Row>
                                                 <Col xs={2}>
                                                 <Dropdown show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
@@ -436,22 +382,11 @@ const textHtml = ( text)=>{
                                                     </Dropdown>
                                                 </Col>
                                                  <Col xs={2}>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
+
                                                     <div  className={styles['shareIcon']}>
                                                       <FavoriteBorderIcon sx={{ fontSize: "28px" }}/>  
                                                     </div>
                                             </Col>  
-<<<<<<< HEAD
-=======
-=======
-                                                 <div  className={styles['shareIcon']}>
-                                                      <FavoriteBorderIcon sx={{ fontSize: "28px" }}/>  
-                                                </div>                                            </Col>  
->>>>>>> 696df3e77f1631134c09782ab1df04151e661e3d
->>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
                                                 <Col xs={8}>
                                                 <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
 

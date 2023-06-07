@@ -53,17 +53,11 @@ useEffect(()=>{
                 password:userInfo.password,
                 callbackUrl:"/",
               })
-<<<<<<< HEAD
               if(res.status==200 && data.user.name === "candidate") router.push("/users/candidate/user-candidate");
                     if(res.status==200 && data.data.name === "employer") router.push("/users/employer/user-employer"); */
           
               
-=======
-              if(res.status==200){
-                router.push("/home/faq");
-                console.log('worked')
-              } 
->>>>>>> 9a288ccd2a12e9bf6a89d5506ae83a2afbedb476
+
  } 
     return(
      
