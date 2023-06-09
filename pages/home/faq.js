@@ -45,7 +45,6 @@ const FAQ =()=> {
     },[status]);
     if(status==="authenticated" && data.user.name==="employer") {
         console.log(data.user); */
-
   return (
         <>
         <Head>
@@ -66,7 +65,6 @@ const FAQ =()=> {
                 <Row className={styles['faq-container-title']}>
                 <img src='/images/Message-1.svg' style={{width:'70px'}} width={70} alt='message-icon'/>
                 <h1>{/* {data.user.email} */} Frequently Asked Questions</h1>
-
                 </Row>
                 <Row>
                     <Col xs={12} md={3} className={styles['faq-order']}>
@@ -138,5 +136,4 @@ const FAQ =()=> {
   )
     } 
 //}
-
 export default FAQ

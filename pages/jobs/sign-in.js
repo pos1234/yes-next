@@ -57,8 +57,8 @@ useEffect(()=>{
                     if(res.status==200 && data.data.name === "employer") router.push("/users/employer/user-employer"); */
           
               
-
  } 
+
     return(
      
         <>

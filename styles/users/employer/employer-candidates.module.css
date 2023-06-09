@@ -1,0 +1,50 @@
+.searchContainer{
+    padding-top: 3rem;
+}
+.postJobButton{
+    background-color: var(--color-primary);
+    border:none;
+    height: 3rem;
+    width: 10vw;
+    border-radius: 5px;
+    padding-top: 0.7rem;
+}
+.postJobButton:hover,
+.postJobButton:active,
+.postJobButton:focus{
+    background-color: var(--color-primary) !important;
+   filter: brightness(93%);
+}
+.noCandidateImag {
+    text-align: center;
+    padding-top: 3rem;
+    max-height: 70vh;
+    margin-bottom: 1rem;
+    margin-bottom: 10rem;
+}
+.noCandidateImag img{
+    width:80%;
+    height: 80%;
+    object-fit: contain;
+}
+.noCandidateImag p{
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+@media (max-width:996px){
+    .postJobButton{
+        width: 15vw;
+    } 
+}
+@media (max-width:700px){
+    .postJobButton{
+        width: 5vw;
+    } 
+}
+@media (max-width:768px){
+    .postJobButton{
+        width: 25vw;        
+    } 
+}

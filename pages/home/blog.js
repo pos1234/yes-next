@@ -65,7 +65,6 @@ const handleSubmit = (e)=>{
        {
         (number) ? (<Container fluid="xs" className={styles['blogDetailContainer']}>
             <Button className={styles['arrowBack']}><ArrowBackIcon sx={{ fontSize: 30 }} onClick={handleClick}/></Button>
-
             <Row>
                 <Col>
                     <h1 className={styles['blogDetailHeading']}>{blog.title.rendered}</h1>
@@ -74,12 +73,10 @@ const handleSubmit = (e)=>{
             <Row>
                 <Col>
                 <div dangerouslySetInnerHTML={{__html:blog.content.rendered}}/>
-
                  </Col>
             </Row>
             <Row >
                 <Col xs={11} md={7}>
-
             <Form onSubmit={handleSubmit}>
                     <h1  className='py-3' style={{color:'black'}}>Leave a comment</h1>
                     <Row>
@@ -134,7 +131,6 @@ const handleSubmit = (e)=>{
                     <p>{oneBlog.title.rendered}</p>
                     <h1>{oneBlog.title.rendered}</h1>
                     <ArrowForwardIcon style={{position:'relative'}}/>
-
                 </Col>
             </Row>
         </Col>     
