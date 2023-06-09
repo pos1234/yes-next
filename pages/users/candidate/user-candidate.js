@@ -6,7 +6,6 @@ import { Container,Row,Col } from 'react-bootstrap'
 import BusinessCenterOutlinedIcon from '@mui/icons-material/BusinessCenterOutlined';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
-import styles from '@/styles/users/userCandidate.module.css'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 const userCandidate =()=> {
