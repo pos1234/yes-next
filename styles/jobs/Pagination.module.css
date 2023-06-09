@@ -4,7 +4,6 @@
     justify-content:space-evenly;
     width:80%;
   margin-left: 10%;
-
     justify-content: space-around;
 }
 .paginationContainer > li > *{
@@ -71,7 +70,6 @@
        width:70% !important;
      margin-left: 15% !important;
    }
-
 @media (max-width:576px){
     .paginationContainer > li > *{
         border-radius: 50%;
@@ -79,7 +77,6 @@
         height:30px;
         padding:2px;
         padding-left:9px;
-
         padding:5px;
         padding-left:10px;
     } 
@@ -98,6 +95,4 @@
    }
    
 }
-
-
 

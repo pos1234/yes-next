@@ -39,16 +39,14 @@ const FindJob=()=> {
     const [search,setSearch]=useState("");
     const [abc,setAbc] = useState(data);
     const [dab,setDab] = useState();
-
     const pageSize = 10;
-
-
 
 
 const textHtml = ( text)=>{
   const parser = new DOMParser();
   const doc = parser.parseFromString(text,'text/html')
   const secondText = doc.getElementsByTagName('p')[2];
+
   return secondText.textContent.substring(0,200)
 }
     const showDropdown = (e)=>{
@@ -133,7 +131,6 @@ const textHtml = ( text)=>{
                         </Col>
                         <Col md={3} xs={12} className={styles['search-bar-cols']}>
                             <Form>
-
                                 <Form.Group id="formCity">
 
                                 <Form.Select className={styles["drop-downs"]} placeholder='hey'>
@@ -222,7 +219,6 @@ const textHtml = ( text)=>{
  <p>{moment(select.date, "YYYYMMDD").fromNow()} <span style={{marginLeft:"50%"}}>See more</span></p>
             
 
-
                 </Col>
                 {/* <Col xs={1}>
                     <FavoriteBorderIcon style={{color:'black'}}/>
@@ -233,11 +229,9 @@ const textHtml = ( text)=>{
             ))
         }
         </Nav>
-        
+        <div style={{padding:"0",margin:"0"}} className={disp ? `${styles['displays']}`:`${styles['no-displays']}`}>         
     
-
-        <div style={{padding:"0",margin:"0"}} className={disp ? `${styles['displays']}`:`${styles['no-displays']}`}>
-            <FPagination
+ <FPagination
 
             item={ filtered.length} 
             currentPage={currentPage}
@@ -301,10 +295,10 @@ const textHtml = ( text)=>{
                                                     </Dropdown.Menu>
                                                     </Dropdown>
                                                 </Col>
-                                                 <Col xs={2} >
-                                                    <div  className={styles['shareIcon']}>
+                                                 <Col xs={2}>
+                                                 <div  className={styles['shareIcon']}>
                                                       <FavoriteBorderIcon sx={{ fontSize: "28px" }}/>  
-                                                    </div>
+                                                </div>
                                             </Col>  
                                                 <Col xs={8}>
                                                 <Button as='a' href={selectedData.metas._job_apply_url} target='_blank' className={styles['quick-apply-button']}>Quick Apply</Button>   
@@ -339,12 +333,11 @@ const textHtml = ( text)=>{
                                 </Col>
                             </Row>
                             <hr className={styles['horizontal-rule']}/>
-
-                            <Row style={{padding:"0",margin:"0"}}>  
+                            <Row style={{padding:"0",margin:"0"}}> 
                             <Col xs={2} sm={4} md={3} lg={6}>
                             
-                            </Col> 
-                                        <Col xs={10} sm={8} md={9} lg={6}style={{padding:"0",paddingTop:"5%"}}>
+                            </Col>   
+                                        <Col xs={10} sm={8} md={9} lg={6} style={{padding:"0",paddingTop:"5%"}}>
                                             <Row>
                                                 <Col xs={2}>
                                                 <Dropdown show={show} onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
@@ -382,7 +375,6 @@ const textHtml = ( text)=>{
                                                     </Dropdown>
                                                 </Col>
                                                  <Col xs={2}>
-
                                                     <div  className={styles['shareIcon']}>
                                                       <FavoriteBorderIcon sx={{ fontSize: "28px" }}/>  
                                                     </div>

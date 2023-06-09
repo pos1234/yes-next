@@ -1,6 +1,6 @@
 import {Col,Row,Container} from 'react-bootstrap'
-import NavbarJobs from '../../Components/NavbarJobs'
-import Footer from '../../Components/Footer'
+import NavbarJobs from '../Components/NavbarJobs'
+import Footer from '../Components/Footer'
 import styles from '@/styles/Privacy.module.css'
 
 function Policy() {

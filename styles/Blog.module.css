@@ -88,7 +88,6 @@
   border:none;
   padding: 0 !important;
 }
-
   @media (max-width:768px){
     .blog-entry{
         background: url('../public/images/abstract.avif') no-repeat;
@@ -126,5 +125,4 @@
         padding:20px 0% 0% 0% !important;
         
       }
-
   }

@@ -86,8 +86,6 @@
     padding:3vh 3vw 0 !important;
     margin-bottom: 3rem;
     position: relative; 
-
-
   }
 
   
@@ -424,7 +422,6 @@
    .drop-downs{
     display: none;
    }
-
  }
   @media (max-width:768px){
     .clipBoard{
@@ -492,7 +489,6 @@
   .search-bar-container .search-bar-inner-container .input-text:focus{
       border-bottom:1px solid var(--color-primary) !important;
   }
-
       .search-bar-container .search-bar-inner-container .search-bar-cols{
         border-right: 0px solid var(--color-icons) !important;
          padding:10px 1rem 0 1rem !important; 

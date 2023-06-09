@@ -1,6 +1,5 @@
 import _ from 'lodash'
 import { Pagination,Col } from 'react-bootstrap';
-
 import styles from '@/styles/jobs/Pagination.module.css'
 import { useEffect, useState } from 'react';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -19,7 +18,6 @@ const FPagination = ({item,pageSize,currentPage,onPageChange})=>{
         }
            
     }
-
     const pageCount = item / pageSize;
     if(Math.ceil(pageCount)===1) return null;
     const pages = _.range(1,pageCount +1);
@@ -44,7 +42,6 @@ const FPagination = ({item,pageSize,currentPage,onPageChange})=>{
                <button className={styles['leftIcon']} onClick={numberLast}><ChevronLeftIcon/></button>
            }
            {items}</Pagination>
-
 
         </Col>
     )

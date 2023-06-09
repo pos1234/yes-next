@@ -39,10 +39,6 @@ const Footer = () =>{
                             <p> <Link style={{color:"unset",textDecoration:"none"}} href='/jobs/sign-in'>Post Job </Link></p>
                             <p> <Link style={{color:"unset",textDecoration:"none"}} href='/home/submit-job-order'>Submit Job Order </Link></p>
                             <p>  <Link style={{color:"unset",textDecoration:"none"}} href='/home/about'>Our Services</Link></p>
-                            <p> <Link style={{color:"unset",textDecoration:"none"}} href='/jobs/sign-in'>Post Job </Link></p>
-                            <p> <Link style={{color:"unset",textDecoration:"none"}} href='/home/submit-job-order'>Submit Job Order </Link></p>
-                            <p>  <Link style={{color:"unset",textDecoration:"none"}} href='/home/about'>Our Services</Link></p>
-
                             <p>My YES</p>
                         </Col>
                         </Row>
@@ -58,17 +54,23 @@ const Footer = () =>{
                 </Col>
             </Row>
             </div>
-            <Row className={styles["footer-contact-term"]} xs="auto">
-                <Col  xs={12} md={6}>
-                    <p className={`${styles["silver-paragraph"]} ${styles["paragraph-right"]}`}>©2023 YES Your Employment Solution.</p>
-                </Col>
-                <Col xs={12} md={6}>
-                    <Link className={styles["silver-paragraph"]} href='/home/terms'>Terms and Conditions | </Link>  <Link className={styles["silver-paragraph"]} href='/home/policy'>Privacy Policy</Link>
-                </Col>
-            </Row>
-            
+           
+            <FooterPart/>
         </Container>
         </div>
     )
 }
 export default Footer
+
+export const FooterPart = ()=>{
+    return(
+        <Row className={styles["footer-contact-term"]} xs="auto">
+        <Col  xs={12} md={6}>
+            <p className={`${styles["silver-paragraph"]} ${styles["paragraph-right"]}`}>©2023 YES Your Employment Solution.</p>
+        </Col>
+        <Col xs={12} md={6}>
+            <Link className={styles["silver-paragraph"]} href='/home/terms'>Terms and Conditions | </Link>  <Link className={styles["silver-paragraph"]} href='/home/policy'>Privacy Policy</Link>
+        </Col>
+    </Row>
+    )
+}

@@ -177,18 +177,12 @@
 @media (max-width:768px){
   .styled-ur svg{
 
-  }
-}
-@media (max-width:768px){
-  .styled-ur svg{
-
 
     height:0.95rem;
     margin-top: -15px;
     left:-5px;
    
   }
-
     .logo-image img{
         width:100px;
         height: 100px;
@@ -211,7 +205,6 @@
         top:3%;
         top:5%;
         z-index: 100 !important;
-
       }
       .navbar-sign-container{
         display: none;
