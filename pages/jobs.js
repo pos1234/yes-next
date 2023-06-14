@@ -1,9 +1,7 @@
 import React, { useEffect, useState,useContext } from 'react'
-import axios from 'axios'
-import {Row, Dropdown, Col,Form, Nav, Button, Container, Badge} from 'react-bootstrap'
+import {Row, Dropdown, Col,Form, Nav, Button, Container, Badge,SSRProvider} from 'react-bootstrap'
 import NavbarJobs from '../Components/NavbarJobs'
 import Head from 'next/head'
-import InfoIcon from '@mui/icons-material/Info';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShareIcon from '@mui/icons-material/Share';
 import ApartmentIcon from '@mui/icons-material/Apartment';
@@ -13,8 +11,6 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import Footer from '../Components/Footer'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import styles from '@/styles/jobs/Jobs.module.css'
-import {AppContext} from '../lib/AppContext'
-import { set } from 'react-hook-form'
 import CheckIcon from '@mui/icons-material/Check';
 import FPagination from '../Components/Pagination'
 import { paginate } from '@/utils/paginate'
@@ -23,36 +19,37 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import _ from 'lodash'
-import { htmlToText } from 'html-to-text'
 import moment from 'moment'
-const FindJob=()=> {
+import { useRouter } from 'next/router'
+import { loadPosts } from '../lib/load-posts'
+export async function getStaticProps() {
+    const data = await loadPosts()
+    return { props: { data } }
+  }
+const FindJob=({data})=> {
   
-
-    const {data,loading,one} = useContext(AppContext)
+    const one = data.find(post => data[0].id == post.id )
     const [disp,setDisp]=useState(true);
     const [disp2,setDisp2]=useState(true);
-    const [datas,setDatas]=useState([])
+   
     const [selectedData,setSelectedData]=useState(one)
     const [clip,setClip]  = useState (false)
     const [currentPage,setCurrentPage] = useState (1);
     const [show, setShow] = useState(false);
     const [search,setSearch]=useState("");
-    const [abc,setAbc] = useState(data);
-    const [dab,setDab] = useState();
     const pageSize = 10;
 
-
+        const router = useRouter();
+        const searchText = router.query.searchtext;
 const textHtml = ( text)=>{
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(text,'text/html')
-  const secondText = doc.getElementsByTagName('p')[2];
+    const secondText = text.replace(/<[^>]*>/g,'')
 
-  return secondText.textContent.substring(0,200)
+  return secondText.substring(0,100)
 }
     const showDropdown = (e)=>{
         setShow(!show);
     }
-    const hideDropdown = e => {
+    const hideDropdown = (e) => {
         setShow(false);
     }
   
@@ -66,10 +63,10 @@ const textHtml = ( text)=>{
         const titleLower = o.title.rendered.toLowerCase();
         const inputLower = search.toLowerCase();
         return titleLower.includes(inputLower)        
-    }) 
-    const paginatePosts = paginate (filtered,currentPage,pageSize);
+    })
+   const paginatePosts = paginate (filtered,currentPage,pageSize);
    function clipBoard(){
-     navigator.clipboard.writeText(selectedData.metas._job_apply_url);
+     navigator.clipboard.writeText(`localhost:3000/single-job/${selectedData.id}`);
         setClip(true)
         console.log(clip);
         clipReset();
@@ -99,6 +96,7 @@ const textHtml = ( text)=>{
         setDisp(true);
     } 
       return (
+        <SSRProvider>
         <div className={styles['jobs-container']} style={{overflowX:'hidden'}}>
           <Head>
                 <title>Explore Job Vacancies in Ethiopia | YES Job Search</title>
@@ -231,8 +229,8 @@ const textHtml = ( text)=>{
         </Nav>
         <div style={{padding:"0",margin:"0"}} className={disp ? `${styles['displays']}`:`${styles['no-displays']}`}>         
     
- <FPagination
-
+            <FPagination
+        
             item={ filtered.length} 
             currentPage={currentPage}
             pageSize={pageSize}
@@ -400,6 +398,7 @@ const textHtml = ( text)=>{
          
           <Footer/>
       </div>
+      </SSRProvider>
       )
     }
 

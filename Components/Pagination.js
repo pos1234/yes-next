@@ -7,6 +7,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 const FPagination = ({item,pageSize,currentPage,onPageChange})=>{
     const [num,setNum] = useState(1)
     const [numEnd,setNumEnd] = useState(6)
+    
     const numberChanger=()=>{
         setNum(num+1)
         setNumEnd(numEnd+1)
@@ -26,10 +27,10 @@ const FPagination = ({item,pageSize,currentPage,onPageChange})=>{
     for (let number = num; number <= pageCount; number++) {
     items.push(
         <>
-        <Pagination.Item onClick={()=>onPageChange(number)} key={number} className={ (number === currentPage) ? [`${"page-item"} ${styles["active"]}`] : ["page-item"] 
+        <Pagination.Item key={number}  onClick={()=>onPageChange(number)} className={ (number === currentPage && number<numEnd) ? [`${"page-item"} ${styles["active"]}`] : [`${"page-item"}`] 
      && (number === numEnd) ? [`${styles["rightIcon"]}`] : [""]
     } >
-        {(number < numEnd ) ?  number : number = (number <= pageCount) ? <button onClick={numberChanger}><ChevronRightIcon/></button> : null}
+        {(number < numEnd ) ?  number : number = (number <= pageCount) ? <button style={{display:'none'}}>heys</button> : null}
         </Pagination.Item>
         </>,
     );
@@ -37,11 +38,19 @@ const FPagination = ({item,pageSize,currentPage,onPageChange})=>{
     return (
         <Col xs={12} style={{padding:"0",margin:"0"}}>
            
-            <Pagination  className={styles['paginationContainer']}>{
-            (num == 1) ? null :
-               <button className={styles['leftIcon']} onClick={numberLast}><ChevronLeftIcon/></button>
+            <Pagination className={styles['paginationContainer']}>
+            {
+            (num == 1) ? null : <button className={styles['leftIcon']} onClick={numberLast}><ChevronLeftIcon/></button>
            }
-           {items}</Pagination>
+            {
+            (numEnd > 5 && numEnd < pageCount + 1) ? <button className={styles['rightIcons']} onClick={numberChanger}><ChevronRightIcon/></button> : null 
+           }
+           {
+            items.map((item,index)=>{
+                return <span className={styles['spans']} key={index}> {item} </span>
+            })
+           }
+           {/* {items} */}</Pagination>
 
         </Col>
     )
