@@ -20,7 +20,7 @@ function Policy() {
     <h1>PRIVACY POLICY</h1>
      <Row>
          <Col>
-             <h2>Generals</h2>
+             <h2>General</h2>
              <p>
              <b>YES | Your Employment Solutions</b><br/>
              We at YES | Your Employment Solutions are committed to respecting and protecting your privacy. The nature of our business requires us to collect and maintain personal information and we understand we have the responsibility to protect it. All employees of YES adhere to this policy and will treat your personal information with the utmost respect and in accordance with this Privacy Policy. This policy outlines the type of information we collect, how we may utilize that information and how we protect it.

@@ -4,7 +4,6 @@ import '@/styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import {DataProvider} from '../lib/AppContext';
 
 export default function App({ Component, pageProps}) {
   useEffect(()=>{
@@ -18,9 +17,9 @@ const [nameContext,setNameContext] =  useState("")
 const datas = nameContext;
   return(
    <SessionProvider session={pageProps.session}>
-      <DataProvider>
+      
         <Component {...pageProps} />
-      </DataProvider>
+    
     </SessionProvider>
    ) 
 }
