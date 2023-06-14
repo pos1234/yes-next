@@ -66,7 +66,7 @@ const textHtml = ( text)=>{
     })
    const paginatePosts = paginate (filtered,currentPage,pageSize);
    function clipBoard(){
-     navigator.clipboard.writeText(`localhost:3000/single-job/${selectedData.id}`);
+     navigator.clipboard.writeText(`yes-next.vercel.app/single-job/${selectedData.id}`);
         setClip(true)
         console.log(clip);
         clipReset();
