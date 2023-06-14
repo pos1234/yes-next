@@ -1,7 +1,7 @@
 
 import React from 'react'
-import CandidateNav from '@/Components/CandidateNav'
-import Footer from '@/Components/Footer';
+/* import CandidateNav from '@/Components/CandidateNav'
+ */import Footer from '@/Components/Footer';
 import { Container,Row,Col,Button } from 'react-bootstrap'
 import styles from '@/styles/users/resume.module.css'
 
@@ -25,8 +25,8 @@ const userCandidate =()=> {
 
     `}
       </style>
-    <CandidateNav/>
-        <Container className={styles['resumeContainer']}>
+{/*     <CandidateNav/>
+ */}        <Container className={styles['resumeContainer']}>
             <Row>
                 <Col xs={12} style={{padding:"0"}}>
                                 <h1 style={{fontSize:"2rem"}}>Edit Profile</h1>
